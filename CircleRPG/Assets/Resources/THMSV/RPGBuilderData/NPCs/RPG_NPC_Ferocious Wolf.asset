@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eaea086ce51ea9419be768c6237eedb, type: 3}
+  m_Name: RPG_NPC_Ferocious Wolf
+  m_EditorClassIdentifier: 
+  npcType: 1
+  ID: 15
+  _name: Ferocious Wolf
+  _fileName: RPG_NPC_Ferocious Wolf
+  displayName: Ferocious Wolf
+  icon: {fileID: 0}
+  NPCPrefab: {fileID: 421006297508580795, guid: 966a4501f47bb0c42acf2c2187ed489d,
+    type: 3}
+  isDummyTarget: 0
+  merchantTableID: -1
+  merchantTableREF: {fileID: 0}
+  questGiven: []
+  questCompleted: []
+  AggroRange: 15
+  distanceFromTarget: 4
+  distanceFromOwner: 0
+  DistanceToTargetReset: 50
+  RoamRange: 10
+  RoamDelay: 5
+  MinRespawn: 15
+  MaxRespawn: 25
+  MinEXP: 10
+  MaxEXP: 10
+  EXPBonusPerLevel: 0
+  MinLevel: 5
+  MaxLevel: 5
+  alignmentType: 2
+  abilities:
+  - abilityID: 13
+    abilityREF: {fileID: 11400000, guid: d41d98a6df59f91489f125d5aa3f82cf, type: 2}
+    condition: 0
+  - abilityID: 14
+    abilityREF: {fileID: 11400000, guid: 92e93f2b3455e8f489c90d7f4f6a26bc, type: 2}
+    condition: 0
+  stats:
+  - statID: 14
+    statREF: {fileID: 11400000, guid: 2f3ee5a846fac7445bf3a8eac5a2a886, type: 2}
+    minValue: 0
+    maxValue: 500
+    baseValue: 0
+    bonusPerLevel: 0
+  - statID: 18
+    statREF: {fileID: 11400000, guid: 4b72b6a4afbcb454dbe291acf8ac5376, type: 2}
+    minValue: 0
+    maxValue: 0
+    baseValue: 9
+    bonusPerLevel: 0
+  - statID: 21
+    statREF: {fileID: 11400000, guid: 33a44260c33a1044ebdd597acd2a53b0, type: 2}
+    minValue: 0
+    maxValue: 0
+    baseValue: 15
+    bonusPerLevel: 0
+  lootTables:
+  - lootTableID: 5
+    lootTableREF: {fileID: 11400000, guid: 76fc5ef35e44b884990c6250c3a04f73, type: 2}
+    dropRate: 100
+  - lootTableID: 13
+    lootTableREF: {fileID: 11400000, guid: a975a03410ae96342870064b59b5810a, type: 2}
+    dropRate: 100
+  - lootTableID: 14
+    lootTableREF: {fileID: 11400000, guid: 91192dd678e212742b16eda18c7df8fc, type: 2}
+    dropRate: 50

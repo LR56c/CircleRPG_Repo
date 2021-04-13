@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eaea086ce51ea9419be768c6237eedb, type: 3}
+  m_Name: RPG_NPC_Plague Doctor
+  m_EditorClassIdentifier: 
+  npcType: 5
+  ID: 23
+  _name: Plague Doctor
+  _fileName: RPG_NPC_Plague Doctor
+  displayName: Plague Doctor
+  icon: {fileID: 0}
+  NPCPrefab: {fileID: 8910092629490210406, guid: a11fca1164b1b114a91117d0705d9b38,
+    type: 3}
+  isDummyTarget: 0
+  merchantTableID: -1
+  merchantTableREF: {fileID: 0}
+  questGiven:
+  - questID: 5
+    questREF: {fileID: 11400000, guid: e27e5f868b5a04f43910c5f70ef4f65b, type: 2}
+  - questID: 6
+    questREF: {fileID: 11400000, guid: c12b0bcef327f5642aeb46e6d4efa4f5, type: 2}
+  questCompleted:
+  - questID: 5
+    questREF: {fileID: 11400000, guid: e27e5f868b5a04f43910c5f70ef4f65b, type: 2}
+  - questID: 6
+    questREF: {fileID: 11400000, guid: c12b0bcef327f5642aeb46e6d4efa4f5, type: 2}
+  - questID: 7
+    questREF: {fileID: 11400000, guid: d27c1f2d997ee6b468f98e885cb6532e, type: 2}
+  AggroRange: 0
+  distanceFromTarget: 4
+  distanceFromOwner: 4
+  DistanceToTargetReset: 5
+  RoamRange: 0
+  RoamDelay: 0
+  MinRespawn: 1
+  MaxRespawn: 2
+  MinEXP: 0
+  MaxEXP: 0
+  EXPBonusPerLevel: 0
+  MinLevel: 15
+  MaxLevel: 15
+  alignmentType: 0
+  abilities: []
+  stats:
+  - statID: 14
+    statREF: {fileID: 11400000, guid: 2f3ee5a846fac7445bf3a8eac5a2a886, type: 2}
+    minValue: 0
+    maxValue: 8000
+    baseValue: 0
+    bonusPerLevel: 0
+  - statID: 18
+    statREF: {fileID: 11400000, guid: 4b72b6a4afbcb454dbe291acf8ac5376, type: 2}
+    minValue: 0
+    maxValue: 0
+    baseValue: 0
+    bonusPerLevel: 0
+  lootTables: []

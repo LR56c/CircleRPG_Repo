@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bb18b8dfb0f3be4cb9856d31baa677e, type: 3}
+  m_Name: RPG_QUEST_KillFerociousBear
+  m_EditorClassIdentifier: 
+  ID: 4
+  _name: KillFerociousBear
+  displayName: Kill Ferocious Bear
+  _fileName: RPG_QUEST_KillFerociousBear
+  description: Find and kill a ferocious bear
+  ObjectiveText: Find and kill a ferocious bear
+  ProgressText: 
+  repeatable: 0
+  canBeTurnedInWithoutNPC: 0
+  questRequirements:
+  - requirementType: 8
+    pointSpentValue: 0
+    classRequiredID: -1
+    classRequiredREF: {fileID: 0}
+    classLevelValue: 0
+    itemRequiredID: -1
+    itemRequiredREF: {fileID: 0}
+    itemRequiredCount: 0
+    consumeItem: 0
+    skillRequiredID: -1
+    skillRequiredREF: {fileID: 0}
+    skillLevelValue: 0
+    bonusRequiredID: -1
+    bonusRequiredREF: {fileID: 0}
+    abilityRequiredID: -1
+    abilityRequiredREF: {fileID: 0}
+    craftingRecipeRequiredID: -1
+    recipeRequiredREF: {fileID: 0}
+    resourceNodeRequiredID: -1
+    resourceNodeRequiredREF: {fileID: 0}
+    raceRequiredID: -1
+    raceRequiredREF: {fileID: 0}
+    questRequiredID: 3
+    questRequiredREF: {fileID: 11400000, guid: ba1a74ad24aa1694897fc5c41c4b0bed, type: 2}
+    questStateRequired: 4
+    npcRequiredID: -1
+    npcRequiredREF: {fileID: 0}
+    npcKillsRequired: 0
+    weaponRequired: 
+  itemsGiven: []
+  objectives:
+  - objectiveType: 0
+    taskID: 5
+    taskREF: {fileID: 11400000, guid: 393919ff98cf1c74489602e2740a35bb, type: 2}
+    timeLimit: 0
+  rewardsGiven:
+  - rewardType: 3
+    itemID: -1
+    itemREF: {fileID: 0}
+    currencyID: -1
+    currencyREF: {fileID: 0}
+    treePointID: -1
+    treePointREF: {fileID: 0}
+    count: 0
+    Experience: 35
+  - rewardType: 0
+    itemID: 7
+    itemREF: {fileID: 11400000, guid: 2804b37444a329f4097ba3f18ca32453, type: 2}
+    currencyID: -1
+    currencyREF: {fileID: 0}
+    treePointID: -1
+    treePointREF: {fileID: 0}
+    count: 5
+    Experience: 0
+  - rewardType: 1
+    itemID: -1
+    itemREF: {fileID: 0}
+    currencyID: 2
+    currencyREF: {fileID: 11400000, guid: d902c941b56dc0b45a4d873e203e188c, type: 2}
+    treePointID: -1
+    treePointREF: {fileID: 0}
+    count: 1
+    Experience: 0
+  rewardsToPick:
+  - rewardType: 2
+    itemID: 14
+    itemREF: {fileID: 11400000, guid: 247c6bf5041dd86478e7af6ce80f921a, type: 2}
+    currencyID: -1
+    currencyREF: {fileID: 0}
+    treePointID: 0
+    treePointREF: {fileID: 11400000, guid: c98a3a50ced632647944339a3b25353c, type: 2}
+    count: 1
+    Experience: 0
+  - rewardType: 1
+    itemID: 54
+    itemREF: {fileID: 11400000, guid: 692cf236ba193ca4e993fb87761b121e, type: 2}
+    currencyID: 2
+    currencyREF: {fileID: 11400000, guid: d902c941b56dc0b45a4d873e203e188c, type: 2}
+    treePointID: -1
+    treePointREF: {fileID: 0}
+    count: 1
+    Experience: 0

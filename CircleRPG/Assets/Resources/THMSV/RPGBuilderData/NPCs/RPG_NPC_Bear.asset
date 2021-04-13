@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eaea086ce51ea9419be768c6237eedb, type: 3}
+  m_Name: RPG_NPC_Bear
+  m_EditorClassIdentifier: 
+  npcType: 0
+  ID: 12
+  _name: Bear
+  _fileName: RPG_NPC_Bear
+  displayName: Bear
+  icon: {fileID: 0}
+  NPCPrefab: {fileID: 6564579000754315219, guid: d25dddb7018072f409d0ce9608a889e6,
+    type: 3}
+  isDummyTarget: 0
+  merchantTableID: -1
+  merchantTableREF: {fileID: 0}
+  questGiven: []
+  questCompleted: []
+  AggroRange: 15
+  distanceFromTarget: 4
+  distanceFromOwner: 0
+  DistanceToTargetReset: 40
+  RoamRange: 7
+  RoamDelay: 5
+  MinRespawn: 30
+  MaxRespawn: 45
+  MinEXP: 7
+  MaxEXP: 11
+  EXPBonusPerLevel: 2
+  MinLevel: 4
+  MaxLevel: 8
+  alignmentType: 2
+  abilities:
+  - abilityID: 16
+    abilityREF: {fileID: 11400000, guid: adfacf94f13160341b2d15adca3a749c, type: 2}
+    condition: 0
+  - abilityID: 15
+    abilityREF: {fileID: 11400000, guid: cbfc00f810c92284d9f4e4cb29f62687, type: 2}
+    condition: 0
+  stats:
+  - statID: 14
+    statREF: {fileID: 11400000, guid: 2f3ee5a846fac7445bf3a8eac5a2a886, type: 2}
+    minValue: 0
+    maxValue: 150
+    baseValue: 0
+    bonusPerLevel: 15
+  - statID: 1
+    statREF: {fileID: 11400000, guid: d9982dde5d13d864c97eb3ffe979a9b8, type: 2}
+    minValue: 0
+    maxValue: 0
+    baseValue: 20
+    bonusPerLevel: 0
+  - statID: 23
+    statREF: {fileID: 11400000, guid: 32418a31fe97a90428fe943513317f23, type: 2}
+    minValue: 0
+    maxValue: 0
+    baseValue: 10
+    bonusPerLevel: 0
+  lootTables:
+  - lootTableID: 6
+    lootTableREF: {fileID: 11400000, guid: 4643fe535fda0c04b9d3c84203fe30d4, type: 2}
+    dropRate: 100
+  - lootTableID: 13
+    lootTableREF: {fileID: 11400000, guid: a975a03410ae96342870064b59b5810a, type: 2}
+    dropRate: 100
+  - lootTableID: 14
+    lootTableREF: {fileID: 11400000, guid: 91192dd678e212742b16eda18c7df8fc, type: 2}
+    dropRate: 25

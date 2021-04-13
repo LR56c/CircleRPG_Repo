@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eaea086ce51ea9419be768c6237eedb, type: 3}
+  m_Name: RPG_NPC_Dummy Target
+  m_EditorClassIdentifier: 
+  npcType: 0
+  ID: 0
+  _name: Dummy Target
+  _fileName: RPG_NPC_Dummy Target
+  displayName: Dummy Target
+  icon: {fileID: 0}
+  NPCPrefab: {fileID: 7970084914211869436, guid: c2376c1f2f96dfc4fa6d3fed9cdb9d39,
+    type: 3}
+  isDummyTarget: 1
+  merchantTableID: -1
+  merchantTableREF: {fileID: 0}
+  questGiven: []
+  questCompleted: []
+  AggroRange: 0
+  distanceFromTarget: 0
+  distanceFromOwner: 0
+  DistanceToTargetReset: 0
+  RoamRange: 0
+  RoamDelay: 0
+  MinRespawn: 1
+  MaxRespawn: 3
+  MinEXP: 0
+  MaxEXP: 0
+  EXPBonusPerLevel: 0
+  MinLevel: 1000
+  MaxLevel: 1000
+  alignmentType: 2
+  abilities: []
+  stats:
+  - statID: 14
+    statREF: {fileID: 11400000, guid: 2f3ee5a846fac7445bf3a8eac5a2a886, type: 2}
+    minValue: 0
+    maxValue: 9999999
+    baseValue: 0
+    bonusPerLevel: 0
+  lootTables: []
+  isCombatEnabled: 1

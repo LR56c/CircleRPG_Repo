@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bb18b8dfb0f3be4cb9856d31baa677e, type: 3}
+  m_Name: RPG_QUEST_Kill8Wolves
+  m_EditorClassIdentifier: 
+  ID: 0
+  _name: Kill8Wolves
+  displayName: Kill 8 Wolves
+  _fileName: RPG_QUEST_Kill8Wolves
+  description: Wolves are attacking the village, help us to kill them.
+  ObjectiveText: Kill wolves
+  ProgressText: 
+  repeatable: 0
+  canBeTurnedInWithoutNPC: 0
+  questRequirements: []
+  itemsGiven: []
+  objectives:
+  - objectiveType: 0
+    taskID: 0
+    taskREF: {fileID: 11400000, guid: aa30919acfd8f7b488e384b383db9e52, type: 2}
+    timeLimit: 0
+  rewardsGiven:
+  - rewardType: 3
+    itemID: -1
+    itemREF: {fileID: 0}
+    currencyID: -1
+    currencyREF: {fileID: 0}
+    treePointID: -1
+    treePointREF: {fileID: 0}
+    count: 0
+    Experience: 8
+  rewardsToPick: []

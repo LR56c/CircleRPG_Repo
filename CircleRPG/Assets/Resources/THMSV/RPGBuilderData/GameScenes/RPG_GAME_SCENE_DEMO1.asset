@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd833f50e74631042ae5eac5ab830020, type: 3}
+  m_Name: RPG_GAME_SCENE_DEMO1
+  m_EditorClassIdentifier: 
+  ID: 0
+  _name: DEMO1
+  _fileName: RPG_GAME_SCENE_DEMO1
+  displayName: Demo 1
+  description: The starting scene for RPG Builder.
+  loadingBG: {fileID: 0}
+  minimapImage: {fileID: 21300000, guid: 7a6b29bc7c725a74ea86ddcb2bbc6b60, type: 3}
+  mapBounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 250, y: 0, z: 250}
+  mapSize: {x: 4096, y: 4096}
+  startPositionID: 0
+  startPositionREF: {fileID: 0}

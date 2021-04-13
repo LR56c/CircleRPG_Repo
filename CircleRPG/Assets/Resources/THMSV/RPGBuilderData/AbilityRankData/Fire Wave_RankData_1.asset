@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45102ec3558aaa047ace1686e48b6343, type: 3}
+  m_Name: Fire Wave_RankData_1
+  m_EditorClassIdentifier: 
+  ID: 4
+  unlockCost: 2
+  castTime: 0
+  castInRun: 0
+  castBarVisible: 1
+  canBeUsedStunned: 0
+  useRequirements: []
+  requiredEffectCaster: {fileID: 0}
+  consumeRequiredEffectCaster: 0
+  requiredEffectTarget: {fileID: 0}
+  consumeRequiredEffectTarget: 0
+  targetType: 1
+  hitLayers:
+    serializedVersion: 2
+    m_Bits: 1024
+  canHitSelf: 0
+  canHitAlly: 0
+  canHitNeutral: 0
+  canHitEnemy: 0
+  MaxUnitHit: 10
+  minRange: 5
+  maxRange: 0
+  standTimeDuration: 0
+  canRotateInStandTime: 0
+  castSpeedSlowAmount: 0
+  castSpeedSlowTime: 0
+  castSpeedSlowRate: 0
+  coneDegree: 90
+  ConeHitCount: 1
+  ConeHitInterval: 0
+  AOERadius: 0
+  AOEHitCount: 0
+  AOEHitInterval: 0
+  linearWidth: 0
+  linearHeight: 0
+  linearLength: 0
+  projectileSpeed: 0
+  projectileDistance: 0
+  projectileAngleSpread: 0
+  projectileCount: 0
+  projectileDelay: 0
+  projectileComeBackAfterTime: 0
+  projectileComeBackSpeed: 0
+  projectileNearbyUnitDistanceMax: 0
+  projectileNearbyUnitMaxHit: 0
+  squareWidth: 0
+  squareLength: 0
+  squareHeight: 0
+  groundRadius: 0
+  groundRange: 0
+  groundHitTime: 0
+  groundHitCount: 0
+  groundHitInterval: 0
+  channelTime: 0
+  groundLeapDuration: 0
+  groundLeapHeight: 0
+  groundLeapSpeed: 0
+  cooldown: 5
+  isGCD: 0
+  startCDOnActivate: 1
+  effectsApplied:
+  - effectID: 2
+    chance: 100
+    effectREF: {fileID: 11400000, guid: 4f2538a293d2a2b438d752666bfeb985, type: 2}
+    target: 0
+  visualsData:
+  - type: 0
+    activationType: 0
+    effect: {fileID: 4008856626428900172, guid: e4072e1b8229cf44eacf35e2e7c056d1,
+      type: 3}
+    animation: {fileID: 0}
+  tagsData: []
+  extraAbilityExecuted: {fileID: 0}
+  extraAbilityExecutedActivationType: 0

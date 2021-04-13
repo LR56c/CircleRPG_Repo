@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eaea086ce51ea9419be768c6237eedb, type: 3}
+  m_Name: RPG_NPC_Merchant1
+  m_EditorClassIdentifier: 
+  npcType: 3
+  ID: 13
+  _name: Merchant1
+  _fileName: RPG_NPC_Merchant1
+  displayName: Merchant1
+  icon: {fileID: 0}
+  NPCPrefab: {fileID: 8176561294059047814, guid: 833a499804ab72742bb2d5a9fbbe50bc,
+    type: 3}
+  isDummyTarget: 0
+  merchantTableID: 0
+  merchantTableREF: {fileID: 0}
+  questGiven: []
+  questCompleted: []
+  AggroRange: 0
+  distanceFromTarget: 0
+  distanceFromOwner: 0
+  DistanceToTargetReset: 0
+  RoamRange: 0
+  RoamDelay: 0
+  MinRespawn: 15
+  MaxRespawn: 18
+  MinEXP: 0
+  MaxEXP: 0
+  EXPBonusPerLevel: 0
+  MinLevel: 10
+  MaxLevel: 10
+  alignmentType: 0
+  abilities: []
+  stats: []
+  lootTables: []

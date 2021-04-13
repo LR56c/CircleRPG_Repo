@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ada825255f0166f4c9c8124a0f1e2448, type: 3}
+  m_Name: RPG_ITEM_Staff Projectile
+  m_EditorClassIdentifier: 
+  ID: 101
+  _name: Staff Projectile
+  _fileName: RPG_ITEM_Staff Projectile
+  displayName: Staff Projectile
+  icon: {fileID: 21300000, guid: 00b26a27da8a0d044a4c7a81fb7f1385, type: 3}
+  equipmentSlot: 
+  itemType: WEAPON
+  weaponType: STAFF
+  armorType: 
+  slotType: TWO HAND
+  quality: EPIC
+  itemModelName: 
+  weaponModel: {fileID: 2969976554226125108, guid: 63f64221d98926b4485be6f0a00335b2,
+    type: 3}
+  CombatPositionInSlot: {x: 0, y: 0, z: 0}
+  CombatRotationInSlot: {x: 0, y: 0, z: 0}
+  CombatScaleInSlot: {x: 1, y: 1, z: 1}
+  RestPositionInSlot: {x: 0, y: 0, z: 0}
+  RestRotationInSlot: {x: 0, y: 0, z: 0, w: 0}
+  RestScaleInSlot: {x: 1, y: 1, z: 1}
+  AttackSpeed: 2
+  minDamage: 5
+  maxDamage: 15
+  autoAttackAbilityID: -1
+  autoAttackAbilityREF: {fileID: 0}
+  stats:
+  - statID: 48
+    statREF: {fileID: 11400000, guid: fddaa3a6f34172542b7e91c845b32329, type: 2}
+    amount: 3
+    isPercent: 0
+  - statID: 47
+    statREF: {fileID: 11400000, guid: c2ea368f4072d7846ade3b27b731bc70, type: 2}
+    amount: -50
+    isPercent: 0
+  useRandomStats: 0
+  randomStats: []
+  sellPrice: 25
+  sellCurrencyID: 0
+  sellCurrencyREF: {fileID: 11400000, guid: a42a43daa41fe92439b898a07e472d85, type: 2}
+  buyPrice: 0
+  buyCurrencyID: -1
+  buyCurrencyREF: {fileID: 0}
+  stackLimit: 1
+  description: 
+  dropInWorld: 0
+  itemWorldModel: {fileID: 0}
+  durationInWorld: 60
+  useRequirements: []
+  onUseActions:
+  - actionType: 0
+    treePointGained: 0
+    treePointID: -1
+    treePointREF: {fileID: 0}
+    classLevelGained: 0
+    classXPGained: 0
+    skillLevelGained: 0
+    skillXPGained: 0
+    skillID: -1
+    skillREF: {fileID: 0}
+    abilityID: -1
+    abilityREF: {fileID: 0}
+    recipeID: -1
+    recipeREF: {fileID: 0}
+    resourceNodeID: -1
+    resourceNodeREF: {fileID: 0}
+    effectID: -1
+    effectREF: {fileID: 0}
+    bonusID: -1
+    bonusREF: {fileID: 0}
+    questID: -1
+    questREF: {fileID: 0}
+    currencyID: -1
+    currencyREF: {fileID: 0}
+    isConsumed: 0

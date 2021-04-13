@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eaea086ce51ea9419be768c6237eedb, type: 3}
+  m_Name: RPG_NPC_Merchant
+  m_EditorClassIdentifier: 
+  npcType: 3
+  ID: 29
+  _name: Merchant
+  _fileName: RPG_NPC_Merchant
+  displayName: Merchant
+  icon: {fileID: 0}
+  NPCPrefab: {fileID: 2493664840728996602, guid: c76e80d17a6b9a6438a2210f72af1a6d,
+    type: 3}
+  isDummyTarget: 0
+  merchantTableID: 0
+  merchantTableREF: {fileID: 11400000, guid: 59d76fb53e6368345bcd1f9e58f7d8e9, type: 2}
+  questGiven: []
+  questCompleted: []
+  AggroRange: 0
+  distanceFromTarget: 0
+  distanceFromOwner: 0
+  DistanceToTargetReset: 0
+  RoamRange: 0
+  RoamDelay: 0
+  MinRespawn: 0
+  MaxRespawn: 0
+  MinEXP: 0
+  MaxEXP: 0
+  EXPBonusPerLevel: 0
+  MinLevel: 0
+  MaxLevel: 0
+  alignmentType: 0
+  abilities: []
+  stats:
+  - statID: 14
+    statREF: {fileID: 11400000, guid: 2f3ee5a846fac7445bf3a8eac5a2a886, type: 2}
+    minValue: 0
+    maxValue: 12000
+    baseValue: 0
+    bonusPerLevel: 0
+  lootTables: []

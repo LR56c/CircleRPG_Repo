@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45102ec3558aaa047ace1686e48b6343, type: 3}
+  m_Name: Sacred Ground_RankData_1
+  m_EditorClassIdentifier: 
+  ID: 45
+  unlockCost: 2
+  castTime: 0
+  castInRun: 0
+  castBarVisible: 1
+  canBeUsedStunned: 0
+  useRequirements: []
+  requiredEffectCaster: {fileID: 0}
+  consumeRequiredEffectCaster: 0
+  requiredEffectTarget: {fileID: 0}
+  consumeRequiredEffectTarget: 0
+  targetType: 6
+  hitLayers:
+    serializedVersion: 2
+    m_Bits: 98304
+  canHitSelf: 0
+  canHitAlly: 0
+  canHitNeutral: 0
+  canHitEnemy: 0
+  MaxUnitHit: 5
+  minRange: 0
+  maxRange: 0
+  standTimeDuration: 0
+  canRotateInStandTime: 0
+  castSpeedSlowAmount: 0
+  castSpeedSlowTime: 0
+  castSpeedSlowRate: 0
+  coneDegree: 0
+  ConeHitCount: 0
+  ConeHitInterval: 0
+  AOERadius: 0
+  AOEHitCount: 0
+  AOEHitInterval: 0
+  linearWidth: 0
+  linearHeight: 0
+  linearLength: 0
+  projectileSpeed: 0
+  projectileDistance: 0
+  projectileAngleSpread: 0
+  projectileCount: 0
+  projectileDelay: 0
+  projectileComeBackAfterTime: 0
+  projectileComeBackSpeed: 0
+  projectileNearbyUnitDistanceMax: 0
+  projectileNearbyUnitMaxHit: 0
+  squareWidth: 0
+  squareLength: 0
+  squareHeight: 0
+  groundRadius: 3
+  groundRange: 8
+  groundHitTime: 0
+  groundHitCount: 8
+  groundHitInterval: 1
+  channelTime: 0
+  groundLeapDuration: 0
+  groundLeapHeight: 0
+  groundLeapSpeed: 0
+  cooldown: 12
+  isGCD: 0
+  startCDOnActivate: 1
+  effectsApplied:
+  - effectID: 47
+    chance: 100
+    effectREF: {fileID: 11400000, guid: 2e19a4a9c4df58b4882a6490d1d9acac, type: 2}
+    target: 0
+  visualsData:
+  - type: 0
+    activationType: 0
+    effect: {fileID: 2214539879346872089, guid: 0137a33b835aed8458d3f5ea3c746571,
+      type: 3}
+    animation: {fileID: 0}
+  tagsData: []
+  extraAbilityExecuted: {fileID: 0}
+  extraAbilityExecutedActivationType: 0

@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f96b0784799e03847a37c0c0ada89838, type: 3}
+  m_Name: RPG_LOOT_TABLE_FerociousBear
+  m_EditorClassIdentifier: 
+  ID: 7
+  _name: FerociousBear
+  _fileName: RPG_LOOT_TABLE_FerociousBear
+  lootItems:
+  - itemID: 36
+    itemREF: {fileID: 11400000, guid: 91a2382069baca44f90fd754ac53438a, type: 2}
+    min: 1
+    max: 1
+    dropRate: 15
+  - itemID: 38
+    itemREF: {fileID: 11400000, guid: 703383a3464bcfa45b0d2031fca4f1f6, type: 2}
+    min: 2
+    max: 2
+    dropRate: 100
+  - itemID: 39
+    itemREF: {fileID: 11400000, guid: 5ffa8c4f9a9f554438ede22ec0ee72d3, type: 2}
+    min: 5
+    max: 7
+    dropRate: 100
+  - itemID: 80
+    itemREF: {fileID: 11400000, guid: 652f69dbd6c83c64984cdebf8a263326, type: 2}
+    min: 100
+    max: 135
+    dropRate: 100

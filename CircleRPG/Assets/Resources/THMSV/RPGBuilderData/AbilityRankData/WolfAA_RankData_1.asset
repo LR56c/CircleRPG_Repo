@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45102ec3558aaa047ace1686e48b6343, type: 3}
+  m_Name: WolfAA_RankData_1
+  m_EditorClassIdentifier: 
+  ID: 15
+  unlockCost: 0
+  castTime: 0
+  castInRun: 0
+  castBarVisible: 1
+  canBeUsedStunned: 0
+  useRequirements: []
+  requiredEffectCaster: {fileID: 0}
+  consumeRequiredEffectCaster: 0
+  requiredEffectTarget: {fileID: 0}
+  consumeRequiredEffectTarget: 0
+  targetType: 9
+  hitLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  canHitSelf: 0
+  canHitAlly: 1
+  canHitNeutral: 1
+  canHitEnemy: 0
+  MaxUnitHit: 0
+  minRange: 0
+  maxRange: 4
+  standTimeDuration: 0
+  canRotateInStandTime: 0
+  castSpeedSlowAmount: 0
+  castSpeedSlowTime: 0
+  castSpeedSlowRate: 0
+  coneDegree: 0
+  ConeHitCount: 0
+  ConeHitInterval: 0
+  AOERadius: 0
+  AOEHitCount: 0
+  AOEHitInterval: 0
+  linearWidth: 0
+  linearHeight: 0
+  linearLength: 0
+  projectileSpeed: 0
+  projectileDistance: 0
+  projectileAngleSpread: 0
+  projectileCount: 0
+  projectileDelay: 0
+  projectileComeBackAfterTime: 0
+  projectileComeBackSpeed: 0
+  projectileNearbyUnitDistanceMax: 0
+  projectileNearbyUnitMaxHit: 0
+  squareWidth: 0
+  squareLength: 0
+  squareHeight: 0
+  groundRadius: 0
+  groundRange: 0
+  groundHitTime: 0
+  groundHitCount: 0
+  groundHitInterval: 0
+  channelTime: 0
+  groundLeapDuration: 0
+  groundLeapHeight: 0
+  groundLeapSpeed: 0
+  cooldown: 2
+  isGCD: 0
+  startCDOnActivate: 1
+  effectsApplied:
+  - effectID: 15
+    chance: 100
+    effectREF: {fileID: 11400000, guid: a8f5de544b863f047807811fcfeecad4, type: 2}
+    target: 0
+  visualsData:
+  - type: 1
+    activationType: 0
+    effect: {fileID: 0}
+    animation: {fileID: 3514782651237070396, guid: 651c877e16dc00f43b13a5e58211cfcf,
+      type: 3}
+  tagsData: []
+  extraAbilityExecuted: {fileID: 0}
+  extraAbilityExecutedActivationType: 0

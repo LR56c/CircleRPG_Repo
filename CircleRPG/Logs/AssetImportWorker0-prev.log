@@ -1,0 +1,139 @@
+Using pre-set license
+Built from '2020.3/staging' branch; Version is '2020.3.3f1 (76626098c1c4) revision 7758432'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Pro; OS build 19041.804; Version 2004; 64bit' Language: 'es' Physical Memory: 16312 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Editor\2020.3.3f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+J:/Unity/Proyectos/CircleRPG
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+14763
+Successfully changed project path to: J:/Unity/Proyectos/CircleRPG
+J:/Unity/Proyectos/CircleRPG
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 61.28 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.3f1 (76626098c1c4)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Editor/2020.3.3f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path J:/Unity/Proyectos/CircleRPG/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 970 (ID=0x13c2)
+    Vendor:   
+    VRAM:     4043 MB
+    Driver:   27.21.14.6589
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Editor/2020.3.3f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Editor/2020.3.3f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Editor/2020.3.3f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56592
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Editor/2020.3.3f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.004029 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 63.52 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.947 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.001775 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.46 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.292 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.17 seconds
+Refreshing native plugins compatible for Editor in 1.72 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1296 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 81.1 MB.
+System memory in use after: 81.1 MB.
+
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 1756.
+Total: 4.334600 ms (FindLiveObjects: 0.218500 ms CreateObjectMapping: 0.268700 ms MarkObjects: 3.708500 ms  DeleteObjects: 0.137100 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/ThirdParty/_THMSV/RPGBuilder/NPCs/Animals/NPC_Dragon.prefab
+  artifactKey: Guid(b849fe533fd80ce43ae35cc8af2b884f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ThirdParty/_THMSV/RPGBuilder/NPCs/Animals/NPC_Dragon.prefab using Guid(b849fe533fd80ce43ae35cc8af2b884f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '777f8b049d4718cc2216db5df59c3de2') in 0.418351 seconds
+  Import took 0.427050 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000228 seconds.
+  path: Assets/ThirdParty/_THMSV/RPGBuilder/NPCs/Animals
+  artifactKey: Guid(348578c7f17b103448cd616b388486ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ThirdParty/_THMSV/RPGBuilder/NPCs/Animals using Guid(348578c7f17b103448cd616b388486ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '23e6c30dba588e5b4b69dcd4e30d392d') in 0.010482 seconds
+  Import took 0.018075 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3224.497273 seconds.
+  path: Assets/polyperfect
+  artifactKey: Guid(31b0516b2cee0c2469b9a33ada32e624) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/polyperfect using Guid(31b0516b2cee0c2469b9a33ada32e624) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '87fb49065482f5792f69bfd9e54058a7') in 0.009285 seconds
+  Import took 0.057060 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.768074 seconds.
+  path: Assets/polyperfect/Low Poly Ultimate Pack
+  artifactKey: Guid(254cebd401a5df64da07f96ad5300287) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/polyperfect/Low Poly Ultimate Pack using Guid(254cebd401a5df64da07f96ad5300287) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3cb9ac81176b832ff77723140edcf59d') in 0.006595 seconds
+  Import took 0.010243 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.014423 seconds.
+  path: Assets/ThirdParty/Low Poly Ultimate Pack/04 - City.unity
+  artifactKey: Guid(6f4a8e0b02db341dfbd3b02429834ab7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ThirdParty/Low Poly Ultimate Pack/04 - City.unity using Guid(6f4a8e0b02db341dfbd3b02429834ab7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e9b6333fb23eb603eecc3acd7f7f2f46') in 0.025019 seconds
+  Import took 0.028583 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.311278 seconds.
+  path: Assets/ThirdParty/Low Poly Ultimate Pack/06 - Castle.unity
+  artifactKey: Guid(6b5559adca910d540a4fe673a1727602) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ThirdParty/Low Poly Ultimate Pack/06 - Castle.unity using Guid(6b5559adca910d540a4fe673a1727602) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '73819de15ea9f4408a2abdcb3f5c2196') in 0.009387 seconds
+  Import took 0.013778 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 22.037827 seconds.
+  path: Assets/ThirdParty/Low Poly Ultimate Pack/05 - Suburban.unity
+  artifactKey: Guid(64f9d3ed199864904899ff45e6d0c64d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ThirdParty/Low Poly Ultimate Pack/05 - Suburban.unity using Guid(64f9d3ed199864904899ff45e6d0c64d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a8b3f012cf28c5f06b1126ef3d029017') in 0.008047 seconds
+  Import took 0.012643 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.603569 seconds.
+  path: Assets/ThirdParty/Low Poly Ultimate Pack/07 - Wild West.unity
+  artifactKey: Guid(e758c97783a787845bde3dc4ffd4405f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ThirdParty/Low Poly Ultimate Pack/07 - Wild West.unity using Guid(e758c97783a787845bde3dc4ffd4405f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '652fe5c63209424391695a4f772be8cd') in 0.010828 seconds
+  Import took 0.013969 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file

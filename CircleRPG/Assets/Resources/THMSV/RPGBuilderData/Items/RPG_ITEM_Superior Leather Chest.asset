@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ada825255f0166f4c9c8124a0f1e2448, type: 3}
+  m_Name: RPG_ITEM_Superior Leather Chest
+  m_EditorClassIdentifier: 
+  ID: 64
+  _name: Superior Leather Chest
+  _fileName: RPG_ITEM_Superior Leather Chest
+  displayName: Superior Leather Chest
+  icon: {fileID: 21300000, guid: e4efd56c26501f64f9d64ddfa0f08d9d, type: 3}
+  equipmentSlot: CHEST
+  itemType: ARMOR
+  weaponType: AXE
+  armorType: LEATHER
+  slotType: TWO HAND
+  itemModelName: Superior_Leather_Chest
+  weaponModel: {fileID: 0}
+  CombatPositionInSlot: {x: 0, y: 0, z: 0}
+  CombatRotationInSlot: {x: 0, y: 0, z: 0}
+  CombatScaleInSlot: {x: 1, y: 1, z: 1}
+  RestPositionInSlot: {x: 0, y: 0, z: 0}
+  RestRotationInSlot: {x: 0, y: 0, z: 0, w: 0}
+  RestScaleInSlot: {x: 1, y: 1, z: 1}
+  AttackSpeed: 0
+  minDamage: 0
+  maxDamage: 0
+  autoAttackAbilityID: -1
+  autoAttackAbilityREF: {fileID: 0}
+  stats:
+  - statID: 14
+    statREF: {fileID: 11400000, guid: 2f3ee5a846fac7445bf3a8eac5a2a886, type: 2}
+    amount: 9
+    isPercent: 0
+  - statID: 21
+    statREF: {fileID: 11400000, guid: 33a44260c33a1044ebdd597acd2a53b0, type: 2}
+    amount: 12
+    isPercent: 0
+  sellPrice: 20
+  sellCurrencyID: 0
+  sellCurrencyREF: {fileID: 0}
+  buyPrice: 0
+  buyCurrencyID: -1
+  buyCurrencyREF: {fileID: 0}
+  stackLimit: 1
+  description: 
+  useRequirements: []
+  onUseActions:
+  - actionType: 0
+    treePointGained: 0
+    treePointID: -1
+    treePointREF: {fileID: 0}
+    classLevelGained: 0
+    classXPGained: 0
+    skillLevelGained: 0
+    skillXPGained: 0
+    skillID: -1
+    skillREF: {fileID: 0}
+    abilityID: -1
+    abilityREF: {fileID: 0}
+    recipeID: -1
+    recipeREF: {fileID: 0}
+    resourceNodeID: -1
+    resourceNodeREF: {fileID: 0}
+    effectID: -1
+    effectREF: {fileID: 0}
+    bonusID: -1
+    bonusREF: {fileID: 0}
+    questID: -1
+    questREF: {fileID: 0}
+    currencyID: -1
+    currencyREF: {fileID: 0}
+    isConsumed: 0

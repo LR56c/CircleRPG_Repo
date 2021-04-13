@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f96b0784799e03847a37c0c0ada89838, type: 3}
+  m_Name: RPG_LOOT_TABLE_SuperiorAmors
+  m_EditorClassIdentifier: 
+  ID: 14
+  _name: SuperiorAmors
+  _fileName: RPG_LOOT_TABLE_SuperiorAmors
+  lootItems:
+  - itemID: 56
+    itemREF: {fileID: 11400000, guid: 833a530cf4f88cf43943071ce889dea5, type: 2}
+    min: 1
+    max: 1
+    dropRate: 5
+  - itemID: 58
+    itemREF: {fileID: 11400000, guid: 2a25bc33bb4f23e4ab7482ca8eb320de, type: 2}
+    min: 1
+    max: 1
+    dropRate: 5
+  - itemID: 59
+    itemREF: {fileID: 11400000, guid: ffe575b2033df14459e621912bd3df8a, type: 2}
+    min: 1
+    max: 1
+    dropRate: 5
+  - itemID: 60
+    itemREF: {fileID: 11400000, guid: 7f8fc489448820b4f8d5777e55b29f25, type: 2}
+    min: 1
+    max: 1
+    dropRate: 5
+  - itemID: 61
+    itemREF: {fileID: 11400000, guid: 57392126fa7fd844e91407b19a3cd5e6, type: 2}
+    min: 1
+    max: 1
+    dropRate: 5
+  - itemID: 62
+    itemREF: {fileID: 11400000, guid: d1843e420d05fca45bfbad307afa2b14, type: 2}
+    min: 1
+    max: 1
+    dropRate: 5
+  - itemID: 64
+    itemREF: {fileID: 11400000, guid: 07fa6856d256e5d489f7813ba7b65401, type: 2}
+    min: 1
+    max: 1
+    dropRate: 5
+  - itemID: 65
+    itemREF: {fileID: 11400000, guid: eff7986f6dd634b4fa094a52b17e3680, type: 2}
+    min: 1
+    max: 1
+    dropRate: 5
+  - itemID: 66
+    itemREF: {fileID: 11400000, guid: 1fc466df46a422b4ba865d4276711186, type: 2}
+    min: 1
+    max: 1
+    dropRate: 5
+  - itemID: 67
+    itemREF: {fileID: 11400000, guid: 1e4e65f2bd25b5a4c8cd11b22f27265b, type: 2}
+    min: 1
+    max: 1
+    dropRate: 5
+  - itemID: 68
+    itemREF: {fileID: 11400000, guid: 7012af57da5fe884aa60cf70acf157af, type: 2}
+    min: 1
+    max: 1
+    dropRate: 5
+  - itemID: 70
+    itemREF: {fileID: 11400000, guid: 1cc22e34f730cd945945108bfa4ba232, type: 2}
+    min: 1
+    max: 1
+    dropRate: 5
+  - itemID: 71
+    itemREF: {fileID: 11400000, guid: 5c523dac464b97946a14f640dfddebfb, type: 2}
+    min: 1
+    max: 1
+    dropRate: 5
+  - itemID: 72
+    itemREF: {fileID: 11400000, guid: 3d171b5cd7b102a44b798d6f57daba66, type: 2}
+    min: 1
+    max: 1
+    dropRate: 5
+  - itemID: 73
+    itemREF: {fileID: 11400000, guid: e3d04ad2713041c4dab11d0bc5f1711a, type: 2}
+    min: 1
+    max: 1
+    dropRate: 5

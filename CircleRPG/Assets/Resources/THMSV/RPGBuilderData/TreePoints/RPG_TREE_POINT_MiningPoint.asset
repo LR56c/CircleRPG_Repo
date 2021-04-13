@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 611f062e7b0d0c94699a3f17232f0985, type: 3}
+  m_Name: RPG_TREE_POINT_MiningPoint
+  m_EditorClassIdentifier: 
+  ID: 2
+  icon: {fileID: 21300000, guid: 57fa0a58aaef80b4994421c5a4772291, type: 3}
+  _name: MiningPoint
+  _fileName: RPG_TREE_POINT_MiningPoint
+  _displayName: MiningPoint
+  description: 
+  startAmount: 0
+  maxPoints: 0
+  gainPointRequirements:
+  - gainType: 1
+    amountGained: 1
+    classRequiredID: -1
+    classRequiredREF: {fileID: 0}
+    skillRequiredID: 1
+    skillRequiredREF: {fileID: 11400000, guid: ce6c58ef9870ae94bae428a72c5fd6e5, type: 2}
+    itemRequiredID: -1
+    itemRequiredREF: {fileID: 0}
+    itemRequiredCount: 0
+    npcRequiredID: -1
+    npcRequiredREF: {fileID: 0}

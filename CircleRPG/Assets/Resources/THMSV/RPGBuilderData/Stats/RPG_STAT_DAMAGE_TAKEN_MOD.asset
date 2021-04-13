@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8397832a421b4aa4bb023b431fc81370, type: 3}
+  m_Name: RPG_STAT_DAMAGE_TAKEN_MOD
+  m_EditorClassIdentifier: 
+  ID: 8
+  _name: DAMAGE_TAKEN_MOD
+  _fileName: RPG_STAT_DAMAGE_TAKEN_MOD
+  displayName: Damage Taken
+  description: Affects the total amount of damage taken
+  minCheck: 1
+  minValue: -100
+  maxCheck: 0
+  maxValue: 0
+  baseValue: 0
+  bonusPerLevel: 0
+  isShifting: 0
+  shiftAmount: 0
+  shiftInterval: 0
+  onHitEffectsData: []
+  statType: 9
+  StatUICategory: General
+  StatFunction: DAMAGE_TAKEN_MOD
+  OppositeStat: DAMAGE_DEALT_MOD
+  vitalityRegenBonusStatREF: {fileID: 0}
+  vitalityRegenBonusStatID: -1

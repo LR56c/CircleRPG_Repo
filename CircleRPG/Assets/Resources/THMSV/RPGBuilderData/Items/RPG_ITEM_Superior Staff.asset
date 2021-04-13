@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ada825255f0166f4c9c8124a0f1e2448, type: 3}
+  m_Name: RPG_ITEM_Superior Staff
+  m_EditorClassIdentifier: 
+  ID: 78
+  _name: Superior Staff
+  _fileName: RPG_ITEM_Superior Staff
+  displayName: Superior Staff
+  icon: {fileID: 21300000, guid: fbcb4b59f11399c41995e4b3c70dd9ec, type: 3}
+  equipmentSlot: 
+  itemType: WEAPON
+  weaponType: STAFF
+  armorType: 
+  slotType: TWO HAND
+  itemModelName: 
+  weaponModel: {fileID: 1398127756751422, guid: 1d4a9bc41d2b63a4dadbd3404f765d3c,
+    type: 3}
+  CombatPositionInSlot: {x: 0, y: 0, z: 0}
+  CombatRotationInSlot: {x: 0, y: 0, z: 0}
+  CombatScaleInSlot: {x: 1, y: 1, z: 1}
+  RestPositionInSlot: {x: 0, y: 0, z: 0}
+  RestRotationInSlot: {x: 0, y: 0, z: 0, w: 0}
+  RestScaleInSlot: {x: 1, y: 1, z: 1}
+  AttackSpeed: 3
+  minDamage: 3
+  maxDamage: 4
+  autoAttackAbilityID: -1
+  autoAttackAbilityREF: {fileID: 0}
+  stats:
+  - statID: 15
+    statREF: {fileID: 11400000, guid: 871ba613bff3df64e807844de79bffc4, type: 2}
+    amount: 60
+    isPercent: 0
+  - statID: 14
+    statREF: {fileID: 11400000, guid: 2f3ee5a846fac7445bf3a8eac5a2a886, type: 2}
+    amount: 100
+    isPercent: 0
+  sellPrice: 100
+  sellCurrencyID: 0
+  sellCurrencyREF: {fileID: 0}
+  buyPrice: 0
+  buyCurrencyID: -1
+  buyCurrencyREF: {fileID: 0}
+  stackLimit: 1
+  description: 
+  useRequirements: []
+  onUseActions:
+  - actionType: 0
+    treePointGained: 0
+    treePointID: -1
+    treePointREF: {fileID: 0}
+    classLevelGained: 0
+    classXPGained: 0
+    skillLevelGained: 0
+    skillXPGained: 0
+    skillID: -1
+    skillREF: {fileID: 0}
+    abilityID: -1
+    abilityREF: {fileID: 0}
+    recipeID: -1
+    recipeREF: {fileID: 0}
+    resourceNodeID: -1
+    resourceNodeREF: {fileID: 0}
+    effectID: -1
+    effectREF: {fileID: 0}
+    bonusID: -1
+    bonusREF: {fileID: 0}
+    questID: -1
+    questREF: {fileID: 0}
+    currencyID: -1
+    currencyREF: {fileID: 0}
+    isConsumed: 0

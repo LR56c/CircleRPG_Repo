@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eaea086ce51ea9419be768c6237eedb, type: 3}
+  m_Name: RPG_NPC_Skeleton Mage
+  m_EditorClassIdentifier: 
+  npcType: 0
+  ID: 25
+  _name: Skeleton Mage
+  _fileName: RPG_NPC_Skeleton Mage
+  displayName: Skeleton Mage
+  icon: {fileID: 0}
+  NPCPrefab: {fileID: 273711562941778714, guid: 30bf3f93d6c61c04bbc60ad37cb90277,
+    type: 3}
+  isDummyTarget: 0
+  merchantTableID: -1
+  merchantTableREF: {fileID: 0}
+  questGiven: []
+  questCompleted: []
+  AggroRange: 20
+  distanceFromTarget: 15
+  distanceFromOwner: 4
+  DistanceToTargetReset: 50
+  RoamRange: 20
+  RoamDelay: 5
+  MinRespawn: 40
+  MaxRespawn: 80
+  MinEXP: 5
+  MaxEXP: 8
+  EXPBonusPerLevel: 1
+  MinLevel: 9
+  MaxLevel: 12
+  alignmentType: 2
+  abilities:
+  - abilityID: 48
+    abilityREF: {fileID: 11400000, guid: 5743b3baeaeb09d429f18f042b1d79aa, type: 2}
+    condition: 0
+  stats:
+  - statID: 14
+    statREF: {fileID: 11400000, guid: 2f3ee5a846fac7445bf3a8eac5a2a886, type: 2}
+    minValue: 0
+    maxValue: 700
+    baseValue: 0
+    bonusPerLevel: 10
+  - statID: 18
+    statREF: {fileID: 11400000, guid: 4b72b6a4afbcb454dbe291acf8ac5376, type: 2}
+    minValue: 0
+    maxValue: 0
+    baseValue: 10
+    bonusPerLevel: 0
+  lootTables:
+  - lootTableID: 14
+    lootTableREF: {fileID: 11400000, guid: 91192dd678e212742b16eda18c7df8fc, type: 2}
+    dropRate: 100
+  - lootTableID: 15
+    lootTableREF: {fileID: 11400000, guid: 5c78f8d519a7fa04a826f1407e59aaa8, type: 2}
+    dropRate: 100
+  - lootTableID: 16
+    lootTableREF: {fileID: 11400000, guid: 94b4c3680502d3945b9e0280e481956f, type: 2}
+    dropRate: 80

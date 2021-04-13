@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a901e526cf4ee148b34268e943e9d7d, type: 3}
+  m_Name: RPG_TALENT_TREE_Cooking
+  m_EditorClassIdentifier: 
+  ID: 10
+  _name: Cooking
+  displayName: Cooking
+  _fileName: RPG_TALENT_TREE_Cooking
+  icon: {fileID: 21300000, guid: c38bbfcb13491394b91611da4cae13c9, type: 3}
+  TiersAmount: 5
+  treePointAcceptedID: 5
+  treePointAcceptedREF: {fileID: 0}
+  nodeList:
+  - nodeType: 1
+    _name: 
+    abilityID: -1
+    abilityREF: {fileID: 0}
+    recipeID: 12
+    recipeREF: {fileID: 11400000, guid: 52c0fe20f35f1d6489940bd65190aac5, type: 2}
+    resourceNodeID: -1
+    resourceNodeREF: {fileID: 0}
+    bonusID: -1
+    bonusREF: {fileID: 0}
+    Tier: 1
+    Row: 4
+    requirements: []
