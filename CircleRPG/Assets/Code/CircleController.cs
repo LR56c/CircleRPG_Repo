@@ -1,4 +1,6 @@
 ﻿using System;
+using Code.Utility;
+using Lean.Touch;
 using Rewired;
 using Rewired.ComponentControls;
 using Rewired.Demos;
@@ -9,17 +11,19 @@ namespace Code
     public class CircleController : MonoBehaviour
     {
         [SerializeField] private float         _speed = 5f;
-        [SerializeField] private TouchJoystick _touchJoystick;
+        private TouchJoystick _touchJoystick;
         private                  Rigidbody     _rb;
+        public                   Vector3       JoystickValue;
 
         private void Awake()
         {
-            //_touchJoystick = GetComponent<TouchJoystick>();
             _rb = GetComponent<Rigidbody>();
+            _touchJoystick = ServiceLocator.Instance.GetService<TouchJoystick>();
         }
-
+        
         private void OnEnable()
         {
+            
             _touchJoystick.ValueChangedEvent += OnValueChangedEvent;
         }
         
@@ -30,20 +34,16 @@ namespace Code
 
         private void OnValueChangedEvent(Vector2 position)
         {
-            Vector3 vector = _speed * Time.deltaTime * new Vector3(position.x, 0f, position.y);
-            
-            //transform.Translate(v);
-            _rb.velocity += vector;
+            JoystickValue = new Vector3(position.x, 0f, position.y);
         }
         
-        /*private void Update()
+        private void Update()
         {
-            var x = Input.GetAxis("Horizontal");
-            var z = Input.GetAxis("Vertical");
+            Vector3 vector = _speed * Time.deltaTime * JoystickValue;
+            _rb.velocity += vector;
 
-            Vector3 v = _speed * Time.deltaTime * new Vector3(x, 0f, z);
-            
-            transform.Translate(v);
-        }*/
+            Debug.Log($"count: {LeanTouch.Fingers.Count.ToString()}");
+            _touchJoystick.gameObject.SetActive(LeanTouch.Fingers.Count != 3);
+        }
     }
 }
