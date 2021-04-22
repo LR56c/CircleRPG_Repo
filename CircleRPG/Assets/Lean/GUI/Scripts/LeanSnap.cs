@@ -24,7 +24,8 @@ namespace Lean.Gui
 		public float HorizontalIntervalPixel { set { horizontalIntervalPixel = value; } get { return horizontalIntervalPixel; } } [FSA("horizontalInterval")] [SerializeField] private float horizontalIntervalPixel = 10.0f;
 
 		/// <summary>The spacing between each snap point in 0..1 percent of the current RectTransform size.</summary>
-		public float HorizontalIntervalRect { set { horizontalIntervalRect = value; } get { return horizontalIntervalRect; } } [SerializeField] private float horizontalIntervalRect;
+		public float HorizontalIntervalRect { set { horizontalIntervalRect = value; } get { return horizontalIntervalRect; } }
+		[SerializeField] private float horizontalIntervalRect;
 
 		/// <summary>The spacing between each snap point in 0..1 percent of the parent.</summary>
 		public float HorizontalIntervalParent { set { horizontalIntervalParent = value; } get { return horizontalIntervalParent; } } [SerializeField] private float horizontalIntervalParent;
@@ -57,7 +58,10 @@ namespace Lean.Gui
 		public float VerticalSpeed { set { verticalSpeed = value; } get { return verticalSpeed; } } [SerializeField] private float verticalSpeed = -1.0f;
 
 		/// <summary>To prevent UI element dragging from conflicting with snapping, you can specify the drag component here.</summary>
-		public LeanDrag DisableWith { set { disableWith = value; } get { return disableWith; } } [SerializeField] private LeanDrag disableWith;
+		public LeanDrag DisableWith 
+		{ set { disableWith = value; } 
+			get { return disableWith; } }
+		[SerializeField] private LeanDrag disableWith;
 
 		/// <summary>This tells you the snap position as integers.</summary>
 		public Vector2Int Position { get { return position; } } [SerializeField] private Vector2Int position;
@@ -86,7 +90,7 @@ namespace Lean.Gui
 			var intervalX        = horizontalIntervalPixel + horizontalIntervalRect * rect.width + horizontalIntervalParent * parentSize.x;
 			var intervalY        =   verticalIntervalPixel +   verticalIntervalRect * rect.width +   verticalIntervalParent * parentSize.y;
 			var oldPosition      = position;
-
+			
 			if (intervalX != 0.0f)
 			{
 				position.x = Mathf.RoundToInt((anchoredPosition.x - horizontalOffset) / intervalX);

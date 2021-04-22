@@ -19,11 +19,16 @@ namespace Lean.Gui
 
 		/// <summary>This is the currently active state of the switch.
 		/// For example, if this is 0 then the switch is currently in the first transition state.</summary>
-		public int State { set { Switch(value); } get { return state; } } [SerializeField] private int state;
+		public int State 
+		{ set { Switch(value); }
+			get { return state; } }
+		[SerializeField] private int state;
 
 		/// <summary>This stores a list of all switch transition states. This controls how many states can be switched between.
 		/// For example, if you want to be able to switch between 4 states, then make sure the size of this list = 4.</summary>
-		public List<LeanPlayer> States { get { if (states == null) states = new List<LeanPlayer>(); return states; } } [SerializeField] private List<LeanPlayer> states;
+		public List<LeanPlayer> States
+		{ get { if (states == null) states = new List<LeanPlayer>(); return states; } } 
+		[SerializeField] private List<LeanPlayer> states;
 
 		/// <summary>This allows you to perform a transition when this switch changes to a different state.
 		/// You can create a new transition GameObject by right clicking the transition name, and selecting <b>Create</b>.
