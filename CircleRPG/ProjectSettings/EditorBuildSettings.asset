@@ -5,10 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Project/Scenes/Mauricio_Boot.unity
+    guid: 609255820f724614a88b9a13fbd89597
   - enabled: 1
     path: Assets/Project/Scenes/Mauricio_Hub.unity
     guid: 0ba6584b7fdf6004db243621a10cc9ce
+  - enabled: 1
+    path: Assets/Project/Scenes/Mauricio_LevelTest.unity
+    guid: 6199a1016101db64a8aff43e42dbe629
   m_configObjects: {}

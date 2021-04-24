@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using Code.Utility;
-using Lean.Touch;
-using Rewired;
 using Rewired.ComponentControls;
-using Rewired.Demos;
 using UnityEngine;
-using UnityEngine.UI;
-using static System.Single;
 
-namespace Code
+namespace Code.Installers
 {
     public class Installer : MonoBehaviour
     {
@@ -18,6 +12,11 @@ namespace Code
         private void Awake()
         {
             ServiceLocator.Instance.RegisterService(_touchJoystick);
+        }
+
+        private void OnApplicationQuit()
+        {
+            //save service locator datas
         }
     }
 }

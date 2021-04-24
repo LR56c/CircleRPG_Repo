@@ -68,6 +68,18 @@ namespace UnityConstants
         /// Index of layer 'UI'.
         /// </summary>
         public const int UI = 5;
+        /// <summary>
+        /// Index of layer 'Circle'.
+        /// </summary>
+        public const int Circle = 6;
+        /// <summary>
+        /// Index of layer 'Champion'.
+        /// </summary>
+        public const int Champion = 7;
+        /// <summary>
+        /// Index of layer 'Floor'.
+        /// </summary>
+        public const int Floor = 8;
 
         /// <summary>
         /// Bitmask of layer 'Default'.
@@ -93,10 +105,34 @@ namespace UnityConstants
         /// Bitmask of layer 'UI'.
         /// </summary>
         public const int UIMask = 1 << 5;
+        /// <summary>
+        /// Bitmask of layer 'Circle'.
+        /// </summary>
+        public const int CircleMask = 1 << 6;
+        /// <summary>
+        /// Bitmask of layer 'Champion'.
+        /// </summary>
+        public const int ChampionMask = 1 << 7;
+        /// <summary>
+        /// Bitmask of layer 'Floor'.
+        /// </summary>
+        public const int FloorMask = 1 << 8;
     }
 
     public static class Scenes
     {
+        /// <summary>
+        /// ID of scene 'Mauricio_Boot'.
+        /// </summary>
+        public const int Mauricio_Boot = 0;
+        /// <summary>
+        /// ID of scene 'Mauricio_Hub'.
+        /// </summary>
+        public const int Mauricio_Hub = 1;
+        /// <summary>
+        /// ID of scene 'Mauricio_LevelTest'.
+        /// </summary>
+        public const int Mauricio_LevelTest = 2;
     }
 
     public static class Axes
