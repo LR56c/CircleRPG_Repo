@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Code;
+using Code.Utility;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -20,11 +22,13 @@ public class UIHubMediator : MonoBehaviour
     [SerializeField] private CanvasGroup      _settingsCanvasGroup;
     [SerializeField] private CanvasGroup      _hubCanvasGroup;
     [SerializeField] private CanvasGroup      _levelsCanvasGroup;
-    
+
+    private UILoader _uiLoader;
     
     private void Awake()
     {
         //deberia tomar world level
+        _uiLoader = ServiceLocator.Instance.GetService<UILoader>();
     }
 
     private void OnEnable()
@@ -43,6 +47,12 @@ public class UIHubMediator : MonoBehaviour
         _levelsButton.onClick.RemoveListener(LevelsCallback);
         _returnLevelsButton.onClick.RemoveListener(ReturnFromLevelsCallback);
         _returnSettingsButton.onClick.RemoveListener(ReturnFromSettingsCallback);
+    }
+    
+    private void PlayCallback()
+    {
+        //level que toque
+        //_uiLoader.LoadSceneAsync(SceneManager.LoadSceneAsync());
     }
 
     private void ReturnFromSettingsCallback()
@@ -67,12 +77,6 @@ public class UIHubMediator : MonoBehaviour
     {
         EnableCanvasGroup(_hubCanvasGroup, false, 1f);
         EnableCanvasGroup(_settingsCanvasGroup, true, 1f);
-    }
-    
-    private void PlayCallback()
-    {
-        //level que toque
-        //SceneManager.LoadSceneAsync()
     }
 
     private void EnableCanvasGroup(CanvasGroup canvasGroup, bool value, float duration)

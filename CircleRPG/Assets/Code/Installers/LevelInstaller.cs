@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Code.Installers
 {
-    public class Installer : MonoBehaviour
+    public class LevelInstaller : MonoBehaviour
     {
         [SerializeField] private TouchJoystick _touchJoystick;
         
