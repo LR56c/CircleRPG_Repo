@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using Code.Utility;
 using DG.Tweening;
 using TMPro;
-using UniRx;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace Code
+namespace Code.UI
 {
     public class UILoader : MonoBehaviour
     {
@@ -23,6 +19,13 @@ namespace Code
             ServiceLocator.Instance.RegisterService(this);
             DontDestroyOnLoad(gameObject);    
         }
+
+#if UNITY_EDITOR
+        private void Start()
+        {
+            EnableLoadingGroup(false, 1f);
+        }
+#endif
 
         public void LoadSceneAsync(AsyncOperation scene)
         {

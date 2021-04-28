@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 
-public class TeamStats
+namespace Code
 {
-    public TeamStats()
+    public class TeamStats
     {
-        Debug.Log("TeamStats!");
+        public TeamStats()
+        {
+            Debug.Log("TeamStats!");
+        }
     }
 }

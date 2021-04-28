@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using Code.Utility;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Code
+namespace Code.Test
 {
     public class LoadTest : Singleton<LoadTest>
     {

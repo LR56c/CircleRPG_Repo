@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Code
+namespace Code.UI
 {
     public class UIWorld : MonoBehaviour
     {

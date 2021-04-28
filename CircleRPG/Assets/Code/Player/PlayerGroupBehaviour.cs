@@ -1,12 +1,9 @@
-﻿using System;
-using Code.Utility;
+﻿using Code.Utility;
 using Lean.Touch;
-using Rewired;
 using Rewired.ComponentControls;
-using Rewired.Demos;
 using UnityEngine;
 
-namespace Code
+namespace Code.Player
 {
     public class PlayerGroupBehaviour : MonoBehaviour
     {

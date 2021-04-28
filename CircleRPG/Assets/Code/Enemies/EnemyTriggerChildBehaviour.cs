@@ -1,9 +1,10 @@
-﻿using Code;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class EnemyTriggerChildBehaviour : MonoBehaviour
+namespace Code.Enemies
 {
-    private EnemyBaseBehaviour _baseBehaviour;
+    public class EnemyTriggerChildBehaviour : MonoBehaviour
+    {
+        /*private EnemyBaseBehaviour _baseBehaviour;
     
     private void Awake()
     {
@@ -13,5 +14,6 @@ public class EnemyTriggerChildBehaviour : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         _baseBehaviour.ChildTriggerStay(other);
+    }*/
     }
 }

@@ -14,4 +14,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Project/Scenes/Mauricio_LevelTest.unity
     guid: 6199a1016101db64a8aff43e42dbe629
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 33a01e6fb6a63d64dbf6a55a91498f9a, type: 2}

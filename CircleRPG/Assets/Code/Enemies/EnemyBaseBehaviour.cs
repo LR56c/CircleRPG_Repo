@@ -1,43 +1,50 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Code.Domain.Enemies;
+using Code.Domain.Interfaces;
+using Code.Player;
 using Code.Utility;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Assertions;
-using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 
-namespace Code
+namespace Code.Enemies
 {
-    public abstract class EnemyBaseBehaviour : MonoBehaviour
+    public abstract class EnemyBaseBehaviour : MonoBehaviour, IDamageable, IAttack, IMove
     {
-        private Rigidbody _rb;
-        private NavMeshAgent _navMeshAgent;
-        private Animator  _animator;
+        //preguntar
+        [SerializeField] protected EnemyBaseData _baseData;
+
+        protected Rigidbody    _rb;
+        protected NavMeshAgent _navMeshAgent;
+        protected Animator     _animator;
         
+        private int _movingParam     = Animator.StringToHash("Moving");
+        private int _dieParam        = Animator.StringToHash("Die");
+        private int _attackParam     = Animator.StringToHash("Attack");
+        private int _moveRandomParam = Animator.StringToHash("MoveRandom");
+
         [SerializeField] private LayerMask _groundLayer = UnityConstants.Layers.FloorMask;
         [SerializeField] private LayerMask _playerLayer = UnityConstants.Layers.ChampionMask;
         
-        [SerializeField] private bool       _playerInAttackRange = false;
-        [SerializeField] private bool       _playerInSightRange  = false;
+        [Space(5f)]
         
-        [SerializeField] private float      _sightRange          = 5f;
-        [SerializeField] private float      _attackRange         = 3f;
+        [SerializeField] private bool _playerInAttackRange = false;
+        [SerializeField] private float _attackRange = 3f;
         
-        private                  bool       _walkPointSet;
-        private                  Vector3    _walkPoint;
-        [SerializeField] private float      _walkPointRange;
-        private                  bool       _alreadyAttacked;
-        
-        [SerializeField] protected float        _currentHealth;
-        [SerializeField] private float              _slerpSpeed = 5f;
+        [Space(5f)]
+
+        [SerializeField] private bool _playerInSightRange  = false;
+        [SerializeField] private float _sightRange  = 5f;
+
+        [Space(5f)]
+
+        [SerializeField] protected float _currentHealth;
+        [SerializeField] protected float _slerpSpeed = 5f;
+        [SerializeField] private bool bUpdate = true;
 
         [SerializeField] private List<HeroBaseBehaviour> _heros;
         
-        //pool projectiles
-        [SerializeField] private GameObject _projectile;
-
-        public event Action OnDamageReceived;
+        public void SetUpdate(bool value) => bUpdate = value;
 
         protected virtual void Awake()
         {
@@ -46,176 +53,117 @@ namespace Code
             _animator = GetComponent<Animator>();
         }
 
-        private void Start()
-        {
-            //TODO: esto deberia tomarse de teamconfig
-            _heros.Add(ServiceLocator.Instance.GetService<ArcherHeroBehaviour>());
-            _heros.Add(ServiceLocator.Instance.GetService<ShieldHeroBehaviour>());
-            _heros.Add(ServiceLocator.Instance.GetService<HammerHeroBehaviour>());        }
-
-        /*
-        #region Fix
-
-        void Start()
+        protected virtual void Start()
         {
             SceneLinkedSMB<EnemyBaseBehaviour>.Initialise(_animator, this);
+
+            //TODO: pool projectiles
+            //TODO: ver forma de guardar
+            //TODO: ver colision enemy
+            //TODO: esto deberia tomarse de teamconfig, dando una clase con un array de los elegidos
+            _heros.Add(ServiceLocator.Instance.GetService<ArcherHeroBehaviour>());
+            _heros.Add(ServiceLocator.Instance.GetService<ShieldHeroBehaviour>());
+            _heros.Add(ServiceLocator.Instance.GetService<HammerHeroBehaviour>());
         }
 
-        private void Update()
+        protected virtual void Update()
         {
-            /*_playerInAttackRange = Physics.CheckSphere(transform.position,
-                                                      _attackRange,
-                                                      _playerLayer);#1#
-            
-            /*_playerInSightRange = Physics.CheckSphere(transform.position,
-                                                     _sightRange,
-                                                     _playerLayer);
-
-            var playerInRangeAttack = Physics.OverlapSphere(transform.position, 
-                                                                _attackRange,
-                                                                _playerLayer);
-            
-            _championController = playerInRangeAttack?[0].GetComponent<ChampionController>();
-            
-            _playerInAttackRange = _championController;
-            
-            Debug.Log($"player detect: {_championController?.gameObject.name}", 
-                                                _championController?.gameObject);
-            
-            if (!_playerInSightRange && !_playerInAttackRange) Patroling();
-            if (_playerInSightRange  && !_playerInAttackRange) ChasePlayer();#1#
-            
-            //if (_playerInAttackRange && _playerInSightRange) AttackPlayer();
-        }
-        
-        private void Patroling()
-        {
-            if (!_walkPointSet) SearchWalkPoint();
-
-            if (_walkPointSet)
-                _navMeshAgent.SetDestination(_walkPoint);
-
-            Vector3 distanceToWalkPoint = transform.position - _walkPoint;
-
-            //Walkpoint reached
-            if (distanceToWalkPoint.magnitude < 1f)
-                _walkPointSet = false;
-        }
-        private void SearchWalkPoint()
-        {
-            //Calculate random point in range
-            float randomZ = Random.Range(-_walkPointRange, _walkPointRange);
-            float randomX = Random.Range(-_walkPointRange, _walkPointRange);
-
-            _walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
-
-            if (Physics.Raycast(_walkPoint, -transform.up, 2f, _groundLayer))
-                _walkPointSet = true;
-        }
-
-        private void ChasePlayer()
-        {
-            Assert.IsFalse(_heroBaseBehaviour, "ChasePlayer fail");
-            _navMeshAgent.SetDestination(_heroBaseBehaviour.transform.position);
-        }
-
-        private void AttackPlayer()
-        {
-            //Make sure enemy doesn't move
-            _navMeshAgent.SetDestination(transform.position);
-
-            Assert.IsFalse(_heroBaseBehaviour, "AttackPlayer fail");
-            Vector3 direction =
-                (_heroBaseBehaviour.transform.position - transform.position).normalized;
-            
-            Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * _slerpSpeed);
-            //transform.LookAt(_championController.transform.position);
-
-            if (!_alreadyAttacked)
+#if UNITY_EDITOR
+            if(Input.GetKeyDown(KeyCode.F1))
             {
-                ///Attack code here
-                Rigidbody rb = Instantiate(_projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-                rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-                rb.AddForce(transform.up      * 8f,  ForceMode.Impulse);
-                ///End of attack code
+                MyDrawSphere sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere)
+                                                .AddComponent<MyDrawSphere>();
+                //agregar posicion de creacion
+                sphere.Config(Vector3.zero, 5f, _playerLayer, 10f);
+            }
+#endif
+            
+            _playerInAttackRange = Physics.CheckSphere(transform.position,
+                                                       _attackRange, _playerLayer);
 
-                _alreadyAttacked = true;
-                Invoke(nameof(ResetAttack), 1f /*timeBetweenAttacks#1#);
+            _playerInSightRange = Physics.CheckSphere(transform.position,
+                                                      _sightRange, _playerLayer);
+
+            if(!bUpdate) return;
+            /*
+             *  Move Random
+             *  Si el jugador no esta en vision y
+             *  no esta en rango de ataque
+             */
+            if(!_playerInSightRange && !_playerInAttackRange)
+            {
+                Debug.Log("Move Random");
+                _animator.SetBool(_moveRandomParam, true);
+                _animator.SetBool(_movingParam,     true);
+            }
+            /*
+             *  Move Player
+             *  Si el jugador esta en vision y
+             *  no esta en rango de ataque
+             */
+            else if(_playerInSightRange && !_playerInAttackRange)
+            {
+                Debug.Log("Move Player");
+                _animator.SetBool(_moveRandomParam, false);
+                _animator.SetBool(_movingParam,     true);
+            }
+            /*
+             *  Attack Player
+             *  Si el jugador esta en vision y
+             *  esta en rango de ataque
+             */
+            else if(_playerInAttackRange && _playerInSightRange)
+            {
+                Debug.Log("Attack Player");
+                _animator.SetTrigger(_attackParam);
             }
         }
-        private void ResetAttack()
+        
+        public void Move()
         {
-            _alreadyAttacked = false;
+            DoMove();
         }
 
-        public void TakeDamage(int damage)
+        protected abstract void DoMove();
+
+        public void Attack()
+        {
+            /*if(CanAttack())
+            {
+                DoAttack();
+            }*/
+            
+            DoAttack();
+        }
+
+        //protected abstract bool CanAttack();
+        protected abstract void DoAttack();
+        protected abstract void DamageReceivedNotify(bool isDead);
+
+        private bool ApplyDamage(int damage)
         {
             _currentHealth -= damage;
 
-            if (_currentHealth <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
-        }
-        
-        private void DestroyEnemy()
-        {
-            Destroy(gameObject);
+            if(_currentHealth > 0)
+                return false;
+
+            _animator.SetTrigger(_dieParam);
+            _currentHealth = 0;
+            return true;
         }
 
-        /*private void OnDrawGizmosSelected()
+        public void DamageReceived(int damage)
+        {
+            bool isDead = ApplyDamage(damage);
+            DamageReceivedNotify(isDead);
+        }
+
+        private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, _attackRange);
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(transform.position, _sightRange);
-        }#1#
-
-        #endregion
-        */
-        
-        
-        public void ChildTriggerStay(Collider other)
-        {
-            var player = other.GetComponent<HeroBaseBehaviour>();
-            if(player)
-            {
-                Debug.Log($"{gameObject.name}, chield trigger detect: {other.gameObject.name}", other.gameObject);
-            }
-        }
-
-        public void Attack()
-        {
-            if(CanAttack())
-            {
-                DoAttack();
-            }
-        }
-
-        protected abstract bool CanAttack();
-        protected abstract void DoAttack();
-        protected abstract void DamageReceived(bool isDead);
-
-        public void ReceiveDamage(int damage)
-        {
-            bool isDead = ApplyDamage(damage);
-            DamageReceived(isDead);
-            NotifyDamageReceived();
-        }
-        
-        private bool ApplyDamage(int damage)
-        {
-            _currentHealth -= damage;
-            
-            if(_currentHealth > 0) 
-                return false;
-
-            _currentHealth = 0;
-            
-            return true;
-        }
-        
-        private void NotifyDamageReceived()
-        {
-            OnDamageReceived?.Invoke();
         }
     }
 }

@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 
-public class World
+namespace Code
 {
-    public World()
+    public class World
     {
-        Debug.Log("world!");
+        public World()
+        {
+            Debug.Log("world!");
+        }
     }
 }

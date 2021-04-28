@@ -1,6 +1,6 @@
 ﻿using Code.Utility;
 
-namespace Code
+namespace Code.Player
 {
     public class ShieldHeroBehaviour : HeroBaseBehaviour
     {

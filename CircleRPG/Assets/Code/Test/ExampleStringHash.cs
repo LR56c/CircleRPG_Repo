@@ -1,8 +1,6 @@
-﻿using System;
-using System.Text;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Code
+namespace Code.Test
 {
     public class ExampleStringHash : MonoBehaviour
     {

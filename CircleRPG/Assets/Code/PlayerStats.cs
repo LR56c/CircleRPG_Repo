@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 
-public class PlayerStats
+namespace Code
 {
-    public PlayerStats()
+    public class PlayerStats
     {
-        Debug.Log("stats!");
+        public PlayerStats()
+        {
+            Debug.Log("stats!");
+        }
     }
 }

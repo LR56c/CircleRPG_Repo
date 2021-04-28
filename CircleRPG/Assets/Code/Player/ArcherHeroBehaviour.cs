@@ -1,7 +1,6 @@
 ﻿using Code.Utility;
-using UnityEngine;
 
-namespace Code
+namespace Code.Player
 {
     public class ArcherHeroBehaviour : HeroBaseBehaviour
     {

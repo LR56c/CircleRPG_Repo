@@ -1,8 +1,6 @@
-﻿using System;
-using Cinemachine;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Code
+namespace Code.UI
 {
     public class UITeamStats : MonoBehaviour
     {
