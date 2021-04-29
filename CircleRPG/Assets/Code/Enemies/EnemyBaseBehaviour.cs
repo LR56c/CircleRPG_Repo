@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Code.Domain.Enemies;
 using Code.Domain.Interfaces;
 using Code.Player;
@@ -17,34 +18,31 @@ namespace Code.Enemies
         protected Rigidbody    _rb;
         protected NavMeshAgent _navMeshAgent;
         protected Animator     _animator;
+        private int _dieParam        = Animator.StringToHash("Die");
         
         private int _movingParam     = Animator.StringToHash("Moving");
-        private int _dieParam        = Animator.StringToHash("Die");
         private int _attackParam     = Animator.StringToHash("Attack");
         private int _moveRandomParam = Animator.StringToHash("MoveRandom");
 
         [SerializeField] private LayerMask _groundLayer = UnityConstants.Layers.FloorMask;
         [SerializeField] private LayerMask _playerLayer = UnityConstants.Layers.ChampionMask;
         
-        [Space(5f)]
-        
         [SerializeField] private bool _playerInAttackRange = false;
         [SerializeField] private float _attackRange = 3f;
         
-        [Space(5f)]
 
         [SerializeField] private bool _playerInSightRange  = false;
         [SerializeField] private float _sightRange  = 5f;
 
-        [Space(5f)]
 
-        [SerializeField] protected float _currentHealth;
         [SerializeField] protected float _slerpSpeed = 5f;
         [SerializeField] private bool bUpdate = true;
+        [SerializeField] protected float _currentHealth;
 
         [SerializeField] private List<HeroBaseBehaviour> _heros;
         
         public void SetUpdate(bool value) => bUpdate = value;
+        public bool PlayerInAttackRange   => _playerInAttackRange;
 
         protected virtual void Awake()
         {
@@ -55,6 +53,7 @@ namespace Code.Enemies
 
         protected virtual void Start()
         {
+            EnemyLinkedSMB<EnemyBaseBehaviour>.Initialise(_animator, this);
             SceneLinkedSMB<EnemyBaseBehaviour>.Initialise(_animator, this);
 
             //TODO: pool projectiles
@@ -66,58 +65,21 @@ namespace Code.Enemies
             _heros.Add(ServiceLocator.Instance.GetService<HammerHeroBehaviour>());
         }
 
-        protected virtual void Update()
+        protected HeroBaseBehaviour GetHeroPosition()
         {
-#if UNITY_EDITOR
-            if(Input.GetKeyDown(KeyCode.F1))
-            {
-                MyDrawSphere sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere)
-                                                .AddComponent<MyDrawSphere>();
-                //agregar posicion de creacion
-                sphere.Config(Vector3.zero, 5f, _playerLayer, 10f);
-            }
-#endif
-            
-            _playerInAttackRange = Physics.CheckSphere(transform.position,
-                                                       _attackRange, _playerLayer);
-
-            _playerInSightRange = Physics.CheckSphere(transform.position,
-                                                      _sightRange, _playerLayer);
-
-            if(!bUpdate) return;
-            /*
-             *  Move Random
-             *  Si el jugador no esta en vision y
-             *  no esta en rango de ataque
-             */
-            if(!_playerInSightRange && !_playerInAttackRange)
-            {
-                Debug.Log("Move Random");
-                _animator.SetBool(_moveRandomParam, true);
-                _animator.SetBool(_movingParam,     true);
-            }
-            /*
-             *  Move Player
-             *  Si el jugador esta en vision y
-             *  no esta en rango de ataque
-             */
-            else if(_playerInSightRange && !_playerInAttackRange)
-            {
-                Debug.Log("Move Player");
-                _animator.SetBool(_moveRandomParam, false);
-                _animator.SetBool(_movingParam,     true);
-            }
-            /*
-             *  Attack Player
-             *  Si el jugador esta en vision y
-             *  esta en rango de ataque
-             */
-            else if(_playerInAttackRange && _playerInSightRange)
-            {
-                Debug.Log("Attack Player");
-                _animator.SetTrigger(_attackParam);
-            }
+            //TODO: almacenando el heroe elegido, cada vez que ataque ver si sigue con vida, para elegir otro
+            int randomIndex = Random.Range(0, _heros.Count);
+            return _heros[randomIndex];
         }
+        
+        /* PARA EDITOR
+         if(Input.GetKeyDown(KeyCode.F1))
+        {
+            MyDrawSphere sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere)
+                                            .AddComponent<MyDrawSphere>();
+            //agregar posicion de creacion
+            sphere.Config(Vector3.zero, 5f, _playerLayer, 10f);
+        }*/
         
         public void Move()
         {
@@ -126,18 +88,20 @@ namespace Code.Enemies
 
         protected abstract void DoMove();
 
-        public void Attack()
+        public void Attack(Action onComplete)
         {
+            //TODO: ver aqui si el heroe elegido sigue con vida?
+            
             /*if(CanAttack())
             {
                 DoAttack();
             }*/
             
-            DoAttack();
+            DoAttack(onComplete);
         }
 
         //protected abstract bool CanAttack();
-        protected abstract void DoAttack();
+        protected abstract void DoAttack(Action onComplete);
         protected abstract void DamageReceivedNotify(bool isDead);
 
         private bool ApplyDamage(int damage)

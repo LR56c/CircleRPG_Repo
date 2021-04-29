@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Code.Enemies
 {
@@ -6,12 +7,13 @@ namespace Code.Enemies
     {
         protected override void DoMove()
         {
-            
+            _navMeshAgent.SetDestination(GetHeroPosition().transform.position);
         }
 
-        protected override void DoAttack()
+        protected override void DoAttack(Action onComplete)
         {
             Debug.Log("DoAttack");
+            onComplete?.Invoke();
             
             /*Vector3 direction = (/*player#1# - transform.position).normalized;
 
@@ -24,7 +26,7 @@ namespace Code.Enemies
             
             //transform.LookAt(_championController.transform.position);
             
-            //instantiate
+            //TODO: instantiate por anim
         }
 
         protected override void DamageReceivedNotify(bool isDead)

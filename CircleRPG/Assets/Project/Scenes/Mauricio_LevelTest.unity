@@ -2900,7 +2900,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1120474598}
-  m_LocalRotation: {x: 0.4237455, y: -0.000000038175823, z: 0.000000017859536, w: 0.9057813}
+  m_LocalRotation: {x: 0.42374554, y: 4.4354275e-15, z: -2.007434e-15, w: 0.9057813}
   m_LocalPosition: {x: -1.86, y: 16.3, z: -10.450003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -4597,7 +4597,7 @@ MonoBehaviour:
   fitType: 4
   rows: 1
   columns: 2
-  cellSize: {x: 147.5, y: 147.5}
+  cellSize: {x: -2.5, y: 0}
   spacing: {x: 5, y: 5}
   fitX: 1
   fitY: 1
@@ -6054,7 +6054,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2002398839}
-  m_LocalRotation: {x: 0.4237455, y: -0.000000038175823, z: 0.000000017859536, w: 0.9057813}
+  m_LocalRotation: {x: 0.42374554, y: 4.4354275e-15, z: -2.007434e-15, w: 0.9057813}
   m_LocalPosition: {x: -1.86, y: 16.3, z: -10.450003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -6824,9 +6824,9 @@ MonoBehaviour:
   _attackRange: 3
   _playerInSightRange: 0
   _sightRange: 5
-  _currentHealth: 0
   _slerpSpeed: 5
   bUpdate: 1
+  _currentHealth: 0
   _heros: []
 --- !u!1 &9029395227321462511
 GameObject:
@@ -7122,7 +7122,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9029395227321462509}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.39, y: 0.02, z: -7.08}
+  m_LocalPosition: {x: -7.23, y: 0.02, z: -8.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9029395227321692879}
@@ -7486,7 +7486,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 51ecd938b046fa64dafebf84b78c9e54, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1

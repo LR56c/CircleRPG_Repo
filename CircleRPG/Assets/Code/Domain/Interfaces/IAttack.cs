@@ -1,7 +1,9 @@
-﻿namespace Code.Enemies
+﻿using System;
+
+namespace Code.Enemies
 {
     public interface IAttack
     {
-        void Attack();
+        void Attack(Action onComplete);
     }
 }

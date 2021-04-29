@@ -7,11 +7,11 @@ namespace Code.Utility
     public class SceneLinkedSMB<TMonoBehaviour> : SealedSMB
         where TMonoBehaviour : MonoBehaviour
     {
-        protected                  TMonoBehaviour m_MonoBehaviour;
+        [SerializeField] protected TMonoBehaviour m_MonoBehaviour;
         protected                  Animator       _thisAnimator;
         [SerializeField] protected bool           bAction = false;
         
-        bool m_FirstFrameHappened;
+        bool m_FirstFrameHappened;  
         bool m_LastFrameHappened;
 
         public static void Initialise(Animator animator, TMonoBehaviour monoBehaviour)
