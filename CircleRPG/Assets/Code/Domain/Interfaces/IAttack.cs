@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Code.Enemies
+namespace Code.Domain.Interfaces
 {
     public interface IAttack
     {

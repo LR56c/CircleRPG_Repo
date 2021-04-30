@@ -1,48 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using Code.Domain.Enemies;
 using Code.Domain.Interfaces;
-using Code.Player;
 using Code.Utility;
 using UnityEngine;
 using UnityEngine.AI;
-using Random = UnityEngine.Random;
 
 namespace Code.Enemies
 {
-    public abstract class EnemyBaseBehaviour : MonoBehaviour, IDamageable, IAttack, IMove
+    public abstract class EnemyBaseBehaviour : MonoBehaviour, IDamageable, IAttack,
+                                               IMove
     {
-        //preguntar
-        [SerializeField] protected EnemyBaseData _baseData;
-
         protected Rigidbody    _rb;
         protected NavMeshAgent _navMeshAgent;
         protected Animator     _animator;
-        private int _dieParam        = Animator.StringToHash("Die");
-        
-        private int _movingParam     = Animator.StringToHash("Moving");
-        private int _attackParam     = Animator.StringToHash("Attack");
-        private int _moveRandomParam = Animator.StringToHash("MoveRandom");
+        protected                Action         OnAttackComplete;
+        private   int          _dieParam = Animator.StringToHash("Died");
 
-        [SerializeField] private LayerMask _groundLayer = UnityConstants.Layers.FloorMask;
-        [SerializeField] private LayerMask _playerLayer = UnityConstants.Layers.ChampionMask;
-        
-        [SerializeField] private bool _playerInAttackRange = false;
-        [SerializeField] private float _attackRange = 3f;
-        
-
-        [SerializeField] private bool _playerInSightRange  = false;
-        [SerializeField] private float _sightRange  = 5f;
-
-
-        [SerializeField] protected float _slerpSpeed = 5f;
-        [SerializeField] private bool bUpdate = true;
-        [SerializeField] protected float _currentHealth;
-
-        [SerializeField] private List<HeroBaseBehaviour> _heros;
-        
-        public void SetUpdate(bool value) => bUpdate = value;
-        public bool PlayerInAttackRange   => _playerInAttackRange;
+        [SerializeField] private int            _currentHealth = 100;
+        [SerializeField] private List<Collider> _inAreaHeros;
 
         protected virtual void Awake()
         {
@@ -53,55 +28,56 @@ namespace Code.Enemies
 
         protected virtual void Start()
         {
-            EnemyLinkedSMB<EnemyBaseBehaviour>.Initialise(_animator, this);
-            SceneLinkedSMB<EnemyBaseBehaviour>.Initialise(_animator, this);
-
+            MySceneLinkedSMB<EnemyBaseBehaviour>.Initialise(_animator, this);
             //TODO: pool projectiles
             //TODO: ver forma de guardar
-            //TODO: ver colision enemy
-            //TODO: esto deberia tomarse de teamconfig, dando una clase con un array de los elegidos
-            _heros.Add(ServiceLocator.Instance.GetService<ArcherHeroBehaviour>());
-            _heros.Add(ServiceLocator.Instance.GetService<ShieldHeroBehaviour>());
-            _heros.Add(ServiceLocator.Instance.GetService<HammerHeroBehaviour>());
         }
 
-        protected HeroBaseBehaviour GetHeroPosition()
+        public Collider GetHero()
         {
-            //TODO: almacenando el heroe elegido, cada vez que ataque ver si sigue con vida, para elegir otro
-            int randomIndex = Random.Range(0, _heros.Count);
-            return _heros[randomIndex];
-        }
-        
-        /* PARA EDITOR
-         if(Input.GetKeyDown(KeyCode.F1))
-        {
-            MyDrawSphere sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere)
-                                            .AddComponent<MyDrawSphere>();
-            //agregar posicion de creacion
-            sphere.Config(Vector3.zero, 5f, _playerLayer, 10f);
-        }*/
-        
-        public void Move()
-        {
-            DoMove();
+            if(_inAreaHeros.Count == 0) return null;
+
+            if(_inAreaHeros[0].gameObject.activeInHierarchy)
+            {
+                return _inAreaHeros[0];
+            }
+
+            _inAreaHeros.Remove(_inAreaHeros[0]);
+            return GetHero();
         }
 
-        protected abstract void DoMove();
+        public void AddHeroToList(Collider hero)
+        {
+            _inAreaHeros.Add(hero);
+        }
+
+        public void RemoveHeroToList(Collider hero)
+        {
+            _inAreaHeros.Remove(hero);
+        }
+
+        public void Move(Vector3 destination)
+        {
+            DoMove(destination);
+        }
+
+        protected abstract void DoMove(Vector3 destination);
 
         public void Attack(Action onComplete)
         {
-            //TODO: ver aqui si el heroe elegido sigue con vida?
-            
-            /*if(CanAttack())
-            {
-                DoAttack();
-            }*/
-            
-            DoAttack(onComplete);
+            if(!CanAttack()) return;
+
+            OnAttackComplete = onComplete;
+            DoAttack();
         }
 
-        //protected abstract bool CanAttack();
-        protected abstract void DoAttack(Action onComplete);
+        public bool CanAttack()
+        {
+            return GetHero();
+        }
+        
+        public abstract    void AttackFinish();
+        protected abstract void DoAttack();
         protected abstract void DamageReceivedNotify(bool isDead);
 
         private bool ApplyDamage(int damage)
@@ -120,14 +96,6 @@ namespace Code.Enemies
         {
             bool isDead = ApplyDamage(damage);
             DamageReceivedNotify(isDead);
-        }
-
-        private void OnDrawGizmosSelected()
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, _attackRange);
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawWireSphere(transform.position, _sightRange);
         }
     }
 }

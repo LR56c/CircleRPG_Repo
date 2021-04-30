@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 
-namespace Code.Enemies
+namespace Code.Domain.Interfaces
 {
     public interface IMove
     {
-        void Move();
+        void Move(Vector3 destination);
     }
 }

@@ -32,6 +32,10 @@ namespace UnityConstants
         /// Name of tag 'GameController'.
         /// </summary>
         public const string GameController = "GameController";
+        /// <summary>
+        /// Name of tag 'Enemy'.
+        /// </summary>
+        public const string Enemy = "Enemy";
     }
 
     public static class SortingLayers

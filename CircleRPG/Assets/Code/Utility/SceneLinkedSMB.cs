@@ -27,7 +27,6 @@ namespace Code.Utility
 
         protected void InternalInitialise(Animator animator, TMonoBehaviour monoBehaviour)
         {
-            //TODO: pasar players
             m_MonoBehaviour = monoBehaviour;
             _thisAnimator = animator;
             OnStart(animator);
