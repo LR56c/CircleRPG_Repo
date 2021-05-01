@@ -2,7 +2,7 @@
 
 namespace Code.Enemies.SMB
 {
-    public class EnemyChaseSMB : EnemyMoveSMB
+    public class EnemyChaseSMB : EnemyMoveBaseSMB
     {
         protected override void Move()
         {
@@ -13,10 +13,9 @@ namespace Code.Enemies.SMB
             if(heroPosition)
             {
                 destination = heroPosition.transform.position;
-                Debug.Log("chase smb");
             }
             
-            m_MonoBehaviour.Move(destination);
+            _navMeshAgent.SetDestination(destination);
         }
     }
 }

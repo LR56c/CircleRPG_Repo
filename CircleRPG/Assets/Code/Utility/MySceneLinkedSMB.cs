@@ -7,7 +7,6 @@ namespace Code.Utility
     {
         protected                  TMonoBehaviour m_MonoBehaviour;
         protected                  Animator       _animator;
-        [SerializeField] protected bool           bAction = false;
 
         public static void Initialise(Animator animator, TMonoBehaviour monoBehaviour)
         {

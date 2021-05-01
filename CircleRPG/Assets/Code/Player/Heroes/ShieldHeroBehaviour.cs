@@ -7,14 +7,9 @@ namespace Code.Player.Heroes
 {
     public class ShieldHeroBehaviour : HeroBaseBehaviour
     {
-       protected override void DoAttack(Collider objetive)
-        {
-            Debug.Log($"DoAttack Shield, {objetive.gameObject.name}", objetive);
-            var enemy = objetive.GetComponentInParent<IDamageable>();
-            enemy?.DamageReceived(1);
-        }
+        //public method for anim event
 
-       protected override void DamageReceivedNotify(bool isDead)
+        protected override void DamageReceivedNotify(bool isDead)
         {
             
         }

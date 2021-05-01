@@ -1,6 +1,7 @@
 using System;
 using Code.Domain.Interfaces;
 using Code.Utility;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -10,11 +11,13 @@ namespace Code.Player.Heroes
     {
         private                  NavMeshAgent _agent;
         private                  Animator     _animator;
-        public                  Action       OnAttackComplete;
-        [SerializeField] private GameObject   _point;
-        [SerializeField] private int          _currentHealth;
-        private int          _dieParam = Animator.StringToHash("Die");
-        public                   Collider            FocusEnemy{get;set;}
+        private                  int          _dieParam = Animator.StringToHash("Die");
+        public                   Action       OnAttackComplete;
+        
+        [SerializeField] private   GameObject _point;
+        [SerializeField] private   int        _currentHealth = 100;
+        [SerializeField] private   float      _tweenTimeRotate = 0.2f;
+        public                     Collider   FocusEnemy{get;set;}
         
         protected virtual void Awake()
         {
@@ -36,16 +39,23 @@ namespace Code.Player.Heroes
         {
             if(!CanAttack()) return;
 
+            //TurnToTarget();
             OnAttackComplete = onComplete;
-            DoAttack(FocusEnemy);
+            //DoAttack(FocusEnemy);
         }
-        
+
+        public void TurnToTarget()
+        {
+            transform.DOLookAt(FocusEnemy.transform.position, _tweenTimeRotate, AxisConstraint.Y, Vector3.up);
+            Debug.Log("playerTurn");
+        }
+
         public bool CanAttack()
         {
             return FocusEnemy;
         }
         
-        protected abstract void DoAttack(Collider objetive);
+        //protected abstract void DoAttack(Collider objetive);
 
         public void DamageReceived(int damage)
         {
@@ -65,11 +75,6 @@ namespace Code.Player.Heroes
             _animator.SetTrigger(_dieParam);
             _currentHealth = 0;
             return true;
-        }
-        
-        public virtual void AttackFinish()
-        {
-            OnAttackComplete?.Invoke();
         }
 
         public void TestChangeColorMagenta()

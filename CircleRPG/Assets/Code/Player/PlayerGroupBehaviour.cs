@@ -34,12 +34,6 @@ namespace Code.Player
 
         private void Start()
         {
-            for(int i = 0; i < _heroes.Length; i++)
-            {
-                _heroesAnimator[i] = _heroes[i].GetComponent<Animator>();
-            }
-
-
             _touchJoystick = ServiceLocator.Instance.GetService<TouchJoystick>();
             _touchJoystick.ValueChangedEvent += OnValueChangedEvent;
         }
@@ -60,7 +54,7 @@ namespace Code.Player
 
             UpdateAnimator();
 
-            CheckEnemy();
+            CheckEnemyToAnimators();
             CheckFocusEnemy();
         }
 
@@ -84,7 +78,7 @@ namespace Code.Player
             }
         }
 
-        private void CheckEnemy()
+        private void CheckEnemyToAnimators()
         {
             if(!GetFocusEnemy()) return;
 
@@ -136,6 +130,13 @@ namespace Code.Player
         public void RemoveCollider(Collider collider)
         {
             _enemyList.Remove(collider);
+
+            if(GetFocusEnemy()) return;
+
+            foreach(var heroAnimator in _heroesAnimator)
+            {
+                heroAnimator.ResetTrigger(_attackParam);
+            }
         }
 
         public void AddCollider(Collider collider)

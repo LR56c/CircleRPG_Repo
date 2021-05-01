@@ -1,9 +1,6 @@
-﻿using System;
-using Code.Domain.Interfaces;
-using Code.Player;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Code.Enemies
+namespace Code.Player
 {
     public class PlayerChildTriggerBehaviour : MonoBehaviour
     {

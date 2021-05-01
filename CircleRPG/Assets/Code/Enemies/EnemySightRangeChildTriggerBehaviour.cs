@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Code.Enemies.Types;
+using UnityEngine;
 
 namespace Code.Enemies
 {
