@@ -9,6 +9,7 @@ namespace Code.Enemies.Types
 {
     public abstract class EnemyBaseBehaviour : MonoBehaviour, IDamageable, IAttack
     {
+        protected Collider _myCollider;
         protected Animator _animator;
         public    Action   OnAttackComplete;
         private   int      _dieParam = Animator.StringToHash("Died");
@@ -23,6 +24,7 @@ namespace Code.Enemies.Types
             /*_rb = GetComponent<Rigidbody>();
             _navMeshAgent = GetComponent<NavMeshAgent>();*/
             _animator = GetComponent<Animator>();
+            _myCollider = GetComponent<Collider>();
         }
 
         protected virtual void Start()

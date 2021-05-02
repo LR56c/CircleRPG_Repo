@@ -8,18 +8,16 @@ namespace Code.Enemies.SMB
 {
     public abstract class EnemyMoveBaseSMB : MySceneLinkedSMB<EnemyBaseBehaviour>
     {
-        protected Rigidbody _rb;
         protected                  int          _cameFromAttackParam = Animator.StringToHash("CameFromAttack");
         protected                  int          _toAttackParam       = Animator.StringToHash("ToAttack");
         protected                  int       _toSightParam = Animator.StringToHash("ToSight");
         [SerializeField] protected bool         bWait                = false;
         [SerializeField] protected bool bAction = false;
-        [SerializeField] private float        _secondsToWait       = 3.0f;
+        [SerializeField] protected float        _secondsToWait       = 3.0f;
         
 
         public override void OnStart(Animator animator)
         {
-            _rb = m_MonoBehaviour.GetComponent<Rigidbody>();
         }
 
         public override void OnSLStateEnter(Animator  animator, AnimatorStateInfo stateInfo, int layerIndex)

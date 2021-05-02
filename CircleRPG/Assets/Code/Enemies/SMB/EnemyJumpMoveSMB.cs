@@ -1,6 +1,8 @@
-﻿using DG.Tweening;
+﻿using Code.Enemies.Types;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Animations;
 
 namespace Code.Enemies.SMB
 {
@@ -13,18 +15,26 @@ namespace Code.Enemies.SMB
         
         [Header("DOJump")]
         [SerializeField] private float _jumpPower = 5.0f;
-        [SerializeField]             private int   _numJumps          = 1;
-        [SerializeField]             private float _jumpTweenDuration = 2.0f;
-        [SerializeField] private AnimationCurve     _animationCurve;
-        
+        [SerializeField] private int            _numJumps          = 1;
+        [SerializeField] private float          _jumpTweenDuration = 2.0f;
+        [SerializeField] private AnimationCurve _animationCurve;
+        [SerializeField] private Transform      _dangerZone;
+
 
         public override void OnStart(Animator animator)
         {
             base.OnStart(animator);
             _walkMask = _navMeshAgent.areaMask;
-
+            var log = m_MonoBehaviour.GetComponent<LogEnemyBehaviour>();
+            m_MonoBehaviour = log;
         }
-        
+
+        public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex,
+                                          AnimatorControllerPlayable controller)
+        {
+            base.OnStateEnter(animator, stateInfo, layerIndex, controller);
+        }
+
         protected override void Move()
         {
             var hero = m_MonoBehaviour.GetHero();
@@ -41,25 +51,33 @@ namespace Code.Enemies.SMB
             }
 
             point = hit.position;
+            _dangerZone.gameObject.SetActive(true);
+            _dangerZone.position = m_MonoBehaviour.transform.position;
+            _dangerZone.DOMove(point, (_jumpTweenDuration / 2));
+
             m_MonoBehaviour.transform.DOJump(point, _jumpPower, _numJumps,
                                              _jumpTweenDuration)
                            .SetEase(_animationCurve)
-                           .OnComplete(NavMeshCancel);
+                           .OnComplete(() =>
+                           {
+                               NavMeshCancel();
+                               _dangerZone.position = m_MonoBehaviour.transform.position;
+                               _dangerZone.gameObject.SetActive(false);
+                           });
         }
 
-        protected override void NavMeshShouldCancel()
+        public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex,
+                                         AnimatorControllerPlayable controller)
         {
-            
+            base.OnStateExit(animator, stateInfo, layerIndex, controller);
         }
 
-        private Vector3 GetRandomPointXZ()
+        public void SetSpecificDangerZone(Transform zone)
         {
-            float randomZ = Random.Range(-_randomPointRange, _randomPointRange);
-            float randomX = Random.Range(-_randomPointRange, _randomPointRange);
-            var myPos = _animator.transform.position;
-
-            return new Vector3(myPos.x + randomX, myPos.y, myPos.z + randomZ);
+            _dangerZone = zone;
         }
+        
+        protected override void NavMeshShouldCancel() {}
     }
     
     /*
@@ -71,5 +89,15 @@ namespace Code.Enemies.SMB
            var myPos = m_MonoBehaviour.transform.position;
 
            return new Vector3(myPos.x + randomX, myPos.y, myPos.z + randomZ);
-       }*/
+       }
+       
+       private Vector3 GetRandomPointXZ()
+        {
+            float randomZ = Random.Range(-_randomPointRange, _randomPointRange);
+            float randomX = Random.Range(-_randomPointRange, _randomPointRange);
+            var myPos = _animator.transform.position;
+
+            return new Vector3(myPos.x + randomX, myPos.y, myPos.z + randomZ);
+        }
+    */
 }

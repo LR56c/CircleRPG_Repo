@@ -1,4 +1,7 @@
-﻿namespace Code.Enemies.SMB
+﻿using UnityEngine;
+using UnityEngine.Animations;
+
+namespace Code.Enemies.SMB
 {
     public class EnemyNotMoveSMB : EnemyMoveBaseSMB
     {

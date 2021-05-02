@@ -36,6 +36,10 @@ namespace UnityConstants
         /// Name of tag 'Enemy'.
         /// </summary>
         public const string Enemy = "Enemy";
+        /// <summary>
+        /// Name of tag 'Wall'.
+        /// </summary>
+        public const string Wall = "Wall";
     }
 
     public static class SortingLayers
@@ -84,6 +88,10 @@ namespace UnityConstants
         /// Index of layer 'Floor'.
         /// </summary>
         public const int Floor = 8;
+        /// <summary>
+        /// Index of layer 'Projectile'.
+        /// </summary>
+        public const int Projectile = 9;
 
         /// <summary>
         /// Bitmask of layer 'Default'.
@@ -121,6 +129,10 @@ namespace UnityConstants
         /// Bitmask of layer 'Floor'.
         /// </summary>
         public const int FloorMask = 1 << 8;
+        /// <summary>
+        /// Bitmask of layer 'Projectile'.
+        /// </summary>
+        public const int ProjectileMask = 1 << 9;
     }
 
     public static class Scenes

@@ -20,9 +20,8 @@ namespace Code.Enemies.Types
         {
             var hero = GetHero();
             if(!hero) return;
-            var heroPos = hero.transform.position;
             var location = _ballPosition.position;
-            var dir = (heroPos - location).normalized;
+            var dir = (hero.bounds.center - location).normalized;
             var rotationDir = Quaternion.LookRotation(dir);
 
             EnemyProjectile go = Instantiate(_ballProjectilePrefab,

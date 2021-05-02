@@ -22,7 +22,7 @@ namespace Code.Enemies.Types
             var hero = GetHero();
             if(!hero) return;
             var location = _ballPosition.position;
-            var dir = (hero.transform.position - location).normalized;
+            var dir = (hero.bounds.center - location).normalized;
             var rotationDir = Quaternion.LookRotation(dir);
 
             EnemyProjectile goCentral = Instantiate(_ballProjectilePrefab,

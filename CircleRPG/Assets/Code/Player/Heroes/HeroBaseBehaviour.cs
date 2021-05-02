@@ -1,5 +1,6 @@
 using System;
 using Code.Domain.Interfaces;
+using Code.Enemies;
 using Code.Utility;
 using DG.Tweening;
 using UnityEngine;
@@ -14,10 +15,12 @@ namespace Code.Player.Heroes
         private                  int          _dieParam = Animator.StringToHash("Die");
         public                   Action       OnAttackComplete;
         
-        [SerializeField] private   GameObject _point;
-        [SerializeField] private   int        _currentHealth = 100;
-        [SerializeField] private   float      _tweenTimeRotate = 0.2f;
-        public                     Collider   FocusEnemy{get;set;}
+        [SerializeField] private Transform _pointToMove;
+        [SerializeField] private HeroProjectile _projectilePrefab;
+        [SerializeField] private Transform _spawnProjectilePoint;
+        [SerializeField] private int        _currentHealth   = 100;
+        [SerializeField] private float      _tweenTimeRotate = 0.2f;
+        public                   Collider   FocusEnemy{get;set;}
         
         protected virtual void Awake()
         {
@@ -32,7 +35,7 @@ namespace Code.Player.Heroes
 
         protected virtual void Update()
         {
-            _agent.SetDestination(_point.transform.position);
+            _agent.SetDestination(_pointToMove.position);
         }
 
         public void Attack(Action onComplete)
@@ -67,7 +70,6 @@ namespace Code.Player.Heroes
         private bool ApplyDamage(int damage)
         {
             _currentHealth -= damage;
-            Debug.Log($"{gameObject.name}: -{damage.ToString()}");
 
             if(_currentHealth > 0)
                 return false;
@@ -75,6 +77,23 @@ namespace Code.Player.Heroes
             _animator.SetTrigger(_dieParam);
             _currentHealth = 0;
             return true;
+        }
+
+        protected virtual void ThrowProjectile()
+        {
+            
+            if(!FocusEnemy) return;
+            
+            Vector3 enemyPos = FocusEnemy.bounds.center;
+            
+            Vector3 spawnPos = _spawnProjectilePoint.position;
+            Vector3 dir = (enemyPos - spawnPos).normalized;
+            Quaternion rotationDir = Quaternion.LookRotation(dir);
+
+            //TODO: una pool con dontDestroyOnLoad, le pediria la creacion a una factory en la escena boot
+            //TODO: aqui se pediria el objeto de la pool, la pool lo activaria y aqui se le pasaria la posicion y rotacion
+            HeroProjectile go = Instantiate(_projectilePrefab,
+                                            spawnPos, rotationDir);
         }
 
         public void TestChangeColorMagenta()
