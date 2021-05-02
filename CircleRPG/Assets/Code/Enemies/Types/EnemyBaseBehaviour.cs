@@ -9,13 +9,14 @@ namespace Code.Enemies.Types
 {
     public abstract class EnemyBaseBehaviour : MonoBehaviour, IDamageable, IAttack
     {
-        protected Animator     _animator;
-        public                Action         OnAttackComplete;
-        private   int          _dieParam = Animator.StringToHash("Died");
+        protected Animator _animator;
+        public    Action   OnAttackComplete;
+        private   int      _dieParam = Animator.StringToHash("Died");
 
         [SerializeField] private int            _currentHealth   = 100;
         [SerializeField] private float          _tweenTimeRotate = 1.0f;
         [SerializeField] private List<Collider> _inAreaHeros;
+        public                   float          TweenTimeRotate => _tweenTimeRotate;
 
         protected virtual void Awake()
         {
@@ -52,20 +53,20 @@ namespace Code.Enemies.Types
         {
             _inAreaHeros.Remove(hero);
         }
-        
+
         public void Attack(Action onComplete)
         {
             if(!CanAttack()) return;
 
-            TurnToTarget();
+            var targetPos = _inAreaHeros[0].transform.position;
+            TurnToTarget(targetPos);
             OnAttackComplete = onComplete;
         }
 
         //podria estar en una interfaz?
-        protected void TurnToTarget()
+        public void TurnToTarget(Vector3 target)
         {
-            var targetPos = _inAreaHeros[0].transform.position;
-            transform.DOLookAt(targetPos, _tweenTimeRotate, AxisConstraint.Y, Vector3.up);
+            transform.DOLookAt(target, _tweenTimeRotate, AxisConstraint.Y, Vector3.up);
         }
 
         public bool CanAttack()
@@ -77,7 +78,7 @@ namespace Code.Enemies.Types
         {
             OnAttackComplete?.Invoke();
         }
-        
+
         protected abstract void DoAttack();
         protected abstract void DamageReceivedNotify(bool isDead);
 

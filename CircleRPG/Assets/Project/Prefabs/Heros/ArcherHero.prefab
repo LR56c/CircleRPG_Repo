@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _point: {fileID: 0}
   _currentHealth: 0
-  _damage: 1
   _tweenTimeRotate: 0.2
 --- !u!1001 &7152745666481478414
 PrefabInstance:
@@ -75,7 +74,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6848445911185974183, guid: 4cad728c9a51a98418e612a6bc8365ff, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4cad728c9a51a98418e612a6bc8365ff, type: 3}
 --- !u!1 &2838124333606706342 stripped
 GameObject:

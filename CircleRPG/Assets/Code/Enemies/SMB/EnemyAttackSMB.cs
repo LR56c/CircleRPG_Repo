@@ -1,7 +1,6 @@
 ﻿using Code.Enemies.Types;
 using Code.Utility;
 using UnityEngine;
-using UnityEngine.AI;
 
 namespace Code.Enemies.SMB
 {
@@ -9,12 +8,10 @@ namespace Code.Enemies.SMB
     {
         private int          _cameFromAttackParam = Animator.StringToHash("CameFromAttack");
         private int          _toAttackParam       = Animator.StringToHash("ToAttack");
-        private NavMeshAgent _navMeshAgent;
         private float _cachedNavSpeed = 0f;
         
         public override void OnStart(Animator animator)
         {
-            _navMeshAgent = m_MonoBehaviour.GetComponent<NavMeshAgent>();
         }
 
         public override void OnSLStateEnter(Animator          animator,

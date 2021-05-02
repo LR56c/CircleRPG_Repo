@@ -47,7 +47,6 @@ namespace Code.Player.Heroes
         public void TurnToTarget()
         {
             transform.DOLookAt(FocusEnemy.transform.position, _tweenTimeRotate, AxisConstraint.Y, Vector3.up);
-            Debug.Log("playerTurn");
         }
 
         public bool CanAttack()
@@ -68,6 +67,7 @@ namespace Code.Player.Heroes
         private bool ApplyDamage(int damage)
         {
             _currentHealth -= damage;
+            Debug.Log($"{gameObject.name}: -{damage.ToString()}");
 
             if(_currentHealth > 0)
                 return false;

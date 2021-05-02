@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
+using UnityEngine.AI;
 
 namespace Code.Utility
 {
     public class MySceneLinkedSMB<TMonoBehaviour> : StateMachineBehaviour
         where TMonoBehaviour : MonoBehaviour
     {
-        protected                  TMonoBehaviour m_MonoBehaviour;
-        protected                  Animator       _animator;
+        protected TMonoBehaviour m_MonoBehaviour;
+        protected Animator       _animator;
+        protected NavMeshAgent   _navMeshAgent;
 
         public static void Initialise(Animator animator, TMonoBehaviour monoBehaviour)
         {
@@ -22,6 +24,7 @@ namespace Code.Utility
         protected void InternalInitialise(Animator animator, TMonoBehaviour monoBehaviour)
         {
             m_MonoBehaviour = monoBehaviour;
+            _navMeshAgent = m_MonoBehaviour.GetComponent<NavMeshAgent>();
             _animator = animator;
             OnStart(animator);
         }

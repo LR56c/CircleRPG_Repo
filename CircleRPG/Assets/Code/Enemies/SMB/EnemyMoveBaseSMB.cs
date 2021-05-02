@@ -8,19 +8,17 @@ namespace Code.Enemies.SMB
 {
     public abstract class EnemyMoveBaseSMB : MySceneLinkedSMB<EnemyBaseBehaviour>
     {
-        protected                NavMeshAgent _navMeshAgent;
         protected Rigidbody _rb;
-        private                  int          _cameFromAttackParam = Animator.StringToHash("CameFromAttack");
-        private                  int          _toAttackParam       = Animator.StringToHash("ToAttack");
-        private                  int       _toSightParam = Animator.StringToHash("ToSight");
-        [SerializeField]             private bool         bWait                = false;
+        protected                  int          _cameFromAttackParam = Animator.StringToHash("CameFromAttack");
+        protected                  int          _toAttackParam       = Animator.StringToHash("ToAttack");
+        protected                  int       _toSightParam = Animator.StringToHash("ToSight");
+        [SerializeField] protected bool         bWait                = false;
         [SerializeField] protected bool bAction = false;
-        [SerializeField]             private float        _secondsToWait       = 3.0f;
+        [SerializeField] private float        _secondsToWait       = 3.0f;
         
 
         public override void OnStart(Animator animator)
         {
-            _navMeshAgent = m_MonoBehaviour.GetComponent<NavMeshAgent>();
             _rb = m_MonoBehaviour.GetComponent<Rigidbody>();
         }
 
@@ -31,9 +29,15 @@ namespace Code.Enemies.SMB
         
         public override void OnSLStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            if(animator.GetBool(_cameFromAttackParam))
+            MoveBase();
+            
+        }
+
+        protected virtual void MoveBase()
+        {
+            if(_animator.GetBool(_cameFromAttackParam))
             {
-                WaitDelay(animator);
+                WaitDelay();
                 return;
             }
 
@@ -43,13 +47,13 @@ namespace Code.Enemies.SMB
                 return;
             }
 
-            Move();
             bAction = true;
+            Move();
         }
 
         protected abstract void Move();
 
-        private void WaitDelay(Animator animator)
+        protected void WaitDelay()
         {
             if(bWait) return;
 
@@ -57,7 +61,7 @@ namespace Code.Enemies.SMB
             DOVirtual.DelayedCall(_secondsToWait,
                                   () =>
                                   {
-                                      animator.SetBool(_cameFromAttackParam,
+                                      _animator.SetBool(_cameFromAttackParam,
                                                        false);
                                   });
 
@@ -69,7 +73,7 @@ namespace Code.Enemies.SMB
         }
         
         
-        private void NavMeshShouldCancel()
+        protected virtual void NavMeshShouldCancel()
         {
             if(_navMeshAgent.remainingDistance > _navMeshAgent.stoppingDistance) return;
 

@@ -18,7 +18,9 @@ namespace Code.Enemies.Types
 
         public void ThrowBall()
         {
-            var heroPos = GetHero().transform.position;
+            var hero = GetHero();
+            if(!hero) return;
+            var heroPos = hero.transform.position;
             var location = _ballPosition.position;
             var dir = (heroPos - location).normalized;
             var rotationDir = Quaternion.LookRotation(dir);
