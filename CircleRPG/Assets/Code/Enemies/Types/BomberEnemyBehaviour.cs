@@ -33,7 +33,7 @@ namespace Code.Enemies.Types
             
             EnemyProjectile go = Instantiate(_enemyProjectile, _spawnPosition.position, Quaternion.identity);
             go.transform.DOJump(hero.transform.position, _jumpPower, _numJumps, _duration)
-              .SetEase(Ease.InCubic)
+              .SetEase(Ease.OutQuint)
               .OnComplete(() =>
               {
                   _dangerZone.position = transform.position;

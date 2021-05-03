@@ -981,7 +981,8 @@ MonoBehaviour:
   _inAreaHeros: []
   _ballPosition: {fileID: 6365010756504171712}
   _ballProjectilePrefab: {fileID: 3964401112023797463, guid: b1bdce007419cc14ba20c8a216766d91, type: 3}
-  _angle: 45
+  _numbers: 3
+  _angleStep: 45
 --- !u!136 &7555670156903328084
 CapsuleCollider:
   m_ObjectHideFlags: 0

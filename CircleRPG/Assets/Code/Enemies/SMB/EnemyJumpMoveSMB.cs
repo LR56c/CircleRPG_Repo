@@ -28,13 +28,7 @@ namespace Code.Enemies.SMB
             var log = m_MonoBehaviour.GetComponent<LogEnemyBehaviour>();
             m_MonoBehaviour = log;
         }
-
-        public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex,
-                                          AnimatorControllerPlayable controller)
-        {
-            base.OnStateEnter(animator, stateInfo, layerIndex, controller);
-        }
-
+        
         protected override void Move()
         {
             var hero = m_MonoBehaviour.GetHero();
@@ -64,12 +58,6 @@ namespace Code.Enemies.SMB
                                _dangerZone.position = m_MonoBehaviour.transform.position;
                                _dangerZone.gameObject.SetActive(false);
                            });
-        }
-
-        public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex,
-                                         AnimatorControllerPlayable controller)
-        {
-            base.OnStateExit(animator, stateInfo, layerIndex, controller);
         }
 
         public void SetSpecificDangerZone(Transform zone)

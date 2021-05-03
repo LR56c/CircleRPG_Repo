@@ -7,6 +7,7 @@ namespace Code.Enemies.Triggers
     {
         [SerializeField] private Animator           _enemyAnimator;
         [SerializeField] private EnemyBaseBehaviour _enemyBaseBehaviour;
+        //public                   int testParam = Animator.StringToHash("ToAttack");
 
         private void OnTriggerEnter(Collider other)
         {
@@ -19,6 +20,7 @@ namespace Code.Enemies.Triggers
         {
             if(!other.CompareTag(UnityConstants.Tags.Player)) return;
             _enemyAnimator.SetBool("ToSight", false);
+            _enemyAnimator.SetBool("ToAttack", false);
             _enemyBaseBehaviour.RemoveHeroToList(other);
         }
     }

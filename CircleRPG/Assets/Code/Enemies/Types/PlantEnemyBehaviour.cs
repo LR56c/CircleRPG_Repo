@@ -4,7 +4,7 @@ namespace Code.Enemies.Types
 {
     public class PlantEnemyBehaviour : EnemyBaseBehaviour
     {
-        [SerializeField] private Transform       _ballPosition;
+        [SerializeField] private Transform     _ballPosition;
         [SerializeField] private EnemyProjectile _ballProjectilePrefab;
         
         protected override void DoAttack()
@@ -16,7 +16,7 @@ namespace Code.Enemies.Types
         {
         }
 
-        public void ThrowBall()
+        protected void ThroBall()
         {
             var hero = GetHero();
             if(!hero) return;

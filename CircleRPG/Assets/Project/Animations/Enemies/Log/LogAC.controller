@@ -284,9 +284,6 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 7346787771528927277}
     m_Position: {x: 300, y: 170, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 49993517246668236}
-    m_Position: {x: 335, y: 235, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: -8423831786207904727}
@@ -375,6 +372,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  _dangerZone: {fileID: 0}
 --- !u!1102 &7346787771528927277
 AnimatorState:
   serializedVersion: 6

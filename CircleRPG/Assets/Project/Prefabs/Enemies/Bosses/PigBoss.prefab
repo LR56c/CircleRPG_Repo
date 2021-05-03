@@ -1136,7 +1136,7 @@ MonoBehaviour:
   _myCollider: {fileID: 7652060919836810321}
   _animator: {fileID: 7652060919829426068}
   _currentHealth: 100
-  _tweenTimeRotate: 0.05
+  _tweenTimeRotate: 0.1
   _inAreaHeros: []
   _projectile: {fileID: 2797767182060001929, guid: 034fd0b1da0e1324b8d2f3c2c43fa48d, type: 3}
   _numbers: 5

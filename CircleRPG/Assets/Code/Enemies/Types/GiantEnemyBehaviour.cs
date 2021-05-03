@@ -6,8 +6,30 @@ namespace Code.Enemies.Types
     {
         [SerializeField]             private Transform       _ballPosition;
         [SerializeField]             private EnemyProjectile _ballProjectilePrefab;
-        [SerializeField] private float               _angle = 45f;
         
+        [Header("Numbers solo puede ser Impar")]
+        [SerializeField] private int _numbers = 3;
+        [SerializeField] private float _angleStep = 45f;
+        private                  int   _offsetMultiplier;
+
+        protected override void Start()
+        {
+            base.Start();
+            PreCalculateOffsetMultiplier();
+        }
+        private void PreCalculateOffsetMultiplier()
+        {
+            if((_numbers % 2) == 1)
+            {
+                _offsetMultiplier = Mathf.FloorToInt(_numbers / 2);
+            }
+            else
+            {
+                Debug.LogError($"Variable Numbers en {gameObject.name}, debe ser impar");
+            }
+        }
+
+
         protected override void DoAttack()
         {
          
@@ -22,23 +44,15 @@ namespace Code.Enemies.Types
             var hero = GetHero();
             if(!hero) return;
             var location = _ballPosition.position;
-            var dir = (hero.bounds.center - location).normalized;
-            var rotationDir = Quaternion.LookRotation(dir);
+            location.y = hero.bounds.center.y;
+            
+            var offsetAngle = transform.eulerAngles.y - (_angleStep * _offsetMultiplier);
 
-            EnemyProjectile goCentral = Instantiate(_ballProjectilePrefab,
-                                                    location, rotationDir);
-
-            Quaternion angleRight = Quaternion.AngleAxis(_angle, Vector3.up);
-            Vector3 rightDir = angleRight * dir;
-            Quaternion rotRight = Quaternion.LookRotation(rightDir);
-            EnemyProjectile goRight = Instantiate(_ballProjectilePrefab,
-                                                  location, rotRight);
-
-            Quaternion angleLeft = Quaternion.AngleAxis(-_angle, Vector3.up);
-            Vector3 leftDir = angleLeft * dir;
-            Quaternion rotLeft = Quaternion.LookRotation(leftDir);
-            EnemyProjectile goLeft = Instantiate(_ballProjectilePrefab,
-                                                 location, rotLeft);
+            for(int i = 0; i < _numbers; i++)
+            {
+                Instantiate(_ballProjectilePrefab, location, Quaternion.Euler(0f, offsetAngle, 0f));
+                offsetAngle += _angleStep;
+            }
         }
     }
 }
