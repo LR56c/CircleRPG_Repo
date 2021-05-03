@@ -6,7 +6,6 @@ namespace Code.Enemies.Types
 {
     public class BatEnemyBehaviour : EnemyBaseBehaviour
     {
-        private                  Rigidbody    _rb;
         private                  NavMeshAgent _navMeshAgent;
         private                  float        _cachedSpeed      = 0f;
         [SerializeField] private float        _distanceInMeters = 8.0f;

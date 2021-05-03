@@ -232,6 +232,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c984943c4b149348059877ad82ebd40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rb: {fileID: 493841326701721127}
+  _myCollider: {fileID: 493841326701721129}
+  _animator: {fileID: 493841326709130732}
   _currentHealth: 100
   _tweenTimeRotate: 1
   _inAreaHeros: []

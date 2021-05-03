@@ -6,7 +6,6 @@ namespace Code.Enemies.Types
 {
     public class CubeImpulseEnemyBehaviour : EnemyBaseBehaviour
     {
-        private                  Rigidbody _rb;
         [SerializeField] private float     _distanceInMeters = 8.0f;
         [SerializeField] private float     _seconds          = 5.0f;
         [SerializeField] private float     _finalVelocity    = 0.0f;

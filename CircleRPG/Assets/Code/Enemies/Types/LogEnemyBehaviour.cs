@@ -17,7 +17,6 @@ namespace Code.Enemies.Types
         {
             base.Awake();
             _sumAngle = 360f / _numbers;
-            
         }
 
         protected override void Start()

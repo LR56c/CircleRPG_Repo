@@ -426,13 +426,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 256beb3ec9a64c9591b8861f9344441c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rb: {fileID: 8172230667452378573}
+  _myCollider: {fileID: 1591717501459364885}
+  _animator: {fileID: 4114405274561388333}
   _currentHealth: 100
   _tweenTimeRotate: 1
   _inAreaHeros: []
+  _dangerZone: {fileID: 0}
   _projectile: {fileID: 733347383940479459, guid: f16345c5826d0aa42b6f041c4f850c2f, type: 3}
   _initialAngle: 0
   _numbers: 4
-  _sumAngle: 0
 --- !u!136 &1591717501459364885
 CapsuleCollider:
   m_ObjectHideFlags: 0

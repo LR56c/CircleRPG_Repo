@@ -95,23 +95,5 @@ namespace Code.Player.Heroes
             HeroProjectile go = Instantiate(_projectilePrefab,
                                             spawnPos, rotationDir);
         }
-
-        public void TestChangeColorMagenta()
-        {
-            //ataco
-            GetComponent<MeshRenderer>().material.SetColor("_Color", Color.magenta);
-        }
-        
-        public void TestChangeColorYellow()
-        {
-            //idle
-            GetComponent<MeshRenderer>().material.SetColor("_Color", Color.yellow);
-        }
-        
-        public void TestChangeColorGreen()
-        {
-            //moving
-            GetComponent<MeshRenderer>().material.SetColor("_Color", Color.green);
-        }
     }
 }

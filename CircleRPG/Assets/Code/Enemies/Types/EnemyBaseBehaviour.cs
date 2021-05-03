@@ -9,23 +9,24 @@ namespace Code.Enemies.Types
 {
     public abstract class EnemyBaseBehaviour : MonoBehaviour, IDamageable, IAttack
     {
-        protected Collider _myCollider;
-        protected Animator _animator;
-        public    Action   OnAttackComplete;
-        private   int      _dieParam = Animator.StringToHash("Died");
+        [SerializeField] protected Rigidbody _rb;
+        [SerializeField] protected Collider  _myCollider;
+        [SerializeField] protected Animator  _animator;
+        public                     Action    OnAttackComplete;
+        private                    int       _dieParam = Animator.StringToHash("Died");
 
         [SerializeField] private int            _currentHealth   = 100;
-        [SerializeField] private float          _tweenTimeRotate = 1.0f;
+        [SerializeField] protected float          _tweenTimeRotate = 1.0f;
         [SerializeField] private List<Collider> _inAreaHeros;
         public                   float          TweenTimeRotate => _tweenTimeRotate;
 
         protected virtual void Awake()
         {
-            /*_rb = GetComponent<Rigidbody>();
-            _navMeshAgent = GetComponent<NavMeshAgent>();*/
-            _animator = GetComponent<Animator>();
-            _myCollider = GetComponent<Collider>();
+      
         }
+
+        protected virtual void OnEnable()  {}
+        protected virtual void OnDisable() {}
 
         protected virtual void Start()
         {

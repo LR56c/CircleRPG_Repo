@@ -142,6 +142,7 @@ namespace Code.Player
         public void AddCollider(Collider collider)
         {
             _enemyList.Add(collider);
+            GetFocusEnemy();
         }
     }
 }
