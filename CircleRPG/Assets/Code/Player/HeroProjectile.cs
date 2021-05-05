@@ -20,7 +20,7 @@ namespace Code.Enemies
 
         private void OnCollisionEnter(Collision other)
         {
-            if(other.gameObject.layer == UnityConstants.Layers.Wall)
+            if(other.gameObject.CompareTag(Tags.BreakBullet))
             {
                 Destroy(gameObject);
             }

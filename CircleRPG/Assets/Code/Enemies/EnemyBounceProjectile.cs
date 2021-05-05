@@ -26,7 +26,7 @@ namespace Code.Enemies
         
         private void OnCollisionEnter(Collision other)
         {
-            if(other.gameObject.layer == Layers.WallMask)
+            if(other.gameObject.layer == Layers.WallLimit)
             {
                 var normal = other.GetContact(0).normal;
                 var reflect = Vector3.Reflect(_oldVelocity, normal);

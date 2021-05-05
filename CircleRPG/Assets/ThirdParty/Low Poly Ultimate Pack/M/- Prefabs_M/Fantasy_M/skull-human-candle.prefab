@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 4165808237099688}
   - component: {fileID: 33427403256132494}
   - component: {fileID: 23421312327025414}
+  - component: {fileID: 6137568807492810547}
   m_Layer: 0
   m_Name: skull-human-candle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &4165808237099688
 Transform:
@@ -84,3 +85,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &6137568807492810547
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414508871000798}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.075, y: 0.317, z: 0.06}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.312, z: -0.045}
+  m_TimeToStationary: 0.5

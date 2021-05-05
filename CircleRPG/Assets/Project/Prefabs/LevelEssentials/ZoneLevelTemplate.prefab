@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 749256695824339693}
   m_Layer: 10
   m_Name: Cube_4
-  m_TagString: Untagged
+  m_TagString: BreakBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 6154074961779115343}
   m_Layer: 10
   m_Name: Cube_2
-  m_TagString: Untagged
+  m_TagString: BreakBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: 8031088495411868536}
   m_Layer: 8
   m_Name: HalfFloorHolder
-  m_TagString: Untagged
+  m_TagString: BreakBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -332,7 +332,7 @@ GameObject:
   - component: {fileID: 8355357004226143659}
   m_Layer: 10
   m_Name: Door
-  m_TagString: Untagged
+  m_TagString: BreakBullet
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -393,7 +393,7 @@ GameObject:
   - component: {fileID: 4551604657304276919}
   - component: {fileID: 3428078036725452819}
   - component: {fileID: 2519092701853020585}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -490,7 +490,7 @@ GameObject:
   - component: {fileID: 1623623370865198152}
   m_Layer: 8
   m_Name: FirstFloorHolder
-  m_TagString: Untagged
+  m_TagString: BreakBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -586,7 +586,7 @@ GameObject:
   - component: {fileID: 7004942224999113266}
   m_Layer: 10
   m_Name: Cube_1
-  m_TagString: Untagged
+  m_TagString: BreakBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -695,7 +695,7 @@ GameObject:
   - component: {fileID: 396515236589336421}
   - component: {fileID: 7221101619087073576}
   - component: {fileID: 6632221706975044283}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -793,7 +793,7 @@ GameObject:
   - component: {fileID: 8882969191014358377}
   m_Layer: 10
   m_Name: DisabledStartArea
-  m_TagString: Untagged
+  m_TagString: BreakBullet
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -903,9 +903,9 @@ GameObject:
   - component: {fileID: 2645901025100514205}
   - component: {fileID: 1331890541609846776}
   - component: {fileID: 7996923329790468663}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: BreakBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -1017,7 +1017,7 @@ GameObject:
   - component: {fileID: 8652280746348024355}
   m_Layer: 10
   m_Name: Cube_3
-  m_TagString: Untagged
+  m_TagString: BreakBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -1126,7 +1126,7 @@ GameObject:
   - component: {fileID: 1299107261709641247}
   - component: {fileID: 7536252570837921821}
   - component: {fileID: 7358306712823530426}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

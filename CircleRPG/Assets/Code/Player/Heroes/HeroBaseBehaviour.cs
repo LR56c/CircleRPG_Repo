@@ -17,6 +17,7 @@ namespace Code.Player.Heroes
         [SerializeField] private Collider            _collider;
         
         private                  int          _dieParam = Animator.StringToHash("Die");
+        private                  int          _attackParam = Animator.StringToHash("Attack");
         public                   Action       OnAttackComplete;
         
         [SerializeField] private Transform          _pointToMove;
@@ -63,6 +64,12 @@ namespace Code.Player.Heroes
 
         protected virtual void Update()
         {
+            /*if(_agent.remainingDistance > _agent.stoppingDistance)
+            {
+                //aqui podria cancelarse el ataque cuando se esta quieto, pero se siente raro
+                return;
+            }*/
+            
             _agent.SetDestination(_pointToMove.position);
         }
 

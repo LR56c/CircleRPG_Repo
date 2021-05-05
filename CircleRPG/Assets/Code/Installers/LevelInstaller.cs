@@ -10,6 +10,7 @@ namespace Code.Installers
         
         private void Awake()
         {
+            Application.targetFrameRate = 0;
             ServiceLocator.Instance.RegisterService(_touchJoystick);
 
             var killedEnemyService = new KilledEnemyService();

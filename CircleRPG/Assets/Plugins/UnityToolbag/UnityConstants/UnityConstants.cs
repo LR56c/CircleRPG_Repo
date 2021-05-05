@@ -37,13 +37,13 @@ namespace UnityConstants
         /// </summary>
         public const string Enemy = "Enemy";
         /// <summary>
-        /// Name of tag 'Wall'.
-        /// </summary>
-        public const string Wall = "Wall";
-        /// <summary>
         /// Name of tag 'PlayerGroup'.
         /// </summary>
         public const string PlayerGroup = "PlayerGroup";
+        /// <summary>
+        /// Name of tag 'BreakBullet'.
+        /// </summary>
+        public const string BreakBullet = "BreakBullet";
     }
 
     public static class SortingLayers
@@ -97,9 +97,9 @@ namespace UnityConstants
         /// </summary>
         public const int Projectile = 9;
         /// <summary>
-        /// Index of layer 'Wall'.
+        /// Index of layer 'WallLimit'.
         /// </summary>
-        public const int Wall = 10;
+        public const int WallLimit = 10;
 
         /// <summary>
         /// Bitmask of layer 'Default'.
@@ -142,9 +142,9 @@ namespace UnityConstants
         /// </summary>
         public const int ProjectileMask = 1 << 9;
         /// <summary>
-        /// Bitmask of layer 'Wall'.
+        /// Bitmask of layer 'WallLimit'.
         /// </summary>
-        public const int WallMask = 1 << 10;
+        public const int WallLimitMask = 1 << 10;
     }
 
     public static class Scenes

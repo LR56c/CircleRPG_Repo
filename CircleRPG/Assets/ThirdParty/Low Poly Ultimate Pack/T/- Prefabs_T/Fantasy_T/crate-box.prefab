@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 33000012197930550}
   - component: {fileID: 23000010326809656}
   - component: {fileID: 65000013697833432}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: crate-box
-  m_TagString: Untagged
+  m_TagString: BreakBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &4000010747675588
 Transform:
