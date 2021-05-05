@@ -65,7 +65,6 @@ namespace Code.UI
 
         private void HammerAbilityResponse()
         {
-            Debug.Log("HammerAbilityResponse");
             _hammerAbility.Ability();
             _type[(int)EAbilityType.Hammer].gameObject.SetActive(false);
         }

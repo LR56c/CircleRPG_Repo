@@ -23,6 +23,7 @@ namespace Code.Player.Heroes
         [SerializeField] private HeroProjectile     _projectilePrefab;
         [SerializeField] private Transform          _spawnProjectilePoint;
         [SerializeField] private int                _currentHealth   = 100;
+        [SerializeField] private int                _maxHealth = 120;
         [SerializeField] private float              _tweenTimeRotate = 0.2f;
 
         private                  UIHeroAbility      _uiHeroAbility;
@@ -54,6 +55,7 @@ namespace Code.Player.Heroes
             if(_killCount >= _killsToGetAbility)
             {
                 _uiHeroAbility.ActiveHeroAbility(GetHeroEType());
+                _killCount = 0;
             }
         }
 
@@ -89,6 +91,16 @@ namespace Code.Player.Heroes
         {
             bool isDead = ApplyDamage(damage);
             DamageReceivedNotify(isDead);
+        }
+
+        public void Heal(int value)
+        {
+            _currentHealth += value;
+
+            if(_currentHealth > _maxHealth)
+            {
+                _currentHealth = _maxHealth;
+            }
         }
 
         protected abstract void DamageReceivedNotify(bool isDead);

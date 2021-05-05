@@ -50,7 +50,6 @@ namespace Code.Enemies.Types
                     float randomDestroy =
                         Random.Range(_minRandomDestroyTime, _maxRandomDestroyTime);
                     //TODO: aqui se deberia volver a la pool
-                    Debug.Log($"rand: {randomDestroy.ToString()}");
                     Destroy(go, randomDestroy);
                     offsetAngle += _angleStep;
                 }

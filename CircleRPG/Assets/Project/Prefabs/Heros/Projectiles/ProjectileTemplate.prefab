@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1531971923654528604}
   - component: {fileID: 2641964905553294300}
   - component: {fileID: -8227549379480656784}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ProjectileTemplate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 700015294322854717}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -60,7 +60,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!114 &-8227549379480656784
 MonoBehaviour:

@@ -6,9 +6,9 @@ namespace Code.Utility
     public class MySceneLinkedSMB<TMonoBehaviour> : StateMachineBehaviour
         where TMonoBehaviour : MonoBehaviour
     {
-        protected TMonoBehaviour m_MonoBehaviour;
-        protected Animator       _animator;
-        protected NavMeshAgent   _navMeshAgent;
+        [SerializeField] protected TMonoBehaviour m_MonoBehaviour;
+        [SerializeField] protected Animator       _animator;
+        [SerializeField] protected NavMeshAgent   _navMeshAgent;
 
         public static void Initialise(Animator animator, TMonoBehaviour monoBehaviour)
         {

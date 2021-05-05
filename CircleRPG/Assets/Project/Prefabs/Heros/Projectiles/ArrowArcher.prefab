@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arrow 01 Brown Gold
       objectReference: {fileID: 0}
+    - target: {fileID: 1777314368727640, guid: c16d5d7c700f9c743981c85b1944d9b6, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4336207120308968, guid: c16d5d7c700f9c743981c85b1944d9b6, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -83,6 +87,10 @@ PrefabInstance:
     - target: {fileID: 700015294322854717, guid: f45c7dabd2c0e7840a76e573dcdf9ee8, type: 3}
       propertyPath: m_Name
       value: ArrowArcher
+      objectReference: {fileID: 0}
+    - target: {fileID: 700015294322854717, guid: f45c7dabd2c0e7840a76e573dcdf9ee8, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 700015294322854718, guid: f45c7dabd2c0e7840a76e573dcdf9ee8, type: 3}
       propertyPath: m_RootOrder

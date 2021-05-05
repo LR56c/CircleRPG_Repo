@@ -11,14 +11,17 @@ namespace Code.LevelEssentials
 
         private void OnCollisionEnter(Collision other)
         {
-            if(!other.gameObject.CompareTag(Tags.Player) && !bCanOpen) return;
+            if(!other.gameObject.CompareTag(Tags.PlayerGroup)) return;
+            
+            if(!bCanOpen) return;
+            
             _levelZone.ZoneComplete();
         }
 
         public void Open()
         {
             bCanOpen = true;
-            //open anim
+            //TODO: open anim
         }
     }
 }

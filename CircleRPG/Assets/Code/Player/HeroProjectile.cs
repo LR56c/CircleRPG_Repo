@@ -1,7 +1,9 @@
-﻿using Code.Enemies.Types;
+﻿using System;
+using Code.Enemies.Types;
 using Code.Player.Heroes;
 using UnityConstants;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Code.Enemies
 {
@@ -16,15 +18,14 @@ namespace Code.Enemies
             _rb.velocity = transform.forward * _speed;
         }
 
-        private void OnTriggerEnter(Collider other)
+        private void OnCollisionEnter(Collision other)
         {
-            var enemy = other.GetComponent<EnemyBaseBehaviour>();
-            var wall = other.CompareTag(Tags.Wall);
-
-            if(wall)
+            if(other.gameObject.layer == UnityConstants.Layers.Wall)
             {
                 Destroy(gameObject);
             }
+
+            var enemy = other.gameObject.GetComponent<EnemyBaseBehaviour>();
 
             if(enemy)
             {

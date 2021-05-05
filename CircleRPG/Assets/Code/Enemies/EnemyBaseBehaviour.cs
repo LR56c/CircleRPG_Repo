@@ -6,6 +6,7 @@ using Code.Utility;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 namespace Code.Enemies.Types
 {
@@ -30,17 +31,27 @@ namespace Code.Enemies.Types
         {
         }
 
-        protected virtual void OnEnable()  {}
+        protected virtual void OnEnable()
+        {
+            MySceneLinkedSMB<EnemyBaseBehaviour>.Initialise(_animator, this);
+        }
+        
         protected virtual void OnDisable() {}
 
         protected virtual void Start()
+        {
+            _killedEnemyService =
+                ServiceLocator.Instance.GetService<KilledEnemyService>();
+        }
+
+        private void InternalInitialise()
         {
             MySceneLinkedSMB<EnemyBaseBehaviour>.Initialise(_animator, this);
             _killedEnemyService =
                 ServiceLocator.Instance.GetService<KilledEnemyService>();
             //TODO: pool projectiles
         }
-
+        
         public Collider GetHero()
         {
             if(_inAreaHeros.Count == 0) return null;
@@ -92,12 +103,6 @@ namespace Code.Enemies.Types
         protected virtual void EndAnimDead()
         {
             gameObject.SetActive(false);
-        }
-        
-        protected virtual void StartAnimDead()
-        {
-            //TODO: revisar cofre
-            _myCollider.enabled = false; 
         }
 
         protected abstract void DoAttack();

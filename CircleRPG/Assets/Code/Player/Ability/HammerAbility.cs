@@ -9,7 +9,7 @@ namespace Code.Player
     {
         private int _stunParam = Animator.StringToHash("Stuned");
         [SerializeField]             private Collider _collider;
-        [SerializeField] private float _seconds = 2.0f;
+        [SerializeField] private float _seconds = 1.0f;
         
         protected override void            Register()
         {

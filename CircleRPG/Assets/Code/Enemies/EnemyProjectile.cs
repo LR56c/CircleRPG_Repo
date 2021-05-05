@@ -1,16 +1,17 @@
 ﻿using Code.Player.Heroes;
 using UnityConstants;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Code.Enemies
 {
     public class EnemyProjectile : MonoBehaviour
     {
-        [SerializeField]             private int       _damage;
-        [SerializeField]             private float     _speed = 5.0f;
-        [SerializeField]             private Rigidbody _rb;
-        [SerializeField] private bool         bContact = false;
-        
+        [SerializeField] private int       _damage;
+        [SerializeField] private float     _speed = 5.0f;
+        [SerializeField] private Rigidbody _rb;
+        [SerializeField] private bool      bContact = false;
+
 
         private void OnEnable()
         {
@@ -18,16 +19,16 @@ namespace Code.Enemies
             _rb.velocity = transform.forward * _speed;
         }
 
-        private void OnTriggerEnter(Collider other)
+        private void OnCollisionEnter(Collision other)
         {
-            var player = other.GetComponent<HeroBaseBehaviour>();
-            
-            var wall = other.CompareTag(Tags.Wall);
-
-            if(wall)
+            if(other.gameObject.layer == Layers.Wall)
             {
                 Destroy(gameObject);
             }
+
+            if(other.gameObject.CompareTag(Tags.Enemy)) return;
+            
+            var player = other.collider.GetComponent<HeroBaseBehaviour>();
 
             if(player)
             {

@@ -10,12 +10,11 @@ namespace Code.Enemies.Types
         private                              Vector3         _spawnPos;
         private                              Quaternion      _rotationDir;
         [SerializeField] private GameObject               _aimRay;
-        
 
-        protected override void Start()
+        protected override void OnEnable()
         {
-            base.Start();
-
+            base.OnEnable();
+            
             var tempAimSMB = _animator.GetBehaviour<EnemyAimSMB>();
 
             if(!tempAimSMB)

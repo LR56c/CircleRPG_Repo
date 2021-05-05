@@ -69,7 +69,6 @@ namespace Code.Enemies.SMB
     }
     
     /*
-        TODO: GetRandomPoint respaldo
        private Vector3 GetRandomPoint()
        {
            float randomZ = Random.Range(-1f, 1f);

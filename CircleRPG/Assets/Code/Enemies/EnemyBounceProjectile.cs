@@ -26,11 +26,7 @@ namespace Code.Enemies
         
         private void OnCollisionEnter(Collision other)
         {
-            var player = other.collider.GetComponent<HeroBaseBehaviour>();
-
-            var wall = other.collider.CompareTag(Tags.Wall);
-
-            if(wall)
+            if(other.gameObject.layer == Layers.WallMask)
             {
                 var normal = other.GetContact(0).normal;
                 var reflect = Vector3.Reflect(_oldVelocity, normal);
@@ -38,6 +34,8 @@ namespace Code.Enemies
                 transform.rotation = Quaternion.LookRotation(reflect);
                 Destroy(gameObject, _secondsToDestroy);
             }
+            
+            var player = other.collider.GetComponent<HeroBaseBehaviour>();
             
             if(player)
             {

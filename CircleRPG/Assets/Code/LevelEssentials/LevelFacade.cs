@@ -14,22 +14,16 @@ namespace Code.LevelEssentials
         [SerializeField] private int                  _currentLevelIndex = 0;
         private                  PlayerGroupBehaviour _playerGroup;
         private                  UILoader             _uiLoader;
-        
-        /*var countTest = 0;
-            
-            for(int i = 0; i < _levelZones.Length - 1; i++)
-            {
-                countTest++;
-            }
-
-            Debug.Log($"countTest: {countTest.ToString()}");
-            */
+        private                  ArcherAbility        _archerAbility;
         
         private void Start()
         {
             _playerGroup = ServiceLocator.Instance.GetService<PlayerGroupBehaviour>();
             _uiLoader = ServiceLocator.Instance.GetService<UILoader>();
+            _archerAbility = ServiceLocator.Instance.GetService<ArcherAbility>();
+
             LoadZoneUpdate();
+            //DOVirtual.DelayedCall(_delayStartCall, LoadZoneUpdate);
         }
 
         public void LevelUpdate()
@@ -43,6 +37,8 @@ namespace Code.LevelEssentials
         {
             if(_currentLevelIndex >= _levelZones.Length - 1)
             {
+                //TODO: agregar index niveles completados, para asi actualizar texto
+                //y al darle play en el hub denuevo mande a la siguiente escena
                 _uiLoader.LoadSceneAsync(SceneManager.LoadSceneAsync(1));
                 _currentLevelIndex = _levelZones.Length;
                 return false;
@@ -78,6 +74,7 @@ namespace Code.LevelEssentials
                 if(i == _currentLevelIndex)
                 {
                     _levelZones[_currentLevelIndex].gameObject.SetActive(true);
+                    _archerAbility.ConfigCollider(_levelZones[_currentLevelIndex].GetArcherArea());
                 }
                 else
                 {

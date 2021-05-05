@@ -19,9 +19,9 @@ namespace Code.Enemies.Types
             _sumAngle = 360f / _numbers;
         }
 
-        protected override void Start()
+        protected override void OnEnable()
         {
-            base.Start();
+            base.OnEnable();
             
             var tempJumpMoveSmb = _animator.GetBehaviour<EnemyJumpMoveSMB>();
             

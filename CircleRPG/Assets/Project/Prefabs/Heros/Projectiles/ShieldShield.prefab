@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shield 02 Red Gold
       objectReference: {fileID: 0}
+    - target: {fileID: 1258256067900200, guid: 0ca4fae8baec13d44baa097486cc8f78, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4985822115830136, guid: 0ca4fae8baec13d44baa097486cc8f78, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -67,6 +71,10 @@ PrefabInstance:
     - target: {fileID: 700015294322854717, guid: f45c7dabd2c0e7840a76e573dcdf9ee8, type: 3}
       propertyPath: m_Name
       value: ShieldShield
+      objectReference: {fileID: 0}
+    - target: {fileID: 700015294322854717, guid: f45c7dabd2c0e7840a76e573dcdf9ee8, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 700015294322854718, guid: f45c7dabd2c0e7840a76e573dcdf9ee8, type: 3}
       propertyPath: m_RootOrder
