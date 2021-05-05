@@ -181,7 +181,7 @@ MonoBehaviour:
   _tweenTimeRotate: 1
   _inAreaHeros: []
   _monkey: {fileID: 8156672752515139723}
-  _speed: 200
+  _speed: 5
   _numbersSucessors: 2
   _randomDirRange: 1
   _numbersOfCopiesInstantiate: 2

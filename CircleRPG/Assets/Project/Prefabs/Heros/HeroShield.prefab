@@ -1575,6 +1575,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1674065154321753088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3633256329297664936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d94256894bb45b2a6f52c5309528ca4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7286444127695747656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1587,11 +1599,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 957a5f7f0b8b0294d8294f88709df2fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _agent: {fileID: 3633256329297664949}
+  _animator: {fileID: 7708944754848587381}
+  _collider: {fileID: 3633256329297664938}
   _pointToMove: {fileID: 0}
   _projectilePrefab: {fileID: 7237930596326818046, guid: fe7fb37c975f7de46a5199d6770c2dc9, type: 3}
   _spawnProjectilePoint: {fileID: 6589856998110342168}
   _currentHealth: 100
   _tweenTimeRotate: 0.2
+  _killsToGetAbility: 1
 --- !u!1 &1896881306383409071
 GameObject:
   m_ObjectHideFlags: 0
@@ -8652,8 +8668,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2892833506698777273, guid: 4aa7ed098705df247be75d1573d1222a, type: 3}
   m_PrefabInstance: {fileID: 1895597486645102865}
   m_PrefabAsset: {fileID: 0}
+--- !u!136 &3633256329297664938 stripped
+CapsuleCollider:
+  m_CorrespondingSourceObject: {fileID: 2892833506698777275, guid: 4aa7ed098705df247be75d1573d1222a, type: 3}
+  m_PrefabInstance: {fileID: 1895597486645102865}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3638612807147037874 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2895938594922655139, guid: 4aa7ed098705df247be75d1573d1222a, type: 3}
+  m_PrefabInstance: {fileID: 1895597486645102865}
+  m_PrefabAsset: {fileID: 0}
+--- !u!195 &3633256329297664949 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 2892833506698777252, guid: 4aa7ed098705df247be75d1573d1222a, type: 3}
   m_PrefabInstance: {fileID: 1895597486645102865}
   m_PrefabAsset: {fileID: 0}

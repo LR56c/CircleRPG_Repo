@@ -33,7 +33,7 @@ namespace Code.Enemies.SMB
         {
             _navMeshAgent.speed = _cachedNavSpeed;
             animator.SetBool(_cameFromAttackParam, true);
-            m_MonoBehaviour.OnAttackComplete?.Invoke();   
+            m_MonoBehaviour.OnAttackComplete?.Invoke();
         }
     }
 }

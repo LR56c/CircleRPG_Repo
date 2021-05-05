@@ -1,13 +1,30 @@
-﻿using UnityEngine;
+﻿using Code.Enemies.SMB;
+using UnityEngine;
 
 namespace Code.Enemies.Types
 {
     public class CrossbowmanEnemyBehaviour : EnemyBaseBehaviour
     {
-        [SerializeField] private Transform       _spawnPosition;
-        [SerializeField] private EnemyProjectile _enemyProjectile;
-        private                  Vector3         _spawnPos;
-        private                  Quaternion      _rotationDir;
+        [SerializeField] private             Transform       _spawnPosition;
+        [SerializeField] private             EnemyProjectile _enemyProjectile;
+        private                              Vector3         _spawnPos;
+        private                              Quaternion      _rotationDir;
+        [SerializeField] private GameObject               _aimRay;
+        
+
+        protected override void Start()
+        {
+            base.Start();
+
+            var tempAimSMB = _animator.GetBehaviour<EnemyAimSMB>();
+
+            if(!tempAimSMB)
+            {
+                Debug.Log("No se ha podido establecer AimRay en Crossbowman");
+                return;
+            }
+            tempAimSMB.SetSpecificAimRay(_aimRay);
+        }
 
         protected override void DoAttack()
         {

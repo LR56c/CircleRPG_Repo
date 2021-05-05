@@ -1,5 +1,4 @@
-﻿using System;
-using Code.Utility;
+﻿using Code.Utility;
 using Rewired.ComponentControls;
 using UnityEngine;
 
@@ -12,11 +11,14 @@ namespace Code.Installers
         private void Awake()
         {
             ServiceLocator.Instance.RegisterService(_touchJoystick);
+
+            var killedEnemyService = new KilledEnemyService();
+            ServiceLocator.Instance.RegisterService(killedEnemyService);
         }
 
         private void OnApplicationQuit()
         {
-            //save service locator datas
+            //TODO: save service locator datas
         }
     }
 }

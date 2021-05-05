@@ -1,6 +1,8 @@
 using System;
 using Code.Domain.Interfaces;
 using Code.Enemies;
+using Code.Installers;
+using Code.UI;
 using Code.Utility;
 using DG.Tweening;
 using UnityEngine;
@@ -10,28 +12,52 @@ namespace Code.Player.Heroes
 {
     public abstract class HeroBaseBehaviour : MonoBehaviour, IDamageable, IAttack
     {
-        private                  NavMeshAgent _agent;
-        private                  Animator     _animator;
+        [SerializeField]             private NavMeshAgent _agent;
+        [SerializeField]             private Animator     _animator;
+        [SerializeField] private Collider            _collider;
+        
         private                  int          _dieParam = Animator.StringToHash("Die");
         public                   Action       OnAttackComplete;
         
-        [SerializeField] private Transform _pointToMove;
-        [SerializeField] private HeroProjectile _projectilePrefab;
-        [SerializeField] private Transform _spawnProjectilePoint;
-        [SerializeField] private int        _currentHealth   = 100;
-        [SerializeField] private float      _tweenTimeRotate = 0.2f;
-        public                   Collider   FocusEnemy{get;set;}
-        
-        protected virtual void Awake()
-        {
-            _animator = GetComponent<Animator>();
-            _agent = GetComponent<NavMeshAgent>();
-        }
+        [SerializeField] private Transform          _pointToMove;
+        [SerializeField] private HeroProjectile     _projectilePrefab;
+        [SerializeField] private Transform          _spawnProjectilePoint;
+        [SerializeField] private int                _currentHealth   = 100;
+        [SerializeField] private float              _tweenTimeRotate = 0.2f;
 
+        private                  UIHeroAbility      _uiHeroAbility;
+        private                  KilledEnemyService _killedEnemyService;
+        private                  int                _killCount         = 0;
+        [SerializeField] private int                _killsToGetAbility = 1;
+        public                   Collider           FocusEnemy{get;set;}
+        
         protected virtual void Start()
         {
             MySceneLinkedSMB<HeroBaseBehaviour>.Initialise(_animator, this);
+            
+            _uiHeroAbility = ServiceLocator.Instance.GetService<UIHeroAbility>();
+            
+            _killedEnemyService = ServiceLocator.Instance.GetService<KilledEnemyService>();
+            _killedEnemyService.OnEnemyKilled += OnEnemyKilled;
         }
+
+        [ContextMenu("Active UI")]
+        private void ForceActiveHeroAbility()
+        {
+            _uiHeroAbility.ActiveHeroAbility(GetHeroEType());
+        }
+        
+        private void OnEnemyKilled(int oneDeath)
+        {
+            _killCount += oneDeath;
+
+            if(_killCount >= _killsToGetAbility)
+            {
+                _uiHeroAbility.ActiveHeroAbility(GetHeroEType());
+            }
+        }
+
+        protected abstract int GetHeroEType();
 
         protected virtual void Update()
         {
@@ -94,6 +120,17 @@ namespace Code.Player.Heroes
             //TODO: aqui se pediria el objeto de la pool, la pool lo activaria y aqui se le pasaria la posicion y rotacion
             HeroProjectile go = Instantiate(_projectilePrefab,
                                             spawnPos, rotationDir);
+        }
+
+        public void ResetNavMesh()
+        {
+            _agent.ResetPath();
+        }
+
+        public void ForceEnableCollider(bool value)
+        {
+            _collider.enabled = value;
+            _agent.enabled = value;
         }
     }
 }

@@ -1,6 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Code.Utility;
 using DG.Tweening;
+using DG.Tweening.Core;
+using DG.Tweening.Plugins.Options;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,10 +12,12 @@ namespace Code.UI
 {
     public class UILoader : MonoBehaviour
     {
-        [SerializeField] private CanvasGroup     _loadingCanvasGroup;
-        [SerializeField] private Slider          _loadingSlider;
-        [SerializeField] private TextMeshProUGUI _loadingPercentText;
-        private                  AsyncOperation  _sceneLoading;
+        [SerializeField] private CanvasGroup                             _loadingCanvasGroup;
+        [SerializeField] private CanvasGroup                             _tempBlackscreenCanvasGroup;
+        [SerializeField] private Slider                                  _loadingSlider;
+        [SerializeField] private TextMeshProUGUI                         _loadingPercentText;
+        private                  AsyncOperation                          _sceneLoading;
+        private                  TweenerCore<float, float, FloatOptions> _tweenBlackscreen;
 
         private void Awake()
         {
@@ -43,6 +48,26 @@ namespace Code.UI
             }
             
             EnableLoadingGroup(false,1f);
+        }
+        
+        public void EnableBlackscreenGroup(bool value, float duration, TweenCallback onComplete)
+        {
+            EnableBlackscreenGroup(value,duration);
+            _tweenBlackscreen.OnComplete(onComplete);
+        }
+        
+        public void EnableBlackscreenGroup(bool value, float duration)
+        {
+            float fadeValue = value ? 1f : 0f;
+            _tempBlackscreenCanvasGroup.blocksRaycasts = value;
+            _tweenBlackscreen = _tempBlackscreenCanvasGroup.DOFade(fadeValue, duration);
+        }
+        
+        public void EnableBlackscreenGroup(bool value)
+        {
+            float fadeValue = value ? 1f : 0f;
+            _tempBlackscreenCanvasGroup.blocksRaycasts = value;
+            _tempBlackscreenCanvasGroup.alpha = fadeValue;
         }
         
         //talvez se podria hcer una interfaz IEnableGroup

@@ -1,28 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
 using Code.Domain.Interfaces;
+using Code.Installers;
 using Code.Utility;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Code.Enemies.Types
 {
     public abstract class EnemyBaseBehaviour : MonoBehaviour, IDamageable, IAttack
     {
-        [SerializeField] protected Rigidbody _rb;
-        [SerializeField] protected Collider  _myCollider;
-        [SerializeField] protected Animator  _animator;
-        public                     Action    OnAttackComplete;
-        private                    int       _dieParam = Animator.StringToHash("Died");
+        [SerializeField] protected Rigidbody    _rb;
+        [SerializeField] protected Collider     _myCollider;
+        [SerializeField] protected Animator     _animator;
+        
+        public  Action                  OnAttackComplete;
+        public event Action                  OnDied;
+        private int                          _dieParam = Animator.StringToHash("Died");
 
-        [SerializeField] private int            _currentHealth   = 100;
-        [SerializeField] protected float          _tweenTimeRotate = 1.0f;
-        [SerializeField] private List<Collider> _inAreaHeros;
-        public                   float          TweenTimeRotate => _tweenTimeRotate;
+        [SerializeField] private   int                _currentHealth   = 100;
+        [SerializeField] protected float              _tweenTimeRotate = 1.0f;
+        [SerializeField] private   List<Collider>     _inAreaHeros;
+        public                     float              TweenTimeRotate => _tweenTimeRotate;
+        private                    KilledEnemyService _killedEnemyService;
+        private                    bool               _isDead;
 
         protected virtual void Awake()
         {
-      
         }
 
         protected virtual void OnEnable()  {}
@@ -31,6 +36,8 @@ namespace Code.Enemies.Types
         protected virtual void Start()
         {
             MySceneLinkedSMB<EnemyBaseBehaviour>.Initialise(_animator, this);
+            _killedEnemyService =
+                ServiceLocator.Instance.GetService<KilledEnemyService>();
             //TODO: pool projectiles
         }
 
@@ -82,6 +89,17 @@ namespace Code.Enemies.Types
             OnAttackComplete?.Invoke();
         }
 
+        protected virtual void EndAnimDead()
+        {
+            gameObject.SetActive(false);
+        }
+        
+        protected virtual void StartAnimDead()
+        {
+            //TODO: revisar cofre
+            _myCollider.enabled = false; 
+        }
+
         protected abstract void DoAttack();
         protected abstract void DamageReceivedNotify(bool isDead);
 
@@ -92,6 +110,8 @@ namespace Code.Enemies.Types
             if(_currentHealth > 0)
                 return false;
 
+            OnDied?.Invoke();
+            _killedEnemyService.AddOne();
             _animator.SetTrigger(_dieParam);
             _currentHealth = 0;
             return true;
@@ -99,8 +119,9 @@ namespace Code.Enemies.Types
 
         public void DamageReceived(int damage)
         {
-            bool isDead = ApplyDamage(damage);
-            DamageReceivedNotify(isDead);
+            if(_isDead) return;
+            _isDead = ApplyDamage(damage);
+            DamageReceivedNotify(_isDead);
         }
     }
 }

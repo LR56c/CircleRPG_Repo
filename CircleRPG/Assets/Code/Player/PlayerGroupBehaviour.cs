@@ -19,6 +19,8 @@ namespace Code.Player
 
         [SerializeField] private float _speed = 20f;
 
+        [SerializeField] private Transform[] _circleHelper = new Transform[3];
+        
         [SerializeField] private HeroBaseBehaviour[] _heroes = new HeroBaseBehaviour[3];
         [SerializeField] private Animator[]          _heroesAnimator = new Animator[3];
 
@@ -30,6 +32,7 @@ namespace Code.Player
         {
             _rb = GetComponent<Rigidbody>();
             _myAnimator = GetComponent<Animator>();
+            ServiceLocator.Instance.RegisterService(this);
         }
 
         private void Start()
@@ -107,7 +110,7 @@ namespace Code.Player
                 return null;
             }
 
-            if(_enemyList[0].gameObject.activeInHierarchy)
+            if(_enemyList[0].gameObject.activeInHierarchy && _enemyList[0].enabled)
             {
                 _focusEnemy = _enemyList[0];
                 return _enemyList[0];
@@ -143,6 +146,32 @@ namespace Code.Player
         {
             _enemyList.Add(collider);
             GetFocusEnemy();
+        }
+
+        public void SetPosition(Vector3 newPos)
+        {
+            transform.position = newPos;
+
+            for(int i = 0; i < _heroes.Length; i++)
+            {
+                _heroes[i].transform.position = _circleHelper[i].position;
+            }
+        }
+
+        public void ForceNavMeshHeroes()
+        {
+            foreach(var hero in _heroes)
+            {
+                hero.ResetNavMesh();
+            }
+        }
+
+        public void EnableHeroCollider(bool value)
+        {
+            foreach(var hero in _heroes)
+            {
+                hero.ForceEnableCollider(value);
+            }
         }
     }
 }

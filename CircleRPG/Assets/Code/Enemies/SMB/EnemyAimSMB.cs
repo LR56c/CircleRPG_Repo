@@ -11,6 +11,9 @@ namespace Code.Enemies.SMB
         [SerializeField] private float _secondsAiming = 5.0f;
         private float _secondsInitialSmoothTurn = 0.2f;
         private                  bool  bForceLookAt = false;
+
+        [SerializeField] private GameObject _aimRay;
+        
         
         public override void OnStart(Animator animator)
         {
@@ -19,6 +22,7 @@ namespace Code.Enemies.SMB
         public override void OnSLStateEnter(Animator          animator,
                                             AnimatorStateInfo stateInfo, int layerIndex)
         {
+            _aimRay.SetActive(true);
             _secondsInitialSmoothTurn = m_MonoBehaviour.TweenTimeRotate;
             m_MonoBehaviour.TurnToTarget(m_MonoBehaviour.GetHero().transform.position);
             DOVirtual.DelayedCall(_secondsInitialSmoothTurn, () =>
@@ -39,7 +43,13 @@ namespace Code.Enemies.SMB
         public override void OnSLStateExit(Animator animator, AnimatorStateInfo stateInfo,
                                            int      layerIndex)
         {
+            _aimRay.SetActive(false);
             bForceLookAt = false;
+        }
+        
+        public void SetSpecificAimRay(GameObject aimRay)
+        {
+            _aimRay = aimRay;
         }
     }
 }
