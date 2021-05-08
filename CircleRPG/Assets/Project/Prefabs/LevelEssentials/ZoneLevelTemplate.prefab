@@ -330,9 +330,9 @@ GameObject:
   - component: {fileID: 6251441022669711357}
   - component: {fileID: 9114912081915303598}
   - component: {fileID: 8355357004226143659}
-  m_Layer: 10
+  m_Layer: 6
   m_Name: Door
-  m_TagString: BreakBullet
+  m_TagString: Untagged
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -345,7 +345,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2159434945218266415}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.76}
+  m_LocalPosition: {x: 0, y: 0, z: 6.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1148846865865995028}
@@ -393,9 +393,10 @@ GameObject:
   - component: {fileID: 4551604657304276919}
   - component: {fileID: 3428078036725452819}
   - component: {fileID: 2519092701853020585}
+  - component: {fileID: 2608233765818759425}
   m_Layer: 10
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: BreakBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -476,6 +477,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!208 &2608233765818759425
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3094393777445019431}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.005, y: 0.5, z: 0.02}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &4579811648515597076
 GameObject:
   m_ObjectHideFlags: 0
@@ -903,7 +920,7 @@ GameObject:
   - component: {fileID: 2645901025100514205}
   - component: {fileID: 1331890541609846776}
   - component: {fileID: 7996923329790468663}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube
   m_TagString: BreakBullet
   m_Icon: {fileID: 0}
@@ -1126,9 +1143,10 @@ GameObject:
   - component: {fileID: 1299107261709641247}
   - component: {fileID: 7536252570837921821}
   - component: {fileID: 7358306712823530426}
+  - component: {fileID: 2314534562798108267}
   m_Layer: 10
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: BreakBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1209,6 +1227,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!208 &2314534562798108267
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7280451785197126768}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.005, y: 0.5, z: 0.02}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &7389435654793218510
 GameObject:
   m_ObjectHideFlags: 0
@@ -1452,3 +1486,4 @@ MonoBehaviour:
   bCanAttack: 0
   _secondsToWait: 1
   _damage: 1
+  _enemyTextColor: {r: 0, g: 0, b: 0, a: 0}

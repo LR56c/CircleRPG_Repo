@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Code.Player.Heroes;
+using Code.UI;
 using Code.Utility;
 using Lean.Touch;
 using Rewired.ComponentControls;
@@ -16,15 +17,21 @@ namespace Code.Player
         private int           _attackParam = Animator.StringToHash("Attack");
         private int           _movingParam = Animator.StringToHash("MoveVector");
         private bool          bWaitAttack  = false;
+        private int _heroDiedCounter = 0;
 
         [SerializeField] private float _speed = 20f;
 
+        [SerializeField] private UILevel     _uiLevel;
         [SerializeField] private Transform[] _circleHelper = new Transform[3];
-        
-        [SerializeField] private HeroBaseBehaviour[] _heroes = new HeroBaseBehaviour[3];
+
+        [SerializeField] private HeroBaseBehaviour[] _heroes         = new HeroBaseBehaviour[3];
         [SerializeField] private Animator[]          _heroesAnimator = new Animator[3];
 
+        //[SerializeField] private List<HeroBaseBehaviour> _heroes = new List<HeroBaseBehaviour>(3);
+        //[SerializeField] private List<Animator> _heroesAnimator = new List<Animator>(3);
+
         [SerializeField] private List<Collider> _enemyList = new List<Collider>();
+        
         [SerializeField] private GameObject     _focusEnemyCircle;
         [SerializeField] private Collider       _focusEnemy;
 
@@ -39,11 +46,34 @@ namespace Code.Player
         {
             _touchJoystick = ServiceLocator.Instance.GetService<TouchJoystick>();
             _touchJoystick.ValueChangedEvent += OnValueChangedEvent;
+
+            foreach(var hero in _heroes)
+            {
+                hero.OnDied += OnHeroDied;
+            }
+        }
+
+        //TODO: escuchar evento cuando muere 1 y si mueren los 3, activar lose de uiLevel 
+
+        private void OnHeroDied()
+        {
+            _heroDiedCounter++;
+
+            if(_heroDiedCounter >= 3)
+            {
+                _uiLevel.OnLose();
+                _heroDiedCounter = 3;
+            }
         }
 
         private void OnDisable()
         {
             _touchJoystick.ValueChangedEvent -= OnValueChangedEvent;
+            
+            foreach(var hero in _heroes)
+            {
+                hero.OnDied -= OnHeroDied;
+            }
         }
 
         private void OnValueChangedEvent(Vector2 position)
@@ -58,14 +88,38 @@ namespace Code.Player
             UpdateAnimator();
 
             CheckEnemyToAnimators();
+            CheckNear();
             CheckFocusEnemy();
+        }
+
+        private void CheckNear()
+        {
+            // se podria revisar cada 5s
+            if(_enemyList.Count < 2) return;
+            
+            float actualEnemyDistance =
+                Vector3.Distance(transform.position, _focusEnemy.transform.position);
+
+            for(int i = 0; i < _enemyList.Count; i++)
+            {
+                if(_enemyList[i] != _focusEnemy)
+                {
+                    float otherEnemyDistance =
+                        Vector3.Distance(transform.position, _enemyList[i].transform.position);
+
+                    if(otherEnemyDistance < actualEnemyDistance)
+                    {
+                        _focusEnemy = _enemyList[i];
+                    }
+                }
+            }
         }
 
         private void CheckInputs()
         {
             Vector3 vector = _speed * Time.deltaTime * _joystickValue;
             _rb.velocity += vector;
-            _touchJoystick.gameObject.SetActive(LeanTouch.Fingers.Count != 3);
+            _touchJoystick.gameObject.SetActive(LeanTouch.Fingers.Count <= 2);
         }
 
         private void CheckFocusEnemy()
@@ -148,29 +202,14 @@ namespace Code.Player
             GetFocusEnemy();
         }
 
-        public void SetPosition(Vector3 newPos)
+        public void MoveHeroes(Vector3 newPos)
         {
             transform.position = newPos;
 
             for(int i = 0; i < _heroes.Length; i++)
             {
-                _heroes[i].transform.position = _circleHelper[i].position;
-            }
-        }
-
-        public void ForceNavMeshHeroes()
-        {
-            foreach(var hero in _heroes)
-            {
-                hero.ResetNavMesh();
-            }
-        }
-
-        public void EnableHeroCollider(bool value)
-        {
-            foreach(var hero in _heroes)
-            {
-                hero.ForceEnableCollider(value);
+                var circlePos = _circleHelper[i].position;
+                _heroes[i].DoWarp(circlePos);
             }
         }
     }

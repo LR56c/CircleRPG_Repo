@@ -1,5 +1,6 @@
 ﻿using System;
 using DG.Tweening;
+using FredericRP.ObjectPooling;
 using UnityEngine;
 
 namespace Code.Enemies.Types
@@ -10,8 +11,10 @@ namespace Code.Enemies.Types
 
         [Header("Numbers solo puede ser Impar")]
         [SerializeField] private int _numbers = 5;
-        [SerializeField] private float _angleStep = 45f;
-        private                  int   _offsetMultiplier;
+        [SerializeField] private float      _angleStep = 45f;
+        private                  int        _offsetMultiplier;
+        private                  ObjectPool _pool;
+        [SerializeField] private string     _prefabPoolName = "Pig";
 
         protected override void DoAttack()                        {}
         protected override void DamageReceivedNotify(bool isDead) {}
@@ -20,6 +23,7 @@ namespace Code.Enemies.Types
         {
             base.Start();
             PreCalculateOffsetMultiplier();
+            _pool = ObjectPool.GetObjectPool("pool");
         }
 
         private void PreCalculateOffsetMultiplier()
@@ -46,7 +50,10 @@ namespace Code.Enemies.Types
 
             for(int i = 0; i < _numbers; i++)
             {
-                Instantiate(_projectile, location, Quaternion.Euler(0f, offsetAngle, 0f));
+                GameObject go = _pool.GetFromPool(_prefabPoolName);
+                go.transform.position = location;
+                go.transform.rotation = Quaternion.Euler(0f,offsetAngle,0f);
+                //Instantiate(_projectile, location, Quaternion.Euler(0f, offsetAngle, 0f));
                 offsetAngle += _angleStep;
             }
         }

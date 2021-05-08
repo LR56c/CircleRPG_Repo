@@ -264,7 +264,7 @@ namespace FredericRP.ObjectPooling
       // If we have gotten here either there was no object of the specified type or none were left in the pool with onlyPooled set to true
       return null;
     }
-
+    
     /// <summary>
     /// Create a new type of pooled object
     /// </summary>

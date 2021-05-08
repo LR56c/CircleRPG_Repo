@@ -1,4 +1,5 @@
 ﻿using Code.Enemies.SMB;
+using FredericRP.ObjectPooling;
 using Unity.Profiling;
 using UnityEngine;
 
@@ -9,14 +10,22 @@ namespace Code.Enemies.Types
         [SerializeField] private Transform _dangerZone;
         
         [SerializeField] private EnemyProjectile _projectile;
-        [SerializeField] private float           _initialAngle = 0.0f;
-        [SerializeField] private int             _numbers      = 4;
-        private float           _sumAngle     = 0f;
+        [SerializeField] private float           _initialAngle   = 0.0f;
+        [SerializeField] private int             _numbers        = 4;
+        private                  float           _sumAngle       = 0f;
+        [SerializeField] private string          _prefabPoolName = "Log";
+        private                  ObjectPool      _pool;
 
         protected override void Awake()
         {
             base.Awake();
             _sumAngle = 360f / _numbers;
+        }
+
+        protected override void Start()
+        {
+            base.Start();
+            _pool = ObjectPool.GetObjectPool("pool");
         }
 
         protected override void OnEnable()
@@ -48,8 +57,13 @@ namespace Code.Enemies.Types
             for(int i = 0; i < _numbers; i++)
             {
                 angle += _sumAngle;
-                Instantiate(_projectile, _myCollider.bounds.center,
-                            Quaternion.Euler(0f, angle, 0f));
+                
+                var go = _pool.GetFromPool(_prefabPoolName);
+                go.transform.position = _myCollider.bounds.center;
+                go.transform.rotation = Quaternion.Euler(0f,angle,0f);
+
+                /*Instantiate(_projectile, _myCollider.bounds.center,
+                            Quaternion.Euler(0f, angle, 0f));*/
             }
         }
     }

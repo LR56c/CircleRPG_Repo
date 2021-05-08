@@ -1,15 +1,19 @@
 ﻿using Code.Enemies.SMB;
+using FredericRP.ObjectPooling;
 using UnityEngine;
 
 namespace Code.Enemies.Types
 {
     public class CrossbowmanEnemyBehaviour : EnemyBaseBehaviour
     {
-        [SerializeField] private             Transform       _spawnPosition;
-        [SerializeField] private             EnemyProjectile _enemyProjectile;
-        private                              Vector3         _spawnPos;
-        private                              Quaternion      _rotationDir;
-        [SerializeField] private GameObject               _aimRay;
+        [SerializeField] private Transform       _spawnPosition;
+        [SerializeField] private EnemyProjectile _enemyProjectile;
+        private                  Vector3         _spawnPos;
+        private                  Quaternion      _rotationDir;
+        [SerializeField] private GameObject      _aimRay;
+        private                  ObjectPool      _pool;
+        [SerializeField] private string          _prefabPoolName = "Crossbow";
+
 
         protected override void OnEnable()
         {
@@ -23,6 +27,12 @@ namespace Code.Enemies.Types
                 return;
             }
             tempAimSMB.SetSpecificAimRay(_aimRay);
+        }
+
+        protected override void Start()
+        {
+            base.Start();
+            _pool = ObjectPool.GetObjectPool("pool");
         }
 
         protected override void DoAttack()
@@ -46,7 +56,10 @@ namespace Code.Enemies.Types
 
         protected void ThrowArrow()
         {
-            EnemyProjectile go = Instantiate(_enemyProjectile, _spawnPos, _rotationDir);
+            var go = _pool.GetFromPool(_prefabPoolName);
+            go.transform.position = _spawnPos;
+            go.transform.rotation = _rotationDir;
+            //EnemyProjectile go = Instantiate(_enemyProjectile, _spawnPos, _rotationDir);
         }
     }
 }

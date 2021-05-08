@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using FredericRP.ObjectPooling;
+using UnityEngine;
 
 namespace Code.Enemies.Types
 {

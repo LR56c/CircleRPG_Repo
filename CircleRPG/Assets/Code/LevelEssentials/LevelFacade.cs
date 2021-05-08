@@ -5,25 +5,37 @@ using Code.Utility;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace Code.LevelEssentials
 {
     public class LevelFacade : MonoBehaviour
     {
-        [SerializeField] private LevelZone[]          _levelZones;
-        [SerializeField] private int                  _currentLevelIndex = 0;
+        
         private                  PlayerGroupBehaviour _playerGroup;
         private                  UILoader             _uiLoader;
         private                  ArcherAbility        _archerAbility;
+        private                  World                _world;
+        [SerializeField] private int                  _currentLevelIndex = 0;
+        [SerializeField] private float                _changeZoneFade = 0.5f;
+        [SerializeField] private LevelZone[]          _levelZones;
         
+        [SerializeField] private Image _zoneProgressBar;
+        [SerializeField] private float _progressBarFade = 0.5f;
+
+        [SerializeField] private UILevel _uiLevel;
+
+        //curent / levels.count
         private void Start()
         {
-            _playerGroup = ServiceLocator.Instance.GetService<PlayerGroupBehaviour>();
-            _uiLoader = ServiceLocator.Instance.GetService<UILoader>();
-            _archerAbility = ServiceLocator.Instance.GetService<ArcherAbility>();
-
+            var locator = ServiceLocator.Instance;
+            
+            _playerGroup = locator.GetService<PlayerGroupBehaviour>();
+            _uiLoader = locator.GetService<UILoader>();
+            _archerAbility = locator.GetService<ArcherAbility>();
+            _world = locator.GetService<World>();
+            
             LoadZoneUpdate();
-            //DOVirtual.DelayedCall(_delayStartCall, LoadZoneUpdate);
         }
 
         public void LevelUpdate()
@@ -32,14 +44,16 @@ namespace Code.LevelEssentials
             PlayerPosUpdate();
             LoadZoneUpdate();
         }
-
+        
         private bool CanUpdate()
         {
             if(_currentLevelIndex >= _levelZones.Length - 1)
             {
-                //TODO: agregar index niveles completados, para asi actualizar texto
-                //y al darle play en el hub denuevo mande a la siguiente escena
-                _uiLoader.LoadSceneAsync(SceneManager.LoadSceneAsync(1));
+                _uiLevel.OnWin(() =>
+                {
+                    _world.CheckCanAddNextLevel();
+                    _uiLoader.LoadSceneAsync(SceneManager.LoadSceneAsync( UnityConstants.Scenes.Mauricio_Hub));
+                });
                 _currentLevelIndex = _levelZones.Length;
                 return false;
             }
@@ -51,19 +65,26 @@ namespace Code.LevelEssentials
         private void PlayerPosUpdate()
         {
             var nextZone = _levelZones[_currentLevelIndex];
-
-            _playerGroup.ForceNavMeshHeroes();
-            
-            _playerGroup.EnableHeroCollider(false);
             
             _uiLoader.EnableBlackscreenGroup(true);
-            
-            _playerGroup.SetPosition(nextZone.ZoneStartPosition);
+            _playerGroup.MoveHeroes(nextZone.ZoneStartPosition);
 
-            DOVirtual.DelayedCall(1f, () =>
+            DOVirtual.DelayedCall(_changeZoneFade, () =>
             {
-                _playerGroup.EnableHeroCollider(true);
-                _uiLoader.EnableBlackscreenGroup(false, 1f);
+                if(_zoneProgressBar)
+                {
+                    float percent = (float) _currentLevelIndex / _levelZones.Length;
+
+                    _uiLoader.EnableBlackscreenGroup(false, 1f, () =>
+                    {
+                        _zoneProgressBar.DOFillAmount(percent, _progressBarFade);
+                    });
+                }
+                else
+                {
+                    _uiLoader.EnableBlackscreenGroup(false, 1f);
+                    
+                }
             });
         }
 

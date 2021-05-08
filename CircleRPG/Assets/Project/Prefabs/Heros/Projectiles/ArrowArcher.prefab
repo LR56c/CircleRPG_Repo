@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1777314368727640, guid: c16d5d7c700f9c743981c85b1944d9b6, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4336207120308968, guid: c16d5d7c700f9c743981c85b1944d9b6, type: 3}
       propertyPath: m_RootOrder
@@ -84,13 +84,33 @@ PrefabInstance:
       propertyPath: _damage
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -8227549379480656784, guid: f45c7dabd2c0e7840a76e573dcdf9ee8, type: 3}
+      propertyPath: _enemyColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8227549379480656784, guid: f45c7dabd2c0e7840a76e573dcdf9ee8, type: 3}
+      propertyPath: _enemyColor.b
+      value: 0.2978373
+      objectReference: {fileID: 0}
+    - target: {fileID: -8227549379480656784, guid: f45c7dabd2c0e7840a76e573dcdf9ee8, type: 3}
+      propertyPath: _enemyColor.g
+      value: 0.9150943
+      objectReference: {fileID: 0}
+    - target: {fileID: -8227549379480656784, guid: f45c7dabd2c0e7840a76e573dcdf9ee8, type: 3}
+      propertyPath: _enemyColor.r
+      value: 0.8930004
+      objectReference: {fileID: 0}
+    - target: {fileID: -8227549379480656784, guid: f45c7dabd2c0e7840a76e573dcdf9ee8, type: 3}
+      propertyPath: _prefabPoolName
+      value: Archer
+      objectReference: {fileID: 0}
     - target: {fileID: 700015294322854717, guid: f45c7dabd2c0e7840a76e573dcdf9ee8, type: 3}
       propertyPath: m_Name
       value: ArrowArcher
       objectReference: {fileID: 0}
     - target: {fileID: 700015294322854717, guid: f45c7dabd2c0e7840a76e573dcdf9ee8, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 700015294322854718, guid: f45c7dabd2c0e7840a76e573dcdf9ee8, type: 3}
       propertyPath: m_RootOrder

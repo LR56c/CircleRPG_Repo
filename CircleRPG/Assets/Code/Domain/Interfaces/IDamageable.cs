@@ -1,7 +1,9 @@
-﻿namespace Code.Domain.Interfaces
+﻿using System;
+
+namespace Code.Domain.Interfaces
 {
     public interface IDamageable
     {
-        void DamageReceived(int damage);
+        void   DamageReceived(int damage);
     }
 }

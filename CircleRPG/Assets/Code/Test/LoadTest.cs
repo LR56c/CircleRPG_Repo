@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 namespace Code.Test
 {
-    public class LoadTest : Singleton<LoadTest>
+    public class LoadTest 
     {
         //private List<AsyncOperation> _scenesLoading = new List<AsyncOperation>();
         

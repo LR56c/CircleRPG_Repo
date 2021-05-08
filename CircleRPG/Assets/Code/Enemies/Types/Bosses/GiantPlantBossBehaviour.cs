@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using FredericRP.ObjectPooling;
+using UnityEngine;
 
 namespace Code.Enemies.Types
 {
@@ -7,10 +9,11 @@ namespace Code.Enemies.Types
         [SerializeField] private Transform[]       _ballPositions;
         [SerializeField] private EnemyProjectile _ballProjectilePrefab;
 
-        [SerializeField] private float _minRandomDestroyTime = 0.5f;
-        [SerializeField] private float _maxRandomDestroyTime = 2.5f;
-        
-        
+        [SerializeField] private float      _minRandomDestroyTime = 0.5f;
+        [SerializeField] private float      _maxRandomDestroyTime = 2.5f;
+        private                  ObjectPool _pool;
+        [SerializeField] private string     _prefabPoolName = "BossPlant";
+
         [Header("Numbers solo puede ser Impar")]
         [SerializeField] private int _numbers = 5;
         [SerializeField] private float _angleStep = 45f;
@@ -20,6 +23,7 @@ namespace Code.Enemies.Types
         {
             base.Start();
             PreCalculateOffsetMultiplier();
+            _pool = ObjectPool.GetObjectPool("pool");
         }
 
         protected override void DoAttack()
@@ -45,12 +49,20 @@ namespace Code.Enemies.Types
 
                 for(int i = 0; i < _numbers; i++)
                 {
-                    EnemyProjectile go = Instantiate(_ballProjectilePrefab, location, 
-                                Quaternion.Euler(0f, offsetAngle, 0f));
+                    var go = _pool.GetFromPool(_prefabPoolName);
+                    go.transform.position = location;
+                    go.transform.rotation = Quaternion.Euler(0f,offsetAngle,0f);
+                    
+                    /*EnemyProjectile go = Instantiate(_ballProjectilePrefab, location, 
+                                Quaternion.Euler(0f, offsetAngle, 0f));*/
                     float randomDestroy =
                         Random.Range(_minRandomDestroyTime, _maxRandomDestroyTime);
-                    //TODO: aqui se deberia volver a la pool
-                    Destroy(go, randomDestroy);
+
+                    DOVirtual.DelayedCall(randomDestroy, () =>
+                    {
+                        _pool.Pool(go);
+                    });
+                    //Destroy(go, randomDestroy);
                     offsetAngle += _angleStep;
                 }
             }

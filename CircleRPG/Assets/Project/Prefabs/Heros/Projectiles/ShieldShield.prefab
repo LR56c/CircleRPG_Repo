@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1258256067900200, guid: 0ca4fae8baec13d44baa097486cc8f78, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4985822115830136, guid: 0ca4fae8baec13d44baa097486cc8f78, type: 3}
       propertyPath: m_RootOrder
@@ -68,13 +68,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8227549379480656784, guid: f45c7dabd2c0e7840a76e573dcdf9ee8, type: 3}
+      propertyPath: _enemyColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8227549379480656784, guid: f45c7dabd2c0e7840a76e573dcdf9ee8, type: 3}
+      propertyPath: _enemyColor.b
+      value: 0.25420156
+      objectReference: {fileID: 0}
+    - target: {fileID: -8227549379480656784, guid: f45c7dabd2c0e7840a76e573dcdf9ee8, type: 3}
+      propertyPath: _enemyColor.g
+      value: 0.07102172
+      objectReference: {fileID: 0}
+    - target: {fileID: -8227549379480656784, guid: f45c7dabd2c0e7840a76e573dcdf9ee8, type: 3}
+      propertyPath: _enemyColor.r
+      value: 0.7169812
+      objectReference: {fileID: 0}
+    - target: {fileID: -8227549379480656784, guid: f45c7dabd2c0e7840a76e573dcdf9ee8, type: 3}
+      propertyPath: _prefabPoolName
+      value: Shield
+      objectReference: {fileID: 0}
     - target: {fileID: 700015294322854717, guid: f45c7dabd2c0e7840a76e573dcdf9ee8, type: 3}
       propertyPath: m_Name
       value: ShieldShield
       objectReference: {fileID: 0}
     - target: {fileID: 700015294322854717, guid: f45c7dabd2c0e7840a76e573dcdf9ee8, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 700015294322854718, guid: f45c7dabd2c0e7840a76e573dcdf9ee8, type: 3}
       propertyPath: m_RootOrder

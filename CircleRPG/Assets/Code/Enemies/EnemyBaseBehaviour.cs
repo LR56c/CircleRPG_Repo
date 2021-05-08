@@ -10,18 +10,25 @@ using UnityEngine.SceneManagement;
 
 namespace Code.Enemies.Types
 {
-    public abstract class EnemyBaseBehaviour : MonoBehaviour, IDamageable, IAttack
+    public abstract class EnemyBaseBehaviour : MonoBehaviour, IAttack
     {
         [SerializeField] protected Rigidbody    _rb;
         [SerializeField] protected Collider     _myCollider;
         [SerializeField] protected Animator     _animator;
         
-        public  Action                  OnAttackComplete;
-        public event Action                  OnDied;
-        private int                          _dieParam = Animator.StringToHash("Died");
+        public Action            OnAttackComplete;
+        public event Action      OnDied;
+        public event Action<int, Color> OnDamaged;
 
-        [SerializeField] private   int                _currentHealth   = 100;
-        [SerializeField] protected float              _tweenTimeRotate = 1.0f;
+        public int GetCurrentHealth() => _currentHealth;
+
+        public int GetMaxHealth() => _initialMaxHealth;
+        
+        private int              _dieParam = Animator.StringToHash("Died");
+
+        [SerializeField] private   int                _currentHealth    = 100;
+        private                    int                _initialMaxHealth = 0;
+        [SerializeField] protected float              _tweenTimeRotate  = 1.0f;
         [SerializeField] private   List<Collider>     _inAreaHeros;
         public                     float              TweenTimeRotate => _tweenTimeRotate;
         private                    KilledEnemyService _killedEnemyService;
@@ -29,6 +36,7 @@ namespace Code.Enemies.Types
 
         protected virtual void Awake()
         {
+            _initialMaxHealth = _currentHealth;
         }
 
         protected virtual void OnEnable()
@@ -49,7 +57,6 @@ namespace Code.Enemies.Types
             MySceneLinkedSMB<EnemyBaseBehaviour>.Initialise(_animator, this);
             _killedEnemyService =
                 ServiceLocator.Instance.GetService<KilledEnemyService>();
-            //TODO: pool projectiles
         }
         
         public Collider GetHero()
@@ -122,11 +129,13 @@ namespace Code.Enemies.Types
             return true;
         }
 
-        public void DamageReceived(int damage)
+        public void DamageReceived(int damage, Color colorIndex)
         {
             if(_isDead) return;
             _isDead = ApplyDamage(damage);
+            OnDamaged?.Invoke(damage, colorIndex);
             DamageReceivedNotify(_isDead);
         }
+
     }
 }

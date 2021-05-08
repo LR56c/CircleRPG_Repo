@@ -8,39 +8,25 @@ namespace Code.Installers
     public class BootInstaller : MonoBehaviour
     {
         [SerializeField] private UILoader _uiLoader;
+        private                  World    _firstWorld;
 
         private void Awake()
         {
-            //aqui en caso de necesitar cargar algo guardado de los servicios
-
-            var teamStats = new TeamStats();
-            ServiceLocator.Instance.RegisterService(teamStats);
-
-            var world = new World();
-            ServiceLocator.Instance.RegisterService(world);
-
-            var playerStats = new PlayerStats();
-            ServiceLocator.Instance.RegisterService(playerStats);
-        }
-
-        private void Start()
-        {
-            /*
-             * TODO: ver si pasa al tutorial
-             * dependiendo de esto retrasar carga % UILoader
-             */
-
-            _uiLoader.LoadSceneAsync(SceneManager.LoadSceneAsync(1));
-
-            /*if(PlayerPrefs.HasKey("FirstPlay"))
+            if(PlayerPrefs.HasKey("Level"))
             {
-                SceneManager.LoadSceneAsync(UnityConstants.Scenes.Mauricio_Hub);
+                var savedLevel = PlayerPrefs.GetInt("Level");
+                _firstWorld = new World(savedLevel);
+                //mas scene offset
+                _uiLoader.LoadSceneAsync(SceneManager.LoadSceneAsync(savedLevel + 2));
             }
             else
             {
-                PlayerPrefs.SetInt("FirstPlay", 1);
-                SceneManager.LoadSceneAsync(UnityConstants.Scenes.Mauricio_LevelTest);
-            }*/
+                _firstWorld = new World(1);
+                //se carga escena tutorial, ya que ahi recien se guardara Level
+                _uiLoader.LoadSceneAsync(SceneManager.LoadSceneAsync(2));
+            }
+            
+            ServiceLocator.Instance.RegisterService(_firstWorld);
         }
     }
 }

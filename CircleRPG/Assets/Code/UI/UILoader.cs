@@ -18,22 +18,42 @@ namespace Code.UI
         [SerializeField] private TextMeshProUGUI                         _loadingPercentText;
         private                  AsyncOperation                          _sceneLoading;
         private                  TweenerCore<float, float, FloatOptions> _tweenBlackscreen;
+        private                  World                                   _firstWorld;
 
         private void Awake()
         {
             ServiceLocator.Instance.RegisterService(this);
+
+            TempInitWorld();
             DontDestroyOnLoad(gameObject);    
+        }
+
+        //TODO: recordar sacar al hacer build
+        private void TempInitWorld()
+        {
+            if(PlayerPrefs.HasKey("Level"))
+            {
+                var savedLevel = PlayerPrefs.GetInt("Level");
+                _firstWorld = new World(savedLevel);
+            }
+            else
+            {
+                _firstWorld = new World(1);
+            }
+            
+            ServiceLocator.Instance.RegisterService(_firstWorld);
         }
 
 #if UNITY_EDITOR
         private void Start()
         {
-            EnableLoadingGroup(false, 1f);
+            EnableLoadingGroup(false, 0.1f);
         }
 #endif
 
         public void LoadSceneAsync(AsyncOperation scene)
         {
+            EnableLoadingGroup(true,0.1f);
             _sceneLoading = scene;
             StartCoroutine(GetLoadProgress());
         }
@@ -47,7 +67,7 @@ namespace Code.UI
                 yield return null;
             }
             
-            EnableLoadingGroup(false,1f);
+            EnableLoadingGroup(false,0.1f);
         }
         
         public void EnableBlackscreenGroup(bool value, float duration, TweenCallback onComplete)

@@ -23,7 +23,7 @@ namespace Code.Enemies.Types
         {
             base.OnEnable();
             transform.rotation = Quaternion.LookRotation(GetRandomPointXZ());
-            _rb.velocity = transform.forward * _speed;
+            //_rb.velocity = transform.forward * _speed;
         }
 
         protected override void DoAttack()
@@ -51,7 +51,7 @@ namespace Code.Enemies.Types
 
         private void FixedUpdate()
         {
-            //_rb.velocity = (_speed * Time.fixedDeltaTime) * transform.forward;
+            _rb.velocity = (_speed * Time.fixedDeltaTime) * transform.forward;
             _oldVelocity = _rb.velocity;
         }
 

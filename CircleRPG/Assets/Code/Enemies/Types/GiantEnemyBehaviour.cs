@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using FredericRP.ObjectPooling;
+using UnityEngine;
 
 namespace Code.Enemies.Types
 {
@@ -9,13 +10,16 @@ namespace Code.Enemies.Types
         
         [Header("Numbers solo puede ser Impar")]
         [SerializeField] private int _numbers = 3;
-        [SerializeField] private float _angleStep = 45f;
-        private                  int   _offsetMultiplier;
+        [SerializeField] private float      _angleStep = 45f;
+        private                  int        _offsetMultiplier;
+        private                  ObjectPool _pool;
+        [SerializeField] private string     _prefabPoolName = "Giant";
 
         protected override void Start()
         {
             base.Start();
             PreCalculateOffsetMultiplier();
+            _pool = ObjectPool.GetObjectPool("pool");
         }
         private void PreCalculateOffsetMultiplier()
         {
@@ -50,7 +54,10 @@ namespace Code.Enemies.Types
 
             for(int i = 0; i < _numbers; i++)
             {
-                Instantiate(_ballProjectilePrefab, location, Quaternion.Euler(0f, offsetAngle, 0f));
+                var go = _pool.GetFromPool(_prefabPoolName);
+                go.transform.position = location;
+                go.transform.rotation = Quaternion.Euler(0f, offsetAngle,0f);
+                //Instantiate(_ballProjectilePrefab, location, Quaternion.Euler(0f, offsetAngle, 0f));
                 offsetAngle += _angleStep;
             }
         }

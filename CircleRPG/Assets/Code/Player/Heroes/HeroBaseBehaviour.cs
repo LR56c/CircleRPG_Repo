@@ -5,41 +5,52 @@ using Code.Installers;
 using Code.UI;
 using Code.Utility;
 using DG.Tweening;
+using FredericRP.ObjectPooling;
 using UnityEngine;
 using UnityEngine.AI;
 
 namespace Code.Player.Heroes
 {
-    public abstract class HeroBaseBehaviour : MonoBehaviour, IDamageable, IAttack
+    public abstract class HeroBaseBehaviour : MonoBehaviour, IAttack
     {
-        [SerializeField]             private NavMeshAgent _agent;
-        [SerializeField]             private Animator     _animator;
-        [SerializeField] private Collider            _collider;
-        
-        private                  int          _dieParam = Animator.StringToHash("Die");
-        private                  int          _attackParam = Animator.StringToHash("Attack");
-        public                   Action       OnAttackComplete;
-        
-        [SerializeField] private Transform          _pointToMove;
-        [SerializeField] private HeroProjectile     _projectilePrefab;
-        [SerializeField] private Transform          _spawnProjectilePoint;
-        [SerializeField] private int                _currentHealth   = 100;
-        [SerializeField] private int                _maxHealth = 120;
-        [SerializeField] private float              _tweenTimeRotate = 0.2f;
+        [SerializeField] private NavMeshAgent _agent;
+
+        [SerializeField] private Animator _animator;
+        //[SerializeField] private Collider     _collider;
+
+        private int              _dieParam = Animator.StringToHash("Die");
+        public  Action           OnAttackComplete;
+        public event Action      OnDied;
+        public event Action<int> OnDamaged;
+        public int               GetCurrentHealth() => _currentHealth;
+
+        public int GetMaxHealth() => _maxHealth;
+
+        [SerializeField] private Transform      _pointToMove;
+        [SerializeField] private HeroProjectile _projectilePrefab;
+        [SerializeField] private Transform      _spawnProjectilePoint;
+        [SerializeField] private int            _currentHealth   = 100;
+        [SerializeField] private int            _maxHealth       = 120;
+        [SerializeField] private float          _tweenTimeRotate = 0.2f;
+
+        private                  ObjectPool _pool;
+        [SerializeField] private string     _prefabPoolName;
 
         private                  UIHeroAbility      _uiHeroAbility;
         private                  KilledEnemyService _killedEnemyService;
         private                  int                _killCount         = 0;
         [SerializeField] private int                _killsToGetAbility = 1;
         public                   Collider           FocusEnemy{get;set;}
-        
+
         protected virtual void Start()
         {
             MySceneLinkedSMB<HeroBaseBehaviour>.Initialise(_animator, this);
-            
+
             _uiHeroAbility = ServiceLocator.Instance.GetService<UIHeroAbility>();
-            
-            _killedEnemyService = ServiceLocator.Instance.GetService<KilledEnemyService>();
+            _pool = ObjectPool.GetObjectPool("pool");
+
+            _killedEnemyService =
+                ServiceLocator.Instance.GetService<KilledEnemyService>();
             _killedEnemyService.OnEnemyKilled += OnEnemyKilled;
         }
 
@@ -48,7 +59,7 @@ namespace Code.Player.Heroes
         {
             _uiHeroAbility.ActiveHeroAbility(GetHeroEType());
         }
-        
+
         private void OnEnemyKilled(int oneDeath)
         {
             _killCount += oneDeath;
@@ -64,12 +75,6 @@ namespace Code.Player.Heroes
 
         protected virtual void Update()
         {
-            /*if(_agent.remainingDistance > _agent.stoppingDistance)
-            {
-                //aqui podria cancelarse el ataque cuando se esta quieto, pero se siente raro
-                return;
-            }*/
-            
             _agent.SetDestination(_pointToMove.position);
         }
 
@@ -84,14 +89,15 @@ namespace Code.Player.Heroes
 
         public void TurnToTarget()
         {
-            transform.DOLookAt(FocusEnemy.transform.position, _tweenTimeRotate, AxisConstraint.Y, Vector3.up);
+            transform.DOLookAt(FocusEnemy.transform.position, _tweenTimeRotate,
+                               AxisConstraint.Y, Vector3.up);
         }
 
         public bool CanAttack()
         {
             return FocusEnemy;
         }
-        
+
         //protected abstract void DoAttack(Collider objetive);
 
         public void DamageReceived(int damage)
@@ -100,6 +106,7 @@ namespace Code.Player.Heroes
             DamageReceivedNotify(isDead);
         }
 
+        //TODO: falta ver como se veeria cura en healthBar hero
         public void Heal(int value)
         {
             _currentHealth += value;
@@ -110,15 +117,23 @@ namespace Code.Player.Heroes
             }
         }
 
+        private void AnimationDiedComplete()
+        {
+            _pointToMove.gameObject.SetActive(false);
+            gameObject.SetActive(false);
+        }
+
         protected abstract void DamageReceivedNotify(bool isDead);
 
         private bool ApplyDamage(int damage)
         {
             _currentHealth -= damage;
+            OnDamaged?.Invoke(damage);
 
             if(_currentHealth > 0)
                 return false;
 
+            OnDied?.Invoke();
             _animator.SetTrigger(_dieParam);
             _currentHealth = 0;
             return true;
@@ -126,30 +141,25 @@ namespace Code.Player.Heroes
 
         protected virtual void ThrowProjectile()
         {
-            
             if(!FocusEnemy) return;
-            
+
             Vector3 enemyPos = FocusEnemy.bounds.center;
-            
+
             Vector3 spawnPos = _spawnProjectilePoint.position;
             Vector3 dir = (enemyPos - spawnPos).normalized;
             Quaternion rotationDir = Quaternion.LookRotation(dir);
 
-            //TODO: una pool con dontDestroyOnLoad, le pediria la creacion a una factory en la escena boot
-            //TODO: aqui se pediria el objeto de la pool, la pool lo activaria y aqui se le pasaria la posicion y rotacion
-            HeroProjectile go = Instantiate(_projectilePrefab,
-                                            spawnPos, rotationDir);
+            var my = _pool.GetFromPool(_prefabPoolName);
+            my.transform.position = spawnPos;
+            my.transform.rotation = rotationDir;
+
+            /*HeroProjectile go = Instantiate(_projectilePrefab,
+                                            spawnPos, rotationDir);*/
         }
 
-        public void ResetNavMesh()
+        public void DoWarp(Vector3 pos)
         {
-            _agent.ResetPath();
-        }
-
-        public void ForceEnableCollider(bool value)
-        {
-            _collider.enabled = value;
-            _agent.enabled = value;
+            _agent.Warp(pos);
         }
     }
 }

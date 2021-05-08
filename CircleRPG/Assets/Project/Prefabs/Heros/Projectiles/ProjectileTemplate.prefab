@@ -60,7 +60,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 4
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!114 &-8227549379480656784
 MonoBehaviour:
@@ -75,5 +75,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 1
-  _speed: 5
+  _speed: 500
   _rb: {fileID: 2641964905553294300}
+  _prefabPoolName: 
