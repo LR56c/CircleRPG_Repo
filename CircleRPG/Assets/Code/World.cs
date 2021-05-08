@@ -17,7 +17,7 @@ namespace Code
         }
 
         public int GetCurrentLevel() => _currentLevel;
-
+        public int GetMaxLevels()    => _maxScenes - _sceneOffset;
         public void CheckCanAddNextLevel()
         {
             //aqui se podria resetear current level para volver a jugar desde el tutorial

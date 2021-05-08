@@ -19,8 +19,9 @@ namespace Code.Installers
             {
                 var savedLevel = PlayerPrefs.GetInt("Level");
                 _firstWorld = new World(savedLevel);
+                _uiLoader.LoadSceneAsync(SceneManager.LoadSceneAsync(1));
                 //mas scene offset
-                _uiLoader.LoadSceneAsync(SceneManager.LoadSceneAsync(savedLevel + 2));
+                //_uiLoader.LoadSceneAsync(SceneManager.LoadSceneAsync(savedLevel + 2));
             }
             else
             {
