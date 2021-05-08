@@ -11,30 +11,31 @@ namespace Code.LevelEssentials
 {
     public class LevelFacade : MonoBehaviour
     {
+        [Header("External")]
+        [SerializeField] private PlayerGroupBehaviour _playerGroup;
+        [SerializeField]                      private ArcherAbility        _archerAbility;
+
+        private UILoader _uiLoader;
+        private World    _world;
+
+        [Header("Config")]
         
-        private                  PlayerGroupBehaviour _playerGroup;
-        private                  UILoader             _uiLoader;
-        private                  ArcherAbility        _archerAbility;
-        private                  World                _world;
-        [SerializeField] private int                  _currentLevelIndex = 0;
-        [SerializeField] private float                _changeZoneFade = 0.5f;
-        [SerializeField] private LevelZone[]          _levelZones;
-        
+        [SerializeField] private int         _currentLevelIndex = 0;
+        [SerializeField]                    private float       _changeZoneFade    = 0.5f;
+        [SerializeField]                    private LevelZone[] _levelZones;
+
         [SerializeField] private Image _zoneProgressBar;
         [SerializeField] private float _progressBarFade = 0.5f;
 
         [SerializeField] private UILevel _uiLevel;
 
-        //curent / levels.count
         private void Start()
         {
             var locator = ServiceLocator.Instance;
-            
-            _playerGroup = locator.GetService<PlayerGroupBehaviour>();
+
             _uiLoader = locator.GetService<UILoader>();
-            _archerAbility = locator.GetService<ArcherAbility>();
             _world = locator.GetService<World>();
-            
+
             LoadZoneUpdate();
         }
 
@@ -44,7 +45,7 @@ namespace Code.LevelEssentials
             PlayerPosUpdate();
             LoadZoneUpdate();
         }
-        
+
         private bool CanUpdate()
         {
             if(_currentLevelIndex >= _levelZones.Length - 1)
@@ -52,7 +53,8 @@ namespace Code.LevelEssentials
                 _uiLevel.OnWin(() =>
                 {
                     _world.CheckCanAddNextLevel();
-                    _uiLoader.LoadSceneAsync(SceneManager.LoadSceneAsync( UnityConstants.Scenes.Mauricio_Hub));
+                    _uiLoader.LoadSceneAsync(SceneManager.LoadSceneAsync(UnityConstants
+                                                 .Scenes.Mauricio_Hub));
                 });
                 _currentLevelIndex = _levelZones.Length;
                 return false;
@@ -65,7 +67,7 @@ namespace Code.LevelEssentials
         private void PlayerPosUpdate()
         {
             var nextZone = _levelZones[_currentLevelIndex];
-            
+
             _uiLoader.EnableBlackscreenGroup(true);
             _playerGroup.MoveHeroes(nextZone.ZoneStartPosition);
 
@@ -75,15 +77,17 @@ namespace Code.LevelEssentials
                 {
                     float percent = (float) _currentLevelIndex / _levelZones.Length;
 
-                    _uiLoader.EnableBlackscreenGroup(false, 1f, () =>
-                    {
-                        _zoneProgressBar.DOFillAmount(percent, _progressBarFade);
-                    });
+                    _uiLoader.EnableBlackscreenGroup(false, 1f,
+                                                     () =>
+                                                     {
+                                                         _zoneProgressBar
+                                                             .DOFillAmount(percent,
+                                                                 _progressBarFade);
+                                                     });
                 }
                 else
                 {
                     _uiLoader.EnableBlackscreenGroup(false, 1f);
-                    
                 }
             });
         }
@@ -95,7 +99,8 @@ namespace Code.LevelEssentials
                 if(i == _currentLevelIndex)
                 {
                     _levelZones[_currentLevelIndex].gameObject.SetActive(true);
-                    _archerAbility.ConfigCollider(_levelZones[_currentLevelIndex].GetArcherArea());
+                    _archerAbility.ConfigCollider(_levelZones[_currentLevelIndex]
+                                                      .GetArcherArea());
                 }
                 else
                 {

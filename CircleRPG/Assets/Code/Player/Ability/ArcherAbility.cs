@@ -10,12 +10,6 @@ namespace Code.Player
     {
         private                              Collider _floorColliderStay;
         [SerializeField] private float        _secondsToBurn = 3.0f;
-        
-
-        protected override void Register()
-        {
-            ServiceLocator.Instance.RegisterService(this);
-        }
 
         protected override bool CanAbility()
         {

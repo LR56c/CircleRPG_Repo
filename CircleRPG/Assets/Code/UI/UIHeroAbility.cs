@@ -24,9 +24,10 @@ namespace Code.UI
 
         [SerializeField] private Button[] _type;
         
-        private HeroAbilityBase _archerAbility;
-        private HeroAbilityBase _hammerAbility;
-        private HeroAbilityBase _shieldAbility;
+        [Header("External")]
+        [SerializeField] private HeroAbilityBase _archerAbility;
+        [SerializeField] private HeroAbilityBase _hammerAbility;
+        [SerializeField] private HeroAbilityBase _shieldAbility;
 
         //Se coloca fijo, pero si serian mas, se enlazaria button con diccionario
         private void OnValidate()
@@ -35,20 +36,7 @@ namespace Code.UI
                             _hammerAbilityButton, 
                             _shieldAbilityButton};
         }
-
-        private void Awake()
-        {
-            ServiceLocator.Instance.RegisterService(this);
-        }
-
-        private void Start()
-        {
-            //Como son 3 es especifico, si serian mas, habria un abilityService que podria automatizar el registro
-            _archerAbility = ServiceLocator.Instance.GetService<ArcherAbility>();
-            _shieldAbility = ServiceLocator.Instance.GetService<ShieldAbility>();
-            _hammerAbility = ServiceLocator.Instance.GetService<HammerAbility>();
-        }
-
+        
         private void OnEnable()
         {
             _archerAbilityButton.onClick.AddListener(ArcherAbilityResponse);

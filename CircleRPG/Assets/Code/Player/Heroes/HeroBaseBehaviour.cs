@@ -22,6 +22,7 @@ namespace Code.Player.Heroes
         public  Action           OnAttackComplete;
         public event Action      OnDied;
         public event Action<int> OnDamaged;
+        public event Action<int> OnHeal;
         public int               GetCurrentHealth() => _currentHealth;
 
         public int GetMaxHealth() => _maxHealth;
@@ -36,17 +37,18 @@ namespace Code.Player.Heroes
         private                  ObjectPool _pool;
         [SerializeField] private string     _prefabPoolName;
 
-        private                  UIHeroAbility      _uiHeroAbility;
         private                  KilledEnemyService _killedEnemyService;
         private                  int                _killCount         = 0;
         [SerializeField] private int                _killsToGetAbility = 1;
         public                   Collider           FocusEnemy{get;set;}
+        
+        [Header("External")]
+        [SerializeField] private UIHeroAbility _uiHeroAbility;
 
         protected virtual void Start()
         {
             MySceneLinkedSMB<HeroBaseBehaviour>.Initialise(_animator, this);
 
-            _uiHeroAbility = ServiceLocator.Instance.GetService<UIHeroAbility>();
             _pool = ObjectPool.GetObjectPool("pool");
 
             _killedEnemyService =
@@ -106,10 +108,10 @@ namespace Code.Player.Heroes
             DamageReceivedNotify(isDead);
         }
 
-        //TODO: falta ver como se veeria cura en healthBar hero
         public void Heal(int value)
         {
             _currentHealth += value;
+            OnHeal?.Invoke(value);
 
             if(_currentHealth > _maxHealth)
             {

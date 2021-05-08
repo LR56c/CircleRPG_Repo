@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Code.Player.Heroes;
 using Code.UI;
 using Code.Utility;
@@ -10,7 +11,6 @@ namespace Code.Player
 {
     public class PlayerGroupBehaviour : MonoBehaviour
     {
-        private TouchJoystick _touchJoystick;
         private Rigidbody     _rb;
         private Animator      _myAnimator;
         private Vector3       _joystickValue;
@@ -19,6 +19,13 @@ namespace Code.Player
         private bool          bWaitAttack  = false;
         private int _heroDiedCounter = 0;
 
+
+        [Header("External")] 
+        
+        [SerializeField] private TouchJoystick _touchJoystick;
+        
+        [Header("Config")]
+        
         [SerializeField] private float _speed = 20f;
 
         [SerializeField] private UILevel     _uiLevel;
@@ -26,25 +33,21 @@ namespace Code.Player
 
         [SerializeField] private HeroBaseBehaviour[] _heroes         = new HeroBaseBehaviour[3];
         [SerializeField] private Animator[]          _heroesAnimator = new Animator[3];
-
-        //[SerializeField] private List<HeroBaseBehaviour> _heroes = new List<HeroBaseBehaviour>(3);
-        //[SerializeField] private List<Animator> _heroesAnimator = new List<Animator>(3);
-
+        
         [SerializeField] private List<Collider> _enemyList = new List<Collider>();
         
-        [SerializeField] private GameObject     _focusEnemyCircle;
-        [SerializeField] private Collider       _focusEnemy;
+        [SerializeField] private GameObject _focusEnemyCircle;
+        [SerializeField] private Collider   _focusEnemy;
+        [SerializeField] private bool       bCheckNear = false;
 
         private void Awake()
         {
             _rb = GetComponent<Rigidbody>();
             _myAnimator = GetComponent<Animator>();
-            ServiceLocator.Instance.RegisterService(this);
         }
 
         private void Start()
         {
-            _touchJoystick = ServiceLocator.Instance.GetService<TouchJoystick>();
             _touchJoystick.ValueChangedEvent += OnValueChangedEvent;
 
             foreach(var hero in _heroes)
@@ -52,9 +55,7 @@ namespace Code.Player
                 hero.OnDied += OnHeroDied;
             }
         }
-
-        //TODO: escuchar evento cuando muere 1 y si mueren los 3, activar lose de uiLevel 
-
+        
         private void OnHeroDied()
         {
             _heroDiedCounter++;
@@ -87,29 +88,30 @@ namespace Code.Player
 
             UpdateAnimator();
 
-            CheckEnemyToAnimators();
+            if(!GetFocusEnemy()) return;
             CheckNear();
+            CheckEnemyToAnimators();
             CheckFocusEnemy();
         }
 
         private void CheckNear()
         {
             // se podria revisar cada 5s
-            if(_enemyList.Count < 2) return;
+            if(_enemyList.Count <= 1) return;
             
             float actualEnemyDistance =
                 Vector3.Distance(transform.position, _focusEnemy.transform.position);
 
-            for(int i = 0; i < _enemyList.Count; i++)
+            foreach(Collider t in _enemyList)
             {
-                if(_enemyList[i] != _focusEnemy)
+                if(t != _focusEnemy)
                 {
                     float otherEnemyDistance =
-                        Vector3.Distance(transform.position, _enemyList[i].transform.position);
+                        Vector3.Distance(transform.position, t.transform.position);
 
                     if(otherEnemyDistance < actualEnemyDistance)
                     {
-                        _focusEnemy = _enemyList[i];
+                        _focusEnemy = t;
                     }
                 }
             }
@@ -124,7 +126,7 @@ namespace Code.Player
 
         private void CheckFocusEnemy()
         {
-            if(_focusEnemy)
+            if(_focusEnemy.gameObject.activeInHierarchy)
             {
                 _focusEnemyCircle.SetActive(true);
                 _focusEnemyCircle.transform.position = _focusEnemy.transform.position;
@@ -137,12 +139,10 @@ namespace Code.Player
 
         private void CheckEnemyToAnimators()
         {
-            if(!GetFocusEnemy()) return;
-
             if(!bWaitAttack)
             {
                 bWaitAttack = true;
-
+                
                 foreach(var heroAnimator in _heroesAnimator)
                 {
                     heroAnimator.SetTrigger(_attackParam);
@@ -153,6 +153,7 @@ namespace Code.Player
                     heroBehaviour.FocusEnemy = _focusEnemy;
                     heroBehaviour.Attack(() => {bWaitAttack = false;});
                 }
+               
             }
         }
 

@@ -11,11 +11,6 @@ namespace Code.Player
         private                  float               _seconds    = 5.0f;
         [SerializeField] private GameObject          _effect;
         [SerializeField] private HeroBaseBehaviour[] _heroBaseBehaviours;
-        
-        protected override void            Register()
-        {
-            ServiceLocator.Instance.RegisterService(this);
-        }
 
         protected override bool CanAbility()
         {

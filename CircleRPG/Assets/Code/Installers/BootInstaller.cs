@@ -12,6 +12,9 @@ namespace Code.Installers
 
         private void Awake()
         {
+            var killedEnemyService = new KilledEnemyService();
+            ServiceLocator.Instance.RegisterService(killedEnemyService);
+            
             if(PlayerPrefs.HasKey("Level"))
             {
                 var savedLevel = PlayerPrefs.GetInt("Level");

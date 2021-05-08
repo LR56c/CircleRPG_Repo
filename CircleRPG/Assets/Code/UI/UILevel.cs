@@ -74,16 +74,7 @@ namespace Code.UI
         {
             OnLevelCompleted?.Invoke();
         }
-
-        /*
-         * TODO: problemas al reiniciar, repasar servicios:
-         * joystick
-         * playerGroup
-         * UIHeroAbility
-         * ArcherAbility
-         * HammerAbility
-         * ShieldAbility
-         */
+        
         private void OnRestart()
         {
             var thisScene = SceneManager.GetActiveScene().buildIndex;

@@ -25,23 +25,32 @@ namespace Code.Enemies
         {
             _hero = GetComponent<HeroBaseBehaviour>();
             _hero.OnDamaged += OnDamaged;
+            _hero.OnHeal += OnHeal;
         }
 
         private void OnDisable()
         {
             _hero.OnDamaged -= OnDamaged;
+            _hero.OnHeal -= OnHeal;
         }
         
         private void OnDamaged(int amount)
         {
             TweenBarFillAmount();
-            RequestTextAnim(amount);
+            RequestTextAnim($"-{amount.ToString()}");
+        }
+        
+        
+        private void OnHeal(int obj)
+        {
+            TweenBarFillAmount();
+            RequestTextAnim($"+{obj.ToString()}");
         }
 
-        private void RequestTextAnim(int amount)
+        private void RequestTextAnim(string text)
         {
             var go = _pool.GetFromPool(_textPoolName);
-            go.SetText($"-{amount.ToString()}", _colorDamage);
+            go.SetText(text, _colorDamage);
         }
 
         private void TweenBarFillAmount()

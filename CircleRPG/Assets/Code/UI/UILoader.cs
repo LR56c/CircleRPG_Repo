@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Code.Installers;
 using Code.Utility;
 using DG.Tweening;
 using DG.Tweening.Core;
@@ -31,6 +32,9 @@ namespace Code.UI
         //TODO: recordar sacar al hacer build
         private void TempInitWorld()
         {
+            var killedEnemyService = new KilledEnemyService();
+            ServiceLocator.Instance.RegisterService(killedEnemyService);
+            
             if(PlayerPrefs.HasKey("Level"))
             {
                 var savedLevel = PlayerPrefs.GetInt("Level");
@@ -66,6 +70,9 @@ namespace Code.UI
                 _loadingSlider.value = _sceneLoading.progress;
                 yield return null;
             }
+            
+            //seteado aqui por freeze de restart level en lose panel
+            Time.timeScale = 1;
             
             EnableLoadingGroup(false,0.1f);
         }

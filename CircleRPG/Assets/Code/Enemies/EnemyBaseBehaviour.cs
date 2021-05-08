@@ -52,13 +52,6 @@ namespace Code.Enemies.Types
                 ServiceLocator.Instance.GetService<KilledEnemyService>();
         }
 
-        private void InternalInitialise()
-        {
-            MySceneLinkedSMB<EnemyBaseBehaviour>.Initialise(_animator, this);
-            _killedEnemyService =
-                ServiceLocator.Instance.GetService<KilledEnemyService>();
-        }
-        
         public Collider GetHero()
         {
             if(_inAreaHeros.Count == 0) return null;

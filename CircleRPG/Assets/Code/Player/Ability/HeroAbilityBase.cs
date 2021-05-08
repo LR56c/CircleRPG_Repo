@@ -5,14 +5,6 @@ namespace Code.Player
 {
     public abstract class HeroAbilityBase : MonoBehaviour
     {
-        protected virtual void Awake()
-        {
-            Register();
-        }
-
-        protected abstract void Register();
-
-
         public void Ability()
         {
             if(CanAbility())
