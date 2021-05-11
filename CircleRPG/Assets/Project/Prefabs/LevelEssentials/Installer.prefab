@@ -43,4 +43,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5653c7fdd66f4d579ad6c01fba2a209e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _touchJoystick: {fileID: 0}

@@ -92,6 +92,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 007db8b1a5c11914995bbb0fe89315ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_MonoBehaviour: {fileID: 0}
+  _animator: {fileID: 0}
+  _navMeshAgent: {fileID: 0}
   bWait: 0
   bAction: 0
   _secondsToWait: 5
@@ -185,6 +188,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e4721b747294d058fcb692333512bf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_MonoBehaviour: {fileID: 0}
+  _animator: {fileID: 0}
+  _navMeshAgent: {fileID: 0}
   _seconds: 5
 --- !u!1102 &-1845422741897872895
 AnimatorState:
@@ -253,31 +259,31 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: ToAttack
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: ToSight
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Died
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Stuned
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -389,6 +395,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d197b190b67041ee89bec023ebe5d400, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_MonoBehaviour: {fileID: 0}
+  _animator: {fileID: 0}
+  _navMeshAgent: {fileID: 0}
 --- !u!1102 &9047496332101106570
 AnimatorState:
   serializedVersion: 6

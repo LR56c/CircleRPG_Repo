@@ -25,7 +25,9 @@ namespace Code.UI
         {
             ServiceLocator.Instance.RegisterService(this);
 
+#if UNITY_EDITOR
             TempInitWorld();
+#endif
             DontDestroyOnLoad(gameObject);    
         }
 
