@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33450808050079290}
   - component: {fileID: 23616966655988428}
   - component: {fileID: 65643836707441742}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: dungeon-floor-stone
   m_TagString: Untagged
   m_Icon: {fileID: 0}

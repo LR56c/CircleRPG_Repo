@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33745303864540014}
   - component: {fileID: 23234696698136462}
   - component: {fileID: 64973101842697966}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: dungeon-pillar-stone-square
   m_TagString: Untagged
   m_Icon: {fileID: 0}

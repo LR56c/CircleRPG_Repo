@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 65000013697833432}
   m_Layer: 10
   m_Name: crate-box
-  m_TagString: Untagged
+  m_TagString: BreakBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

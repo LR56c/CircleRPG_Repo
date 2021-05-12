@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 33138151562507250}
   - component: {fileID: 23765930965872264}
   - component: {fileID: 64753789453054668}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: candlestick
-  m_TagString: Untagged
+  m_TagString: BreakBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
