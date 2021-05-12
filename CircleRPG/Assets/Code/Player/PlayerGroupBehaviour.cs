@@ -162,6 +162,7 @@ namespace Code.Player
             if(_enemyList.Count == 0)
             {
                 _focusEnemy = null;
+                _focusEnemyCircle.SetActive(false);
                 return null;
             }
 
@@ -173,7 +174,8 @@ namespace Code.Player
            
             _enemyList.Remove(_enemyList[0]);
             _focusEnemy = null;
-            
+            _focusEnemyCircle.SetActive(false);
+
             return GetFocusEnemy();
         }
 

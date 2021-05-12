@@ -47,7 +47,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: ccc6bf4b280bfbc44bb2820efead478b, type: 2}
+  m_Motion: {fileID: 7400000, guid: eed129f4bea501e4eb8b7d1ac1af6553, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -73,7 +73,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: ad32bdc120273b7499b8d85f5ceb2772, type: 2}
+  m_Motion: {fileID: 7400000, guid: 8c9d93c3ebbdb7f43892b1e6682ec992, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -91,6 +91,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d197b190b67041ee89bec023ebe5d400, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_MonoBehaviour: {fileID: 0}
+  _animator: {fileID: 0}
+  _navMeshAgent: {fileID: 0}
 --- !u!1102 &-2768906373086658756
 AnimatorState:
   serializedVersion: 6
@@ -114,7 +117,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 7b052078813fec64683f66547d9e76c3, type: 2}
+  m_Motion: {fileID: 7400000, guid: c26791f0bc026754590aa529596a828e, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -134,31 +137,31 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: ToAttack
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: ToSight
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Died
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Stuned
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -320,6 +323,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd556394958a410fae27f10941a32146, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_MonoBehaviour: {fileID: 0}
+  _animator: {fileID: 0}
+  _navMeshAgent: {fileID: 0}
   bWait: 0
   bAction: 0
   _secondsToWait: 4
@@ -345,7 +351,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 7b052078813fec64683f66547d9e76c3, type: 2}
+  m_Motion: {fileID: 7400000, guid: c26791f0bc026754590aa529596a828e, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -385,4 +391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e4721b747294d058fcb692333512bf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_MonoBehaviour: {fileID: 0}
+  _animator: {fileID: 0}
+  _navMeshAgent: {fileID: 0}
   _seconds: 5

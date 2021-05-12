@@ -313,6 +313,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 234890ec254445a6a06c38d445a7b697, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_MonoBehaviour: {fileID: 0}
+  _animator: {fileID: 0}
+  _navMeshAgent: {fileID: 0}
 --- !u!1101 &4555161349869483840
 AnimatorStateTransition:
   m_ObjectHideFlags: 1

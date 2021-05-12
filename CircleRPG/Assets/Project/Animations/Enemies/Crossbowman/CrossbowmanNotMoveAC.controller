@@ -1,20 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8063983729752651648
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd556394958a410fae27f10941a32146, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bWait: 0
-  bAction: 0
-  _secondsToWait: 4
 --- !u!114 &-7806359728464669070
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -27,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d197b190b67041ee89bec023ebe5d400, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_MonoBehaviour: {fileID: 0}
+  _animator: {fileID: 0}
+  _navMeshAgent: {fileID: 0}
 --- !u!1102 &-6431337357633554702
 AnimatorState:
   serializedVersion: 6
@@ -49,7 +37,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 678aebbd8970e1149b5cf56563e1259d, type: 2}
+  m_Motion: {fileID: 7400000, guid: ec6b6e37d2d29364dae1e053cdb30914, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -75,7 +63,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a557ddfd6d417df4bb2ba3e9087cef24, type: 2}
+  m_Motion: {fileID: 7400000, guid: 7ed7465a9cb718746a8b336162c17152, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -148,7 +136,7 @@ AnimatorState:
   - {fileID: -4348711830508638055}
   - {fileID: -5111332783698098317}
   m_StateMachineBehaviours:
-  - {fileID: -8063983729752651648}
+  - {fileID: 5074209139108344094}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -157,7 +145,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 678aebbd8970e1149b5cf56563e1259d, type: 2}
+  m_Motion: {fileID: 7400000, guid: ec6b6e37d2d29364dae1e053cdb30914, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -252,37 +240,37 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: ToAttack
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: ToSight
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Died
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: ToAim
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Stuned
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -343,7 +331,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: e6094cbffe77d4341bbcf271a5a44dbc, type: 2}
+  m_Motion: {fileID: 7400000, guid: 3b4f098a0fbdb3049a35c0c1cc0bd2a7, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -386,6 +374,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e4721b747294d058fcb692333512bf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_MonoBehaviour: {fileID: 0}
+  _animator: {fileID: 0}
+  _navMeshAgent: {fileID: 0}
   _seconds: 5
 --- !u!1101 &3917298732787872970
 AnimatorStateTransition:
@@ -445,6 +436,24 @@ AnimatorStateMachine:
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: -6431337357633554702}
+--- !u!114 &5074209139108344094
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd556394958a410fae27f10941a32146, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MonoBehaviour: {fileID: 0}
+  _animator: {fileID: 0}
+  _navMeshAgent: {fileID: 0}
+  bWait: 0
+  bAction: 0
+  _secondsToWait: 3
 --- !u!114 &6326207056660887002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -457,6 +466,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87d42d89a8634ac197722dcb58cfc813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_MonoBehaviour: {fileID: 0}
+  _animator: {fileID: 0}
+  _navMeshAgent: {fileID: 0}
   _secondsAiming: 5
   _aimRay: {fileID: 0}
 --- !u!1102 &6965142929356628496
@@ -481,7 +493,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: fbad686d27296754a99430aca442e055, type: 2}
+  m_Motion: {fileID: 7400000, guid: a9505434b86312a4c979a7b54ad98d06, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
