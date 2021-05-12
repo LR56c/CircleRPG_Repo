@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 33745303864540014}
   - component: {fileID: 23234696698136462}
   - component: {fileID: 64973101842697966}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: dungeon-pillar-stone-square
-  m_TagString: BreakBullet
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4951724836729598
 Transform:

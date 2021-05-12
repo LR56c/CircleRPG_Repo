@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 5417775342862249334}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 14.4525, y: 14.4525, z: 14.4525}
   m_Children: []
   m_Father: {fileID: 5108378168704805638}
   m_RootOrder: 1
@@ -128,10 +128,6 @@ PrefabInstance:
     - target: {fileID: 5493744066764559768, guid: 2942a517dddac1a479903f886a71312c, type: 3}
       propertyPath: m_Name
       value: LogEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 5493744066764559768, guid: 2942a517dddac1a479903f886a71312c, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7440874769086834921, guid: 2942a517dddac1a479903f886a71312c, type: 3}
       propertyPath: m_RootOrder

@@ -16,18 +16,22 @@ namespace Code.LevelEssentials
         [SerializeField] private EnemyBaseBehaviour[] _enemysPrefabs;
         private                  int                  _enemyNumbers = 0;
         public                   Collider             GetArcherArea() => _archerAbilityArea;
+        [SerializeField] private bool bCanEnemySearch = true;
+        
 
         public Vector3 ZoneStartPosition => _zoneStart.position;
         
         private void OnEnable()
         {
-            _enemysPrefabs = _enemysContainer.GetComponentsInChildren<EnemyBaseBehaviour>();
+            _enemyNumbers = _enemysPrefabs.Length;
+
+            if(bCanEnemySearch)
+                _enemysPrefabs = _enemysContainer.GetComponentsInChildren<EnemyBaseBehaviour>();
 
             foreach(EnemyBaseBehaviour enemy in _enemysPrefabs)
             {
                 enemy.OnDied += EnemyOnOnDied;
             }
-            _enemyNumbers = _enemysPrefabs.Length;
         }
         
         private void OnDisable()

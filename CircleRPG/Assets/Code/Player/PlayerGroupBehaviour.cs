@@ -16,7 +16,7 @@ namespace Code.Player
         private Vector3       _joystickValue;
         private int           _attackParam = Animator.StringToHash("Attack");
         private int           _movingParam = Animator.StringToHash("MoveVector");
-        private bool          bWaitAttack  = false;
+        [SerializeField] private bool          bWaitAttack  = false;
         private int _heroDiedCounter = 0;
 
 
@@ -126,7 +126,7 @@ namespace Code.Player
 
         private void CheckFocusEnemy()
         {
-            if(_focusEnemy.gameObject.activeInHierarchy)
+            if(_focusEnemy.gameObject.activeInHierarchy && _focusEnemy)
             {
                 _focusEnemyCircle.SetActive(true);
                 _focusEnemyCircle.transform.position = _focusEnemy.transform.position;
@@ -165,13 +165,15 @@ namespace Code.Player
                 return null;
             }
 
-            if(_enemyList[0].gameObject.activeInHierarchy && _enemyList[0].enabled)
+            if(_enemyList[0].gameObject.activeInHierarchy && _enemyList[0])
             {
                 _focusEnemy = _enemyList[0];
                 return _enemyList[0];
             }
-
+           
             _enemyList.Remove(_enemyList[0]);
+            _focusEnemy = null;
+            
             return GetFocusEnemy();
         }
 
@@ -190,6 +192,8 @@ namespace Code.Player
             _enemyList.Remove(collider);
 
             if(GetFocusEnemy()) return;
+            _focusEnemyCircle.SetActive(false);
+            bWaitAttack = false;
 
             foreach(var heroAnimator in _heroesAnimator)
             {

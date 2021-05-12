@@ -26,6 +26,7 @@ namespace Code.Enemies
         {
             _enemy = GetComponent<EnemyBaseBehaviour>();
             _enemy.OnDamaged += OnDamaged;
+            TweenBarFillAmount();
         }
 
         private void OnDisable()

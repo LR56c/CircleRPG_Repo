@@ -1046,6 +1046,7 @@ GameObject:
   - component: {fileID: 7652060919836810321}
   - component: {fileID: 8816664565915727633}
   - component: {fileID: 879467692568633431}
+  - component: {fileID: 1551282662}
   m_Layer: 0
   m_Name: PigBoss
   m_TagString: Enemy
@@ -1166,6 +1167,24 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 1
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1551282662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7652060919836810326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 788a820f708a4e79a68137a0deba8ef6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healthBar: {fileID: 0}
+  _whiteShrinkBar: {fileID: 0}
+  _pool: {fileID: 7763863534820899118}
+  _textPoolName: Text
+  _healthBarFade: 1
+  _whiteShrinkBarFade: 0.5
 --- !u!1 &7652060919836810328
 GameObject:
   m_ObjectHideFlags: 0
@@ -1459,3 +1478,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6911840312564919846, guid: f10953e69911e7a49be17c579f2ff9f0, type: 3}
   m_PrefabInstance: {fileID: 3765361435374249599}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7763863534820899118 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6917397664387850065, guid: f10953e69911e7a49be17c579f2ff9f0, type: 3}
+  m_PrefabInstance: {fileID: 3765361435374249599}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 618618c24337437681e3067756c4a518, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

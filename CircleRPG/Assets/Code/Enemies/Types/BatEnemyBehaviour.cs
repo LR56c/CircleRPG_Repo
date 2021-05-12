@@ -11,6 +11,7 @@ namespace Code.Enemies.Types
         [SerializeField] private float        _distanceInMeters = 8.0f;
         [SerializeField] private float        _seconds          = 5.0f;
         [SerializeField] private float        _finalVelocity    = 0.0f;
+        private                  bool         bCanImpulse       = false;
 
         protected override void Awake()
         {
@@ -32,13 +33,12 @@ namespace Code.Enemies.Types
         {
             _cachedSpeed = _navMeshAgent.speed;
             _navMeshAgent.speed = 0f;
-            _rb.velocity += transform.forward * _finalVelocity;
+            _rb.velocity = transform.forward * _finalVelocity;
+
             DOVirtual.DelayedCall(_seconds, () =>
             {
                 AttackFinish();
                 _navMeshAgent.speed = _cachedSpeed;
-                _rb.velocity = Vector3.zero;
-                _rb.angularVelocity = Vector3.zero;
             });
         }
     }

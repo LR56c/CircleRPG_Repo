@@ -1,5 +1,6 @@
 ﻿using System;
 using DG.Tweening;
+using FredericRP.ObjectPooling;
 using UnityConstants;
 using UnityEngine;
 using UnityEngine.Analytics;
@@ -9,22 +10,14 @@ namespace Code.Enemies.Types
 {
     public class MonkeyBossBehaviour : EnemyBaseBehaviour
     {
-        [SerializeField] private MonkeyBossBehaviour _monkey;
-        [SerializeField] private float               _speed      = 5.0f;
-        private                  Vector3             _oldVelocity = Vector3.zero;
-
+        [SerializeField] private MonkeyBossBehaviour[] _monkey = new MonkeyBossBehaviour[2];
+        [SerializeField] private float      _speed       = 5.0f;
+        private                  Vector3    _oldVelocity = Vector3.zero;
+       
         [Header("Gen")] 
-        private static int   _currentGen                 = 0;
-        [SerializeField] private int   _numbersSucessors           = 2;
         [SerializeField] private float _randomDirRange             = 1.0f;
-        [SerializeField] private int   _numbersOfCopiesInstantiate = 2;
-
-        protected override void OnEnable()
-        {
-            base.OnEnable();
-            transform.rotation = Quaternion.LookRotation(GetRandomPointXZ());
-            //_rb.velocity = transform.forward * _speed;
-        }
+        
+            //transform.rotation = Quaternion.LookRotation(GetRandomPointXZ());
 
         protected override void DoAttack()
         {
@@ -32,20 +25,14 @@ namespace Code.Enemies.Types
 
         protected override void DamageReceivedNotify(bool isDead)
         {
-            if(isDead)
-            {
-                if(_currentGen <= _numbersSucessors)
-                {
-                    for(int i = 0; i < _numbersOfCopiesInstantiate; i++)
-                    {
-                        MonkeyBossBehaviour copy =
-                            Instantiate(_monkey, transform.position, Quaternion.identity);
-                    }
+            if(!isDead) return;
 
-                    _currentGen++;
-                }
-                
-                gameObject.SetActive(false);
+            if(_monkey.Length == 0) return;
+
+            for(int i = 0; i < _monkey.Length; i++)
+            {
+                _monkey[i].transform.position = transform.position;
+                _monkey[i].gameObject.SetActive(true);
             }
         }
 
@@ -57,13 +44,8 @@ namespace Code.Enemies.Types
 
         private void OnCollisionEnter(Collision other)
         {
-            /*var obj = other.gameObject;
-            if(obj.CompareTag(Tags.Wall) || obj.CompareTag(Tags.Player) ||
-               obj.CompareTag(Tags.Enemy))
-            {
-                
-            }*/
-            
+            if(other.gameObject.layer == Layers.PlayerProjectile) return;
+
             var normal = other.GetContact(0).normal;
             var reflect = Vector3.Reflect(_oldVelocity, normal);
             _rb.velocity = reflect;

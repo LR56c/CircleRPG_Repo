@@ -26,8 +26,8 @@ namespace Code.Enemies.Types
         
         private int              _dieParam = Animator.StringToHash("Died");
 
-        [SerializeField] private   int                _currentHealth    = 100;
-        private                    int                _initialMaxHealth = 0;
+        [SerializeField] protected int                _currentHealth    = 100;
+        protected                  int                _initialMaxHealth = 0;
         [SerializeField] protected float              _tweenTimeRotate  = 1.0f;
         [SerializeField] private   List<Collider>     _inAreaHeros;
         public                     float              TweenTimeRotate => _tweenTimeRotate;

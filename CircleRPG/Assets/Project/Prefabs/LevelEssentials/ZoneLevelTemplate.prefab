@@ -330,7 +330,7 @@ GameObject:
   - component: {fileID: 6251441022669711357}
   - component: {fileID: 9114912081915303598}
   - component: {fileID: 8355357004226143659}
-  m_Layer: 6
+  m_Layer: 1
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
@@ -1366,6 +1366,7 @@ MonoBehaviour:
   _archerAbilityArea: {fileID: 9056034503648258061}
   _enemysContainer: {fileID: 8227077015969543015}
   _enemysPrefabs: []
+  bCanEnemySearch: 1
 --- !u!1 &8227077015969543015
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,13 +12,12 @@ GameObject:
   - component: {fileID: 33000011401714450}
   - component: {fileID: 23000010750330612}
   - component: {fileID: 64931190764545396}
-  - component: {fileID: 94703260516710639}
   m_Layer: 0
   m_Name: fence-classic
-  m_TagString: BreakBullet
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4000012701248834
 Transform:
@@ -29,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1000012777144428}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.125, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -99,19 +98,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 939b984731bd2b74883e84859c52117a, type: 3}
---- !u!208 &94703260516710639
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000012777144428}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 1, y: 0.73300004, z: 0.096}
-  m_MoveThreshold: 0.1
-  m_Carve: 0
-  m_CarveOnlyStationary: 1
-  m_Center: {x: -0.008, y: 0.77300006, z: 0.010000001}
-  m_TimeToStationary: 0.5

@@ -44,6 +44,10 @@ namespace UnityConstants
         /// Name of tag 'BreakBullet'.
         /// </summary>
         public const string BreakBullet = "BreakBullet";
+        /// <summary>
+        /// Name of tag 'Wall'.
+        /// </summary>
+        public const string Wall = "Wall";
     }
 
     public static class SortingLayers
@@ -100,6 +104,10 @@ namespace UnityConstants
         /// Index of layer 'WallLimit'.
         /// </summary>
         public const int WallLimit = 10;
+        /// <summary>
+        /// Index of layer 'PlayerProjectile'.
+        /// </summary>
+        public const int PlayerProjectile = 11;
 
         /// <summary>
         /// Bitmask of layer 'Default'.
@@ -145,6 +153,10 @@ namespace UnityConstants
         /// Bitmask of layer 'WallLimit'.
         /// </summary>
         public const int WallLimitMask = 1 << 10;
+        /// <summary>
+        /// Bitmask of layer 'PlayerProjectile'.
+        /// </summary>
+        public const int PlayerProjectileMask = 1 << 11;
     }
 
     public static class Scenes
@@ -161,6 +173,10 @@ namespace UnityConstants
         /// ID of scene 'Mauricio_LevelTest'.
         /// </summary>
         public const int Mauricio_LevelTest = 2;
+        /// <summary>
+        /// ID of scene 'Mauricio_PigBoss'.
+        /// </summary>
+        public const int Mauricio_PigBoss = 3;
     }
 
     public static class Axes

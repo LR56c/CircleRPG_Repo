@@ -12,13 +12,12 @@ GameObject:
   - component: {fileID: 33000013106539854}
   - component: {fileID: 23000012689051234}
   - component: {fileID: 64000012770315974}
-  - component: {fileID: 5899717041957853813}
   m_Layer: 0
   m_Name: barrel-old
-  m_TagString: BreakBullet
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4000010040432166
 Transform:
@@ -97,19 +96,3 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300002, guid: 25c61bc2335af47439cb56250b46caca, type: 3}
---- !u!208 &5899717041957853813
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000013261733414}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.45100003, y: 0.63000005, z: 0.44500002}
-  m_MoveThreshold: 0.1
-  m_Carve: 0
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0.003, y: 0.63000005, z: 0.002}
-  m_TimeToStationary: 0.5
