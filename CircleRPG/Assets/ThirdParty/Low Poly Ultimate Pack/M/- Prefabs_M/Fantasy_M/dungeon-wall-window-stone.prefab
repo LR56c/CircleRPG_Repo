@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 64087978431541454}
   m_Layer: 11
   m_Name: dungeon-wall-window-stone
-  m_TagString: BreakBullet
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

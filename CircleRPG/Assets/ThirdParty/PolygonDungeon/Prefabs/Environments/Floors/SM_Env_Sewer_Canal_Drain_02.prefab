@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 418824}
   - component: {fileID: 3326800}
   - component: {fileID: 2360884}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_Env_Sewer_Canal_Drain_02
-  m_TagString: Untagged
+  m_TagString: BreakBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

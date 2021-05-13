@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 33619438852062730}
   - component: {fileID: 23824501243602286}
   - component: {fileID: 64406966560155960}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bench-broken-wood
-  m_TagString: Untagged
+  m_TagString: BreakBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

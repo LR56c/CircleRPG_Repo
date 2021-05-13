@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 470216}
   - component: {fileID: 3385198}
   - component: {fileID: 2330460}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_Env_Wall_Archway_02
-  m_TagString: Untagged
+  m_TagString: BreakBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

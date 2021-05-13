@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 64000012770315974}
   m_Layer: 0
   m_Name: barrel-old
-  m_TagString: Untagged
+  m_TagString: BreakBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

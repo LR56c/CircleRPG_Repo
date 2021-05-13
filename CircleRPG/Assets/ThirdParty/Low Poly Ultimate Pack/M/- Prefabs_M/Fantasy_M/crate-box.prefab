@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 3387128}
   - component: {fileID: 2300558}
   - component: {fileID: 65726707207959304}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: crate-box
-  m_TagString: Untagged
+  m_TagString: BreakBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
