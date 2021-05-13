@@ -11,13 +11,13 @@ GameObject:
   - component: {fileID: 4000011495897294}
   - component: {fileID: 33000013134652594}
   - component: {fileID: 23000011915632558}
-  - component: {fileID: 64000011911691734}
-  m_Layer: 0
+  - component: {fileID: 272830668403332490}
+  m_Layer: 10
   m_Name: gravestone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &4000011495897294
 Transform:
@@ -82,8 +82,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &64000011911691734
-MeshCollider:
+--- !u!65 &272830668403332490
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -92,7 +92,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 87c827a1e31c4455abadddc85ce2c518, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.8466199, y: 1.692511, z: 0.4646657}
+  m_Center: {x: 0, y: 0.8462555, z: -0.0015370399}

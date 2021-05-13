@@ -121,6 +121,7 @@ namespace Code.Player.Heroes
 
         private void AnimationDiedComplete()
         {
+            OnDied?.Invoke();
             _pointToMove.gameObject.SetActive(false);
             gameObject.SetActive(false);
         }
@@ -135,7 +136,7 @@ namespace Code.Player.Heroes
             if(_currentHealth > 0)
                 return false;
 
-            OnDied?.Invoke();
+            
             _animator.SetTrigger(_dieParam);
             _currentHealth = 0;
             return true;

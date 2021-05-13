@@ -9,12 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000011363751446}
-  m_Layer: 0
+  - component: {fileID: 2461917374281883081}
+  m_Layer: 10
   m_Name: carriage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &4000011363751446
 Transform:
@@ -32,6 +33,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2461917374281883081
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000012876869458}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.56, y: 1.13, z: 3.67}
+  m_Center: {x: 0.06, y: 0.73, z: -0.67}
 --- !u!1 &1000013662212468
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,7 +58,7 @@ GameObject:
   - component: {fileID: 33000012020094256}
   - component: {fileID: 23000014167725360}
   - component: {fileID: 64177674506309646}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: carriage-wheels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +154,7 @@ GameObject:
   - component: {fileID: 33715008327785272}
   - component: {fileID: 23769946177354590}
   - component: {fileID: 64166547578389952}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: carriage-base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
