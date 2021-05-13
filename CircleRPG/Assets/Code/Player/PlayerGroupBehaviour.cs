@@ -6,6 +6,7 @@ using Code.Utility;
 using Lean.Touch;
 using Rewired.ComponentControls;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Code.Player
 {
@@ -85,11 +86,11 @@ namespace Code.Player
             CheckInputs();
 
             UpdateAnimator();
-
+            
             if(!GetFocusEnemy()) return;
             CheckNear();
             CheckEnemyToAnimators();
-            CheckFocusEnemy();
+            //CheckFocusEnemy();
         }
 
         private void CheckNear()
@@ -102,14 +103,17 @@ namespace Code.Player
 
             foreach(Collider t in _enemyList)
             {
-                if(t != _focusEnemy)
+                if(!t.isTrigger)
                 {
-                    float otherEnemyDistance =
-                        Vector3.Distance(transform.position, t.transform.position);
-
-                    if(otherEnemyDistance < actualEnemyDistance)
+                    if(t != _focusEnemy)
                     {
-                        _focusEnemy = t;
+                        float otherEnemyDistance =
+                            Vector3.Distance(transform.position, t.transform.position);
+
+                        if(otherEnemyDistance < actualEnemyDistance)
+                        {
+                            _focusEnemy = t;
+                        }
                     }
                 }
             }
@@ -124,15 +128,8 @@ namespace Code.Player
 
         private void CheckFocusEnemy()
         {
-            if(_focusEnemy.gameObject.activeInHierarchy && _focusEnemy)
-            {
-                _focusEnemyCircle.SetActive(true);
-                _focusEnemyCircle.transform.position = _focusEnemy.transform.position;
-            }
-            else
-            {
-                _focusEnemyCircle.SetActive(false);
-            }
+            _focusEnemyCircle.SetActive(true);
+            _focusEnemyCircle.transform.position = _focusEnemy.transform.position;
         }
 
         private void CheckEnemyToAnimators()
@@ -151,12 +148,12 @@ namespace Code.Player
                     heroBehaviour.FocusEnemy = _focusEnemy;
                     heroBehaviour.Attack(() => {bWaitAttack = false;});
                 }
-               
             }
         }
 
         private Collider GetFocusEnemy()
         {
+            //si es list == 0, return null
             if(_enemyList.Count == 0)
             {
                 _focusEnemy = null;
@@ -164,12 +161,25 @@ namespace Code.Player
                 return null;
             }
 
-            if(_enemyList[0].gameObject.activeInHierarchy && _enemyList[0])
+            if(_focusEnemy)
+            {
+                if(!_focusEnemy.gameObject.activeInHierarchy)
+                {
+                    _focusEnemy = null;
+                    _focusEnemyCircle.SetActive(false);
+                    return null;
+                }
+            }
+            
+            //si pos[0] esta, return this
+            if(_enemyList[0].gameObject.activeInHierarchy)
             {
                 _focusEnemy = _enemyList[0];
+                CheckFocusEnemy();
                 return _enemyList[0];
             }
-           
+
+            //si no existe, return null, y hace loop
             _enemyList.Remove(_enemyList[0]);
             _focusEnemy = null;
             _focusEnemyCircle.SetActive(false);

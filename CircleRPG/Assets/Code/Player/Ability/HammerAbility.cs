@@ -9,6 +9,8 @@ namespace Code.Player
     {
         private int _stunParam = Animator.StringToHash("Stuned");
         [SerializeField]             private Collider _collider;
+        [SerializeField] private GameObject _fx;
+        
         [SerializeField] private float _seconds = 1.0f;
 
         protected override bool CanAbility()
@@ -23,10 +25,12 @@ namespace Code.Player
         protected override void DoAbility()
         {
             _collider.enabled = true;
+            _fx.SetActive(true);
 
             DOVirtual.DelayedCall(_seconds, () =>
             {
                 _collider.enabled = false;
+                _fx.SetActive(false);
             });
         }
         

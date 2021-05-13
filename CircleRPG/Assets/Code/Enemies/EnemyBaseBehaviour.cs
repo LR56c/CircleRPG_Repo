@@ -102,6 +102,7 @@ namespace Code.Enemies.Types
 
         protected virtual void EndAnimDead()
         {
+            OnDied?.Invoke();
             gameObject.SetActive(false);
         }
 
@@ -114,8 +115,7 @@ namespace Code.Enemies.Types
 
             if(_currentHealth > 0)
                 return false;
-
-            OnDied?.Invoke();
+            
             _killedEnemyService.AddOne();
             _animator.SetTrigger(_dieParam);
             _currentHealth = 0;

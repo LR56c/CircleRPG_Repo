@@ -23,11 +23,11 @@ namespace Code.LevelEssentials
         
         private void OnEnable()
         {
-            _enemyNumbers = _enemysPrefabs.Length;
-
             if(bCanEnemySearch)
                 _enemysPrefabs = _enemysContainer.GetComponentsInChildren<EnemyBaseBehaviour>();
 
+            _enemyNumbers = _enemysPrefabs.Length;
+            
             foreach(EnemyBaseBehaviour enemy in _enemysPrefabs)
             {
                 enemy.OnDied += EnemyOnOnDied;

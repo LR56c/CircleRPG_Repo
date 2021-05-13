@@ -7,12 +7,11 @@ namespace Code.Player
 {
     public class ArcherAbilityZoneBehaviour : MonoBehaviour
     {
-        [SerializeField]             private bool  bCanAttack     = false;
-        [SerializeField]             private float _secondsToWait = 5.0f;
-        [SerializeField]             private int   _damage        = 5;
-        [SerializeField] private Color     _enemyTextColor;
-        
-        private                  Tween Delay;
+        [SerializeField] private bool         bCanAttack     = false;
+        [SerializeField] private float        _secondsToWait = 5.0f;
+        [SerializeField] private int          _damage        = 5;
+        [SerializeField] private Color        _enemyTextColor;
+        private                  Tween        Delay;
         
         private void OnTriggerStay(Collider other)
         {

@@ -56,12 +56,6 @@ namespace Code.Player.Heroes
             _killedEnemyService.OnEnemyKilled += OnEnemyKilled;
         }
 
-        [ContextMenu("Active UI")]
-        private void ForceActiveHeroAbility()
-        {
-            _uiHeroAbility.ActiveHeroAbility(GetHeroEType());
-        }
-
         private void OnEnemyKilled(int oneDeath)
         {
             _killCount += oneDeath;
@@ -84,9 +78,7 @@ namespace Code.Player.Heroes
         {
             if(!CanAttack()) return;
 
-            //TurnToTarget();
             OnAttackComplete = onComplete;
-            //DoAttack(FocusEnemy);
         }
 
         public void TurnToTarget()
@@ -98,10 +90,9 @@ namespace Code.Player.Heroes
         public bool CanAttack()
         {
             return FocusEnemy;
+            //return FocusEnemy.gameObject.activeInHierarchy;
         }
-
-        //protected abstract void DoAttack(Collider objetive);
-
+        
         public void DamageReceived(int damage)
         {
             bool isDead = ApplyDamage(damage);
@@ -144,7 +135,7 @@ namespace Code.Player.Heroes
 
         protected virtual void ThrowProjectile()
         {
-            if(!FocusEnemy) return;
+            if(!CanAttack()) return;
 
             Vector3 enemyPos = FocusEnemy.bounds.center;
 

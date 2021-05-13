@@ -7,7 +7,9 @@ namespace Code.LevelEssentials
     public class DoorZone : MonoBehaviour
     {
         [SerializeField]             private LevelZone _levelZone;
-        [SerializeField] private bool         bCanOpen = false;
+        [SerializeField]             private bool      bCanOpen = false;
+        [SerializeField] private GameObject         _fx;
+        
 
         private void OnCollisionEnter(Collision other)
         {
@@ -21,7 +23,7 @@ namespace Code.LevelEssentials
         public void Open()
         {
             bCanOpen = true;
-            //TODO: open anim
+            _fx.SetActive(true);
         }
     }
 }

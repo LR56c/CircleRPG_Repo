@@ -20,6 +20,7 @@ namespace Code.Enemies.SMB
         {
             if(!animator.GetBool(_stunParam)) return;
 
+            //TODO: aqui pasar stunFX_go y desactivar en delayedCall
             _cachedPos = m_MonoBehaviour.transform.position;
             DOVirtual.DelayedCall(_seconds, () =>
             {
@@ -40,19 +41,6 @@ namespace Code.Enemies.SMB
                                            int      layerIndex)
         {
         }
-
-        /*
-         * idleSMB
-         * agregar animator param Stun, que provocaria la habilidad de martillo,
-         * desactivando attack & sight
-         * y luego de (seconds) desactivaria stun
-         */
-
-        /*
-         * hab arquero fuego?
-         * activa triggerStay que cubre toda la parte superior del piso de la zona,
-         * quitando vida como si se atacara 3 veces los 3 heroes (=9)
-         */
     }
 }
 
