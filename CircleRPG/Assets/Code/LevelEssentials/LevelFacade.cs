@@ -24,8 +24,8 @@ namespace Code.LevelEssentials
         [SerializeField]                    private float       _changeZoneFade    = 0.5f;
         [SerializeField]                    private LevelZone[] _levelZones;
 
-        [SerializeField] private Image _zoneProgressBar;
-        [SerializeField] private float _progressBarFade = 0.5f;
+        [SerializeField] private Slider _zoneProgressSlider;
+        [SerializeField] private float _progressBarSliderFade = 0.5f;
 
         [SerializeField] private UILevel _uiLevel;
 
@@ -73,16 +73,14 @@ namespace Code.LevelEssentials
 
             DOVirtual.DelayedCall(_changeZoneFade, () =>
             {
-                if(_zoneProgressBar)
+                if(_zoneProgressSlider)
                 {
                     float percent = (float) _currentLevelIndex / _levelZones.Length;
 
                     _uiLoader.EnableBlackscreenGroup(false, 1f,
                                                      () =>
                                                      {
-                                                         _zoneProgressBar
-                                                             .DOFillAmount(percent,
-                                                                 _progressBarFade);
+                                                         _zoneProgressSlider.DOValue(percent, _progressBarSliderFade);
                                                      });
                 }
                 else

@@ -333,24 +333,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: BootCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 1947719294986827949, guid: 0ffe5b75f59e0fd49a0c669ae82333ce, type: 3}
-      propertyPath: m_Color.a
-      value: 1
+    - target: {fileID: 4093912431755152127, guid: 0ffe5b75f59e0fd49a0c669ae82333ce, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1947719296478478527, guid: 0ffe5b75f59e0fd49a0c669ae82333ce, type: 3}
+    - target: {fileID: 4093912431755152127, guid: 0ffe5b75f59e0fd49a0c669ae82333ce, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1947719296643925720, guid: 0ffe5b75f59e0fd49a0c669ae82333ce, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8556965634280480400, guid: 0ffe5b75f59e0fd49a0c669ae82333ce, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9077924381374765263, guid: 0ffe5b75f59e0fd49a0c669ae82333ce, type: 3}
-      propertyPath: m_Alpha
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

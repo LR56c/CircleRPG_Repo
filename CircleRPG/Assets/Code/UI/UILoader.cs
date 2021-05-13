@@ -15,7 +15,7 @@ namespace Code.UI
     {
         [SerializeField] private CanvasGroup                             _loadingCanvasGroup;
         [SerializeField] private CanvasGroup                             _tempBlackscreenCanvasGroup;
-        [SerializeField] private Slider                                  _loadingSlider;
+        [SerializeField] private Image                                  _loadingFill;
         [SerializeField] private TextMeshProUGUI                         _loadingPercentText;
         private                  AsyncOperation                          _sceneLoading;
         private                  TweenerCore<float, float, FloatOptions> _tweenBlackscreen;
@@ -69,7 +69,7 @@ namespace Code.UI
             while(!_sceneLoading.isDone)
             {
                 _loadingPercentText.SetText($"{(_sceneLoading.progress * 100f).ToString()}%");
-                _loadingSlider.value = _sceneLoading.progress;
+                _loadingFill.fillAmount = _sceneLoading.progress;
                 yield return null;
             }
             
