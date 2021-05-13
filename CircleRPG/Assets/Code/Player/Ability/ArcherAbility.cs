@@ -18,10 +18,12 @@ namespace Code.Player
 
         protected override void DoAbility()
         {
+            _floorColliderStay.enabled = true;
             _floorColliderStay.gameObject.SetActive(true);
 
             DOVirtual.DelayedCall(_secondsToBurn, () =>
             {
+                _floorColliderStay.enabled = false;
                 _floorColliderStay.gameObject.SetActive(false);
             });
         }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Code.Domain.Interfaces;
+using Code.Enemies.SMB;
 using Code.Installers;
 using Code.Utility;
 using DG.Tweening;
@@ -30,6 +31,8 @@ namespace Code.Enemies.Types
         protected                  int                _initialMaxHealth = 0;
         [SerializeField] protected float              _tweenTimeRotate  = 1.0f;
         [SerializeField] private   List<Collider>     _inAreaHeros;
+        [SerializeField] private GameObject _fx;
+        
         public                     float              TweenTimeRotate => _tweenTimeRotate;
         private                    KilledEnemyService _killedEnemyService;
         private                    bool               _isDead;
@@ -42,6 +45,16 @@ namespace Code.Enemies.Types
         protected virtual void OnEnable()
         {
             MySceneLinkedSMB<EnemyBaseBehaviour>.Initialise(_animator, this);
+
+            var tempIdleSMB = _animator.GetBehaviour<EnemyIdleSMB>();
+
+            if (!tempIdleSMB)
+            {
+                Debug.Log($"No se ha podido establecer FX en {gameObject.name}");
+                return;
+            }
+
+            tempIdleSMB.SetFX(_fx);
         }
         
         protected virtual void OnDisable() {}
@@ -78,7 +91,7 @@ namespace Code.Enemies.Types
         public void Attack(Action onComplete)
         {
             if(!CanAttack()) return;
-
+            
             var targetPos = _inAreaHeros[0].transform.position;
             TurnToTarget(targetPos);
             OnAttackComplete = onComplete;

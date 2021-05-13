@@ -9,6 +9,8 @@ namespace Code.Enemies.SMB
     {
         private                  int   _stunParam = Animator.StringToHash("Stuned");
         [SerializeField] private float _seconds = 5.0f;
+        [SerializeField] private GameObject _fx;
+        
         private Vector3 _cachedPos = Vector3.zero;
 
         public override void OnStart(Animator animator)
@@ -20,10 +22,11 @@ namespace Code.Enemies.SMB
         {
             if(!animator.GetBool(_stunParam)) return;
 
-            //TODO: aqui pasar stunFX_go y desactivar en delayedCall
+            _fx.SetActive(true);
             _cachedPos = m_MonoBehaviour.transform.position;
             DOVirtual.DelayedCall(_seconds, () =>
             {
+                _fx.SetActive(false);
                 animator.SetBool(_stunParam, false);
             });
         }
@@ -40,6 +43,11 @@ namespace Code.Enemies.SMB
         public override void OnSLStateExit(Animator animator, AnimatorStateInfo stateInfo,
                                            int      layerIndex)
         {
+        }
+
+        public void SetFX(GameObject fx)
+        {
+            _fx = fx;
         }
     }
 }
