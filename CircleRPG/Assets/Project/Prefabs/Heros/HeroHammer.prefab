@@ -144,6 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _collider: {fileID: 0}
+  _fx: {fileID: 0}
   _seconds: 2
 --- !u!1 &3239105671152890926
 GameObject:
@@ -9795,7 +9796,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _agent: {fileID: 5848855572130629902}
   _animator: {fileID: 2753195642568422613}
-  _collider: {fileID: 5848855572130629905}
   _pointToMove: {fileID: 0}
   _projectilePrefab: {fileID: 5112027305787128981, guid: 3db59e407bd82924ab4de5aa4dc4d869, type: 3}
   _spawnProjectilePoint: {fileID: 3233964296689408680}
@@ -9804,6 +9804,7 @@ MonoBehaviour:
   _tweenTimeRotate: 0.2
   _prefabPoolName: 
   _killsToGetAbility: 1
+  _uiHeroAbility: {fileID: 0}
 --- !u!1001 &8722953062694116266
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9813,16 +9814,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1493131489618452927, guid: 4aa7ed098705df247be75d1573d1222a, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1493131489618452927, guid: 4aa7ed098705df247be75d1573d1222a, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 2.5
       objectReference: {fileID: 0}
-    - target: {fileID: 2825727368290754517, guid: 4aa7ed098705df247be75d1573d1222a, type: 3}
-      propertyPath: _healthBar
-      value: 
-      objectReference: {fileID: 4062174283281197963}
     - target: {fileID: 2825727368290754517, guid: 4aa7ed098705df247be75d1573d1222a, type: 3}
       propertyPath: _colorDamage.g
       value: 0.37653616
@@ -9831,10 +9828,6 @@ PrefabInstance:
       propertyPath: _colorDamage.r
       value: 0.67058825
       objectReference: {fileID: 0}
-    - target: {fileID: 2825727368290754517, guid: 4aa7ed098705df247be75d1573d1222a, type: 3}
-      propertyPath: _whiteShrinkBar
-      value: 
-      objectReference: {fileID: 2038011959681246988}
     - target: {fileID: 2892833506698777273, guid: 4aa7ed098705df247be75d1573d1222a, type: 3}
       propertyPath: m_Name
       value: HeroHammer
@@ -9889,7 +9882,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6543721590235337100, guid: 4aa7ed098705df247be75d1573d1222a, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4aa7ed098705df247be75d1573d1222a, type: 3}
@@ -9908,30 +9901,3 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2892833506698777273, guid: 4aa7ed098705df247be75d1573d1222a, type: 3}
   m_PrefabInstance: {fileID: 8722953062694116266}
   m_PrefabAsset: {fileID: 0}
---- !u!136 &5848855572130629905 stripped
-CapsuleCollider:
-  m_CorrespondingSourceObject: {fileID: 2892833506698777275, guid: 4aa7ed098705df247be75d1573d1222a, type: 3}
-  m_PrefabInstance: {fileID: 8722953062694116266}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2038011959681246988 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7297624203711593638, guid: 4aa7ed098705df247be75d1573d1222a, type: 3}
-  m_PrefabInstance: {fileID: 8722953062694116266}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41f1c5417c9d7ab4b84e531f83f60a4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &4062174283281197963 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4706712844781629473, guid: 4aa7ed098705df247be75d1573d1222a, type: 3}
-  m_PrefabInstance: {fileID: 8722953062694116266}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41f1c5417c9d7ab4b84e531f83f60a4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

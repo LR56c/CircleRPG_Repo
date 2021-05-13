@@ -11,13 +11,14 @@ GameObject:
   - component: {fileID: 472580}
   - component: {fileID: 3389322}
   - component: {fileID: 2369688}
-  - component: {fileID: 64790701801008406}
+  - component: {fileID: 6461009991426318417}
+  - component: {fileID: 119496882532825541}
   m_Layer: 10
   m_Name: wall-medieval-stone
   m_TagString: BreakBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &472580
 Transform:
@@ -83,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &64790701801008406
-MeshCollider:
+--- !u!65 &6461009991426318417
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -93,7 +94,22 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300002, guid: 6a250755a3cd9d746b8fcd1f48148094, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 15.750001, y: 8.494872, z: 2.3887572}
+  m_Center: {x: -0.00000773853, y: 4.2567077, z: 0.07551249}
+--- !u!208 &119496882532825541
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149034}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 7.8750005, y: 4.247, z: 1.194}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 4.257, z: 0.076000005}
+  m_TimeToStationary: 0.5

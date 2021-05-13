@@ -10968,8 +10968,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 788a820f708a4e79a68137a0deba8ef6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthBar: {fileID: 460528532388533414}
-  _whiteShrinkBar: {fileID: 7762223993238875124}
+  _healthBar: {fileID: 8470254418384989427}
+  _whiteShrinkBar: {fileID: 3460767887675423887}
   _pool: {fileID: 7638636188014789170}
   _textPoolName: Text
   _healthBarFade: 0.6
@@ -11246,26 +11246,26 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8702369382582396931, guid: 1dd13388bf3d83d4c9de2ccde65412f4, type: 3}
   m_PrefabInstance: {fileID: 6494111978997402335}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &460528532388533414 stripped
+--- !u!114 &8470254418384989427 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6664087416729280121, guid: 1dd13388bf3d83d4c9de2ccde65412f4, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3428325582960256556, guid: 1dd13388bf3d83d4c9de2ccde65412f4, type: 3}
   m_PrefabInstance: {fileID: 6494111978997402335}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41f1c5417c9d7ab4b84e531f83f60a4b, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7762223993238875124 stripped
+--- !u!114 &3460767887675423887 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3577914090208338219, guid: 1dd13388bf3d83d4c9de2ccde65412f4, type: 3}
+  m_CorrespondingSourceObject: {fileID: 7645043431135721040, guid: 1dd13388bf3d83d4c9de2ccde65412f4, type: 3}
   m_PrefabInstance: {fileID: 6494111978997402335}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41f1c5417c9d7ab4b84e531f83f60a4b, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &6945790231046218375
