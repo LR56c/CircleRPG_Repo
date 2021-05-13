@@ -18,8 +18,7 @@ namespace Code.Player
         private int           _movingParam = Animator.StringToHash("MoveVector");
         [SerializeField] private bool          bWaitAttack  = false;
         private int _heroDiedCounter = 0;
-
-
+        
         [Header("External")] 
         
         [SerializeField] private TouchJoystick _touchJoystick;
@@ -38,7 +37,6 @@ namespace Code.Player
         
         [SerializeField] private GameObject _focusEnemyCircle;
         [SerializeField] private Collider   _focusEnemy;
-        [SerializeField] private bool       bCheckNear = false;
 
         private void Awake()
         {
