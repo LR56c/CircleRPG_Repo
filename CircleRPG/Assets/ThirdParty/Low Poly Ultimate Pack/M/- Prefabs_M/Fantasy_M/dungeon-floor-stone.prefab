@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 33203289929109014}
   - component: {fileID: 23419333972036708}
   - component: {fileID: 65302006526725106}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: dungeon-floor-stone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &4222296821985314
 Transform:

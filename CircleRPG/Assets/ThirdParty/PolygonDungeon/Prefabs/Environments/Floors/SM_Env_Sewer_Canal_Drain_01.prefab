@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 497840}
   - component: {fileID: 3306092}
   - component: {fileID: 2304984}
-  m_Layer: 0
+  - component: {fileID: 984357857454694470}
+  m_Layer: 10
   m_Name: SM_Env_Sewer_Canal_Drain_01
-  m_TagString: Untagged
+  m_TagString: BreakBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,3 +82,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &984357857454694470
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104492}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.7691126, y: 1.1440241, z: 0.31498727}
+  m_Center: {x: -2.5000005, y: -0.3363256, z: 0}

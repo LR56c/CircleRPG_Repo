@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 442698}
   - component: {fileID: 3332598}
   - component: {fileID: 2392936}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SM_Prop_Brick_02
-  m_TagString: Untagged
+  m_TagString: BreakBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

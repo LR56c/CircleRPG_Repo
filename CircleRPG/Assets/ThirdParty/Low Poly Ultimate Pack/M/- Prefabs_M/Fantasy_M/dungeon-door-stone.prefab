@@ -11,13 +11,13 @@ GameObject:
   - component: {fileID: 4740353612503842}
   - component: {fileID: 33798536694203572}
   - component: {fileID: 23959334469996066}
-  - component: {fileID: 64298171510093400}
-  m_Layer: 11
+  - component: {fileID: 8068044109821018604}
+  m_Layer: 10
   m_Name: dungeon-door-stone
-  m_TagString: Untagged
+  m_TagString: BreakBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &4740353612503842
 Transform:
@@ -84,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &64298171510093400
-MeshCollider:
+--- !u!65 &8068044109821018604
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,7 +94,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 1a5de400178194a2389e9166e9bcd641, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 4.00134, y: 3.0026963, z: 0.32655352}
+  m_Center: {x: -0.0006606579, y: 1.4986519, z: 0.16501883}

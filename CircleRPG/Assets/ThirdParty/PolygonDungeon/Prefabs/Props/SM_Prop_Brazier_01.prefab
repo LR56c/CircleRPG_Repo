@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 461008}
   - component: {fileID: 3307344}
   - component: {fileID: 2394750}
-  m_Layer: 0
+  - component: {fileID: 8645896959098110683}
+  m_Layer: 10
   m_Name: SM_Prop_Brazier_01
-  m_TagString: Untagged
+  m_TagString: BreakBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &461008
 Transform:
@@ -81,3 +82,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8645896959098110683
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166584}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1175615, y: 0.6517363, z: 0.99915034}
+  m_Center: {x: 0.000000059604645, y: 0.31920823, z: -0.0049266517}

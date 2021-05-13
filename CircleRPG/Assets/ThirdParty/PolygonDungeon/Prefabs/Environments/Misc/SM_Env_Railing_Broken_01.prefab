@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 451556}
   - component: {fileID: 3304672}
   - component: {fileID: 2333816}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_Env_Railing_Broken_01
-  m_TagString: Untagged
+  m_TagString: BreakBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &451556
 Transform:

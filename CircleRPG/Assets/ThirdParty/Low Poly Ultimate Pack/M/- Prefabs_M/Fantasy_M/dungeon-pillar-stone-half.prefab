@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 33261958121912150}
   - component: {fileID: 23999114549874000}
   - component: {fileID: 64409779565930934}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: dungeon-pillar-stone-half
-  m_TagString: Untagged
+  m_TagString: BreakBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &4585431414819102
 Transform:
