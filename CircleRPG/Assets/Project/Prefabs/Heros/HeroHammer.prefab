@@ -9803,7 +9803,7 @@ MonoBehaviour:
   _maxHealth: 120
   _tweenTimeRotate: 0.2
   _prefabPoolName: 
-  _killsToGetAbility: 1
+  _killsToGetAbility: 10
   _uiHeroAbility: {fileID: 0}
 --- !u!1001 &8722953062694116266
 PrefabInstance:

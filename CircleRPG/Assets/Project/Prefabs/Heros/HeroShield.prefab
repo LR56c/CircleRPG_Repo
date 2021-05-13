@@ -1556,63 +1556,6 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.3295227, y: 0.049578086, z: 0.11334411}
     m_Extent: {x: 0.17439541, y: 0.17083271, z: 0.18814519}
   m_DirtyAABB: 0
---- !u!95 &7708944754848587381
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3633256329297664936}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 5ba8cfbb11f3c084492d7c403603fa2c, type: 3}
-  m_Controller: {fileID: 22100000, guid: 3c8f5dd7ad28b3e42822d96618fb765c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1674065154321753088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3633256329297664936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d94256894bb45b2a6f52c5309528ca4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _healAmount: 20
-  _effect: {fileID: 0}
-  _heroBaseBehaviours: []
---- !u!114 &7286444127695747656
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3633256329297664936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 957a5f7f0b8b0294d8294f88709df2fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _agent: {fileID: 3633256329297664949}
-  _animator: {fileID: 7708944754848587381}
-  _pointToMove: {fileID: 0}
-  _projectilePrefab: {fileID: 7237930596326818046, guid: fe7fb37c975f7de46a5199d6770c2dc9, type: 3}
-  _spawnProjectilePoint: {fileID: 6589856998110342168}
-  _currentHealth: 100
-  _maxHealth: 120
-  _tweenTimeRotate: 0.2
-  _prefabPoolName: 
-  _killsToGetAbility: 1
-  _uiHeroAbility: {fileID: 0}
 --- !u!1 &1896881306383409071
 GameObject:
   m_ObjectHideFlags: 0
@@ -3353,6 +3296,63 @@ Transform:
   m_Father: {fileID: 8566188457249689172}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &7708944754848587381
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3633256329297664936}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 5ba8cfbb11f3c084492d7c403603fa2c, type: 3}
+  m_Controller: {fileID: 22100000, guid: 3c8f5dd7ad28b3e42822d96618fb765c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1674065154321753088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3633256329297664936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d94256894bb45b2a6f52c5309528ca4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healAmount: 20
+  _effect: {fileID: 0}
+  _heroBaseBehaviours: []
+--- !u!114 &7286444127695747656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3633256329297664936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 957a5f7f0b8b0294d8294f88709df2fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _agent: {fileID: 3633256329297664949}
+  _animator: {fileID: 7708944754848587381}
+  _pointToMove: {fileID: 0}
+  _projectilePrefab: {fileID: 7237930596326818046, guid: fe7fb37c975f7de46a5199d6770c2dc9, type: 3}
+  _spawnProjectilePoint: {fileID: 6589856998110342168}
+  _currentHealth: 100
+  _maxHealth: 120
+  _tweenTimeRotate: 0.2
+  _prefabPoolName: 
+  _killsToGetAbility: 5
+  _uiHeroAbility: {fileID: 0}
 --- !u!1 &3645758002063835992
 GameObject:
   m_ObjectHideFlags: 0
