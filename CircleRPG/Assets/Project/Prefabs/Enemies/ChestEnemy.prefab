@@ -336,10 +336,11 @@ MonoBehaviour:
   _rb: {fileID: 0}
   _myCollider: {fileID: 4646758308049800034}
   _animator: {fileID: 6811246490001590681}
-  _currentHealth: 100
+  _currentHealth: 400
   _tweenTimeRotate: 0.2
   _inAreaHeros: []
   _fx: {fileID: 2485919080051067365}
+  _diedDelay: 1.2
 --- !u!65 &4646758308049800034
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -617,6 +618,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3646501490688281110}
     m_Modifications:
+    - target: {fileID: 263070391791992509, guid: e75e5f48a764d6b44a188b8205904877, type: 3}
+      propertyPath: _damage
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 2822725614040816600, guid: e75e5f48a764d6b44a188b8205904877, type: 3}
       propertyPath: m_Name
       value: EnemyStayTriggerAttackCube

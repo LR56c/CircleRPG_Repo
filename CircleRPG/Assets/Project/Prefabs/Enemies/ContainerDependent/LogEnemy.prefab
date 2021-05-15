@@ -1636,10 +1636,11 @@ MonoBehaviour:
   _rb: {fileID: 8172230667452378573}
   _myCollider: {fileID: 1591717501459364885}
   _animator: {fileID: 4114405274561388333}
-  _currentHealth: 100
+  _currentHealth: 600
   _tweenTimeRotate: 1
   _inAreaHeros: []
   _fx: {fileID: 3204478886706327348}
+  _diedDelay: 1.2
   _dangerZone: {fileID: 0}
   _projectile: {fileID: 733347383940479459, guid: f16345c5826d0aa42b6f041c4f850c2f, type: 3}
   _initialAngle: 0

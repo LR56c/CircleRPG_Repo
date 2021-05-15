@@ -2293,10 +2293,11 @@ MonoBehaviour:
   _rb: {fileID: 8505227600925393473}
   _myCollider: {fileID: 8505227600925393487}
   _animator: {fileID: 8505227600934793610}
-  _currentHealth: 100
+  _currentHealth: 800
   _tweenTimeRotate: 0.08
   _inAreaHeros: []
   _fx: {fileID: 8067160700181373674}
+  _diedDelay: 1.2
   _ballPositions:
   - {fileID: 2143529579365262273}
   - {fileID: 373864428}

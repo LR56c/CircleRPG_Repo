@@ -1012,10 +1012,11 @@ MonoBehaviour:
   _rb: {fileID: 7552879907003365173}
   _myCollider: {fileID: 6833434003200913994}
   _animator: {fileID: 296614457700019667}
-  _currentHealth: 100
+  _currentHealth: 500
   _tweenTimeRotate: 0.05
   _inAreaHeros: []
   _fx: {fileID: 519141288895132424}
+  _diedDelay: 3
   _spawnPosition: {fileID: 896981705692522685}
   _enemyProjectile: {fileID: 4824234782693106527, guid: e6dc0a93d38ea1e4eb02222a301f3443, type: 3}
   _aimRay: {fileID: 905640858797977522}

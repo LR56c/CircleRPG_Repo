@@ -22,8 +22,8 @@ namespace Code
         {
             //aqui se podria resetear current level para volver a jugar desde el tutorial
             if(_currentLevel + _sceneOffset >= _maxScenes) return;
-            PlayerPrefs.SetInt("Level", _currentLevel);
             _currentLevel++;
+            PlayerPrefs.SetInt("Level", _currentLevel);
         }
     }
 }

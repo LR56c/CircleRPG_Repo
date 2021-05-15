@@ -36,6 +36,7 @@ namespace Code.Enemies.Types
         public                     float              TweenTimeRotate => _tweenTimeRotate;
         private                    KilledEnemyService _killedEnemyService;
         private                    bool               _isDead;
+        [SerializeField] private float _diedDelay = 1.2f;
 
         protected virtual void Awake()
         {
@@ -131,6 +132,7 @@ namespace Code.Enemies.Types
             
             _killedEnemyService.AddOne();
             _animator.SetTrigger(_dieParam);
+            DOVirtual.DelayedCall(_diedDelay, EndAnimDead);
             _currentHealth = 0;
             return true;
         }

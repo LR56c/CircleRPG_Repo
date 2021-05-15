@@ -25,13 +25,14 @@ namespace Code.UI
         {
             ServiceLocator.Instance.RegisterService(this);
 
-#if UNITY_EDITOR
+/*#if UNITY_EDITOR
             TempInitWorld();
-#endif
+#endif*/
             DontDestroyOnLoad(gameObject);    
         }
 
         //TODO: recordar sacar al hacer build
+        //TODO: guardar kills skills heroes
         private void TempInitWorld()
         {
             var killedEnemyService = new KilledEnemyService();
@@ -49,7 +50,7 @@ namespace Code.UI
             
             ServiceLocator.Instance.RegisterService(_firstWorld);
         }
-
+        
 #if UNITY_EDITOR
         private void Start()
         {

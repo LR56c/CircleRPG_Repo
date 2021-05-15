@@ -173,10 +173,11 @@ MonoBehaviour:
   _rb: {fileID: 6811246490010958404}
   _myCollider: {fileID: 4504396313764733862}
   _animator: {fileID: 6811246490001590681}
-  _currentHealth: 100
+  _currentHealth: 400
   _tweenTimeRotate: 0.2
   _inAreaHeros: []
   _fx: {fileID: 4697900469478127335}
+  _diedDelay: 0.8
 --- !u!136 &4504396313764733862
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -516,6 +517,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6811246490011117179}
     m_Modifications:
+    - target: {fileID: -5258492854636290626, guid: 7d16d38fcbc59184db2e70753800b6a3, type: 3}
+      propertyPath: _damage
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: -5258492854636290626, guid: 7d16d38fcbc59184db2e70753800b6a3, type: 3}
       propertyPath: _secondsToWait
       value: 1

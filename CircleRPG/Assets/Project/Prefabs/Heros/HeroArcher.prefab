@@ -3881,14 +3881,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _agent: {fileID: 3270685424888913901}
   _animator: {fileID: 164670595983852601}
+  _skillPref: sArcher
+  _dataPref: kArcher
   _pointToMove: {fileID: 0}
   _projectilePrefab: {fileID: 4004418804553322833, guid: bbdcd81d558f95243a6cad75c84c21dc, type: 3}
   _spawnProjectilePoint: {fileID: 1085306631498786874}
-  _currentHealth: 100
-  _maxHealth: 120
+  _currentHealth: 400
+  _maxHealth: 400
   _tweenTimeRotate: 0.2
-  _prefabPoolName: 
-  _killsToGetAbility: 15
+  _prefabPoolName: Archer
+  _killsToGetAbility: 4
   _uiHeroAbility: {fileID: 0}
 --- !u!114 &3738233722567781909
 MonoBehaviour:
@@ -3902,7 +3904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16ffb1d0b86a489caf615d5c4ed2be72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _secondsToBurn: 3
+  _secondsToBurn: 10
 --- !u!1 &3297458860164862015
 GameObject:
   m_ObjectHideFlags: 0

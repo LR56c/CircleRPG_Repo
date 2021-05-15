@@ -168,6 +168,10 @@ PrefabInstance:
       propertyPath: _speed
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 5569787031798241045, guid: a17557c97bfab9548bd550fa56b97c71, type: 3}
+      propertyPath: _damage
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 7037488108384547624, guid: a17557c97bfab9548bd550fa56b97c71, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.19

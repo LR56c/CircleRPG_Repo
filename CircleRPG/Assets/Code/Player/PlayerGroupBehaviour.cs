@@ -129,7 +129,12 @@ namespace Code.Player
         private void CheckFocusEnemy()
         {
             _focusEnemyCircle.SetActive(true);
-            _focusEnemyCircle.transform.position = _focusEnemy.transform.position;
+
+            Vector3 focusEnemyPos = _focusEnemy.transform.position;
+            Vector3 offset = new Vector3(focusEnemyPos.x,
+                focusEnemyPos.y + 0.15f,
+                focusEnemyPos.z);
+            _focusEnemyCircle.transform.position = offset;
         }
 
         private void CheckEnemyToAnimators()

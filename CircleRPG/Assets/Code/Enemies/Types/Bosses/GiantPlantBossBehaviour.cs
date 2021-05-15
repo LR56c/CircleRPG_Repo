@@ -44,7 +44,6 @@ namespace Code.Enemies.Types
             {
                 var location = ballPosition.position;
                 
-                //TODO: ver despues si se tiene que ajustar location.y a hero.bounds.center.y
                 var offsetAngle = transform.eulerAngles.y - (_angleStep * _offsetMultiplier);
 
                 for(int i = 0; i < _numbers; i++)

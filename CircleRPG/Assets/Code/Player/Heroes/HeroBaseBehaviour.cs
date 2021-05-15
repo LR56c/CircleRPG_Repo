@@ -18,6 +18,9 @@ namespace Code.Player.Heroes
         [SerializeField] private Animator _animator;
         //[SerializeField] private Collider     _collider;
 
+        private int _skillDataPref = 0;
+        [SerializeField]private string _skillPref;
+        [SerializeField]private string _dataPref;
         private int              _dieParam = Animator.StringToHash("Die");
         public  Action           OnAttackComplete;
         public event Action      OnDied;
@@ -26,7 +29,7 @@ namespace Code.Player.Heroes
         public int               GetCurrentHealth() => _currentHealth;
 
         public int GetMaxHealth() => _maxHealth;
-
+        
         [SerializeField] private Transform      _pointToMove;
         [SerializeField] private HeroProjectile _projectilePrefab;
         [SerializeField] private Transform      _spawnProjectilePoint;
@@ -45,6 +48,8 @@ namespace Code.Player.Heroes
         [Header("External")]
         [SerializeField] private UIHeroAbility _uiHeroAbility;
 
+        
+
         protected virtual void Start()
         {
             MySceneLinkedSMB<HeroBaseBehaviour>.Initialise(_animator, this);
@@ -54,17 +59,57 @@ namespace Code.Player.Heroes
             _killedEnemyService =
                 ServiceLocator.Instance.GetService<KilledEnemyService>();
             _killedEnemyService.OnEnemyKilled += OnEnemyKilled;
+            
+            //start check kill data
+            if (PlayerPrefs.HasKey(_dataPref))
+            {
+                var kills = PlayerPrefs.GetInt(_dataPref);
+                _killCount = kills;
+            }
+
+            //start check has skill
+            if (PlayerPrefs.HasKey(_skillPref))
+            {
+                var skillData = PlayerPrefs.GetInt(_skillPref);
+
+                if (skillData > 0)
+                {
+                    _uiHeroAbility.ActiveHeroAbility(GetHeroEType());
+                }
+            }
         }
 
         private void OnEnemyKilled(int oneDeath)
         {
             _killCount += oneDeath;
+            AddKillPlayerPref();
 
             if(_killCount >= _killsToGetAbility)
             {
                 _uiHeroAbility.ActiveHeroAbility(GetHeroEType());
+                PlayerPrefs.SetInt(_skillPref, 1);
+                ResetKillPlayerPref();
                 _killCount = 0;
             }
+        }
+
+        private void AddKillPlayerPref()
+        {
+            if (PlayerPrefs.HasKey(_dataPref))
+            {
+                var kills = PlayerPrefs.GetInt(_dataPref);
+                kills++;
+                PlayerPrefs.SetInt(_dataPref, kills);
+            }
+            else
+            {
+                PlayerPrefs.SetInt(_dataPref, 1);
+            }
+        }
+
+        private void ResetKillPlayerPref()
+        {
+            PlayerPrefs.DeleteKey(_dataPref);
         }
 
         protected abstract int GetHeroEType();

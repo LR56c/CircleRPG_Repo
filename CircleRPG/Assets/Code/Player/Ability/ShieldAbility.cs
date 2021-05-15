@@ -8,7 +8,7 @@ namespace Code.Player
     public class ShieldAbility : HeroAbilityBase
     {
         [SerializeField] private int                 _healAmount = 20;
-        private                  float               _seconds    = 5.0f;
+        [SerializeField] private                  float               _seconds    = 5.0f;
         [SerializeField] private GameObject          _effect;
         [SerializeField] private HeroBaseBehaviour[] _heroBaseBehaviours;
 

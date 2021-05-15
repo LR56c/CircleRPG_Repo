@@ -27,9 +27,7 @@ namespace Code.Enemies
             _ultimateDestroy = DOVirtual.DelayedCall(_ultimateSeconds, () => _pool.Pool(gameObject));
             //_rb.velocity = transform.forward * _speed;
         }
-        //TODO: revisar projectiles
-        //TODO: revisar tamaño textos damage/heal
-        //TODO: revisar efectos visuales
+
         private void OnDisable()
         {
             _ultimateDestroy.Kill();

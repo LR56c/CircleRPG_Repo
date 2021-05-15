@@ -9796,14 +9796,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _agent: {fileID: 5848855572130629902}
   _animator: {fileID: 2753195642568422613}
+  _skillPref: sHammer
+  _dataPref: kHammer
   _pointToMove: {fileID: 0}
   _projectilePrefab: {fileID: 5112027305787128981, guid: 3db59e407bd82924ab4de5aa4dc4d869, type: 3}
   _spawnProjectilePoint: {fileID: 3233964296689408680}
-  _currentHealth: 100
-  _maxHealth: 120
+  _currentHealth: 400
+  _maxHealth: 400
   _tweenTimeRotate: 0.2
-  _prefabPoolName: 
-  _killsToGetAbility: 10
+  _prefabPoolName: Hammer
+  _killsToGetAbility: 4
   _uiHeroAbility: {fileID: 0}
 --- !u!1001 &8722953062694116266
 PrefabInstance:

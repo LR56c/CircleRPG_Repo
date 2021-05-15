@@ -59,8 +59,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bCanAttack: 0
-  _secondsToWait: 5
-  _damage: 5
+  _secondsToWait: 1
+  _damage: 10
 --- !u!54 &4217414200807435994
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -196,10 +196,11 @@ MonoBehaviour:
   _rb: {fileID: 3089830579939327914}
   _myCollider: {fileID: 5396988593129399880}
   _animator: {fileID: 3089830579948833911}
-  _currentHealth: 50
+  _currentHealth: 300
   _tweenTimeRotate: 1
   _inAreaHeros: []
   _fx: {fileID: 6527475249305950138}
+  _diedDelay: 1.2
   _monkey:
   - {fileID: 0}
   - {fileID: 0}
@@ -217,8 +218,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 788a820f708a4e79a68137a0deba8ef6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthBar: {fileID: 0}
-  _whiteShrinkBar: {fileID: 0}
+  _healthBar: {fileID: 7320268514379142902}
+  _whiteShrinkBar: {fileID: 2314195892144850570}
   _pool: {fileID: 3645056089251889250}
   _textPoolName: Text
   _healthBarFade: 0.6
@@ -1849,6 +1850,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1dd13388bf3d83d4c9de2ccde65412f4, type: 3}
+--- !u!114 &7320268514379142902 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3428325582960256556, guid: 1dd13388bf3d83d4c9de2ccde65412f4, type: 3}
+  m_PrefabInstance: {fileID: 5333680989404229850}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2314195892144850570 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7645043431135721040, guid: 1dd13388bf3d83d4c9de2ccde65412f4, type: 3}
+  m_PrefabInstance: {fileID: 5333680989404229850}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &3656936372477778137 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8702369382582396931, guid: 1dd13388bf3d83d4c9de2ccde65412f4, type: 3}

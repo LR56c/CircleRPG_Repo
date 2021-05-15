@@ -3327,7 +3327,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d94256894bb45b2a6f52c5309528ca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healAmount: 20
+  _healAmount: 300
+  _seconds: 1
   _effect: {fileID: 0}
   _heroBaseBehaviours: []
 --- !u!114 &7286444127695747656
@@ -3344,14 +3345,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _agent: {fileID: 3633256329297664949}
   _animator: {fileID: 7708944754848587381}
+  _skillPref: sShield
+  _dataPref: kShield
   _pointToMove: {fileID: 0}
   _projectilePrefab: {fileID: 7237930596326818046, guid: fe7fb37c975f7de46a5199d6770c2dc9, type: 3}
   _spawnProjectilePoint: {fileID: 6589856998110342168}
-  _currentHealth: 100
-  _maxHealth: 120
+  _currentHealth: 400
+  _maxHealth: 400
   _tweenTimeRotate: 0.2
-  _prefabPoolName: 
-  _killsToGetAbility: 5
+  _prefabPoolName: Shield
+  _killsToGetAbility: 6
   _uiHeroAbility: {fileID: 0}
 --- !u!1 &3645758002063835992
 GameObject:

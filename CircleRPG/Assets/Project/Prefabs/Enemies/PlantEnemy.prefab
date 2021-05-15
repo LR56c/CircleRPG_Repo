@@ -209,10 +209,11 @@ MonoBehaviour:
   _rb: {fileID: 493841326701721127}
   _myCollider: {fileID: 493841326701721129}
   _animator: {fileID: 493841326709130732}
-  _currentHealth: 100
+  _currentHealth: 400
   _tweenTimeRotate: 0.1
   _inAreaHeros: []
   _fx: {fileID: 1132798125323094177}
+  _diedDelay: 1.2
   _ballPosition: {fileID: 7885101093731751847}
   _ballProjectilePrefab: {fileID: 6036059396782204631, guid: afc1b37f72f6c7242b733b4258393f7e, type: 3}
   _prefabPoolName: Plant
